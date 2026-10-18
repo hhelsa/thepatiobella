@@ -239,3 +239,53 @@ export function pinnedScene(
     },
   });
 }
+
+type Inset = [number, number, number, number];
+const insets = new WeakMap<Element, Inset>();
+const insetTweens = new WeakMap<Element, gsap.core.Tween>();
+const formatInset = ([t, r, b, l]: Inset, unit: string) =>
+  `inset(${t}${unit} ${r}${unit} ${b}${unit} ${l}${unit})`;
+
+/**
+ * clip-path inset() tweens that start from the element's current inset.
+ *
+ * Browsers serialise computed insets in shorthand (`inset(10px 20px 30px)`
+ * when left equals right), so a plain gsap.to() on clipPath pairs the wrong
+ * numbers. These helpers remember each element's four values instead.
+ * Inline clip-path is removed when the owning context reverts.
+ */
+export function setInset(target: Element, inset: Inset, unit = "%"): void {
+  insetTweens.get(target)?.kill();
+  insets.set(target, [...inset]);
+  (target as HTMLElement).style.clipPath = formatInset(inset, unit);
+  const ctx = gsap.context() as gsap.Context | undefined;
+  ctx?.add(() => () => (target as HTMLElement).style.removeProperty("clip-path"));
+}
+
+export function insetTo(
+  target: Element,
+  inset: Inset,
+  vars: gsap.TweenVars = {},
+  unit = "%",
+): gsap.core.Tween {
+  insetTweens.get(target)?.kill();
+  const from = insets.get(target) ?? ([0, 0, 0, 0] as Inset);
+  const state = { t: from[0], r: from[1], b: from[2], l: from[3] };
+  const ctx = gsap.context() as gsap.Context | undefined;
+  ctx?.add(() => () => (target as HTMLElement).style.removeProperty("clip-path"));
+  const tween = gsap.to(state, {
+    t: inset[0],
+    r: inset[1],
+    b: inset[2],
+    l: inset[3],
+    ...vars,
+    onUpdate() {
+      const now: Inset = [state.t, state.r, state.b, state.l];
+      insets.set(target, now);
+      (target as HTMLElement).style.clipPath = formatInset(now, unit);
+      if (typeof vars.onUpdate === "function") vars.onUpdate.call(this);
+    },
+  });
+  insetTweens.set(target, tween);
+  return tween;
+}

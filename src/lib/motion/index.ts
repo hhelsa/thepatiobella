@@ -8,10 +8,12 @@ export {
   type MotionConditions,
   type MotionQuery,
 } from "./media";
-export { INTRO_ATTR, releaseIntro } from "./intro";
+export { claimIntro, INTRO_ATTR, introPending, releaseIntro } from "./intro";
 export {
   batchReveal,
   clipReveal,
+  insetTo,
+  setInset,
   pinnedScene,
   scrubMedia,
   splitReveal,

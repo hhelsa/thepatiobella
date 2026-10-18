@@ -1,19 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Gloock, Hanken_Grotesk } from "next/font/google";
+import { Bodoni_Moda, Schibsted_Grotesk } from "next/font/google";
 
 import { MotionRuntime } from "@/components/motion/MotionRuntime";
 import { introGateScript } from "@/lib/motion/intro";
 
 import "./globals.css";
 
-const gloock = Gloock({
-  variable: "--font-gloock",
+const bodoni = Bodoni_Moda({
+  variable: "--font-bodoni",
   subsets: ["latin"],
-  weight: "400",
+  axes: ["opsz"],
 });
 
-const hanken = Hanken_Grotesk({
-  variable: "--font-hanken",
+const schibsted = Schibsted_Grotesk({
+  variable: "--font-schibsted",
   subsets: ["latin"],
 });
 
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#e8c585",
+  themeColor: "#10230c",
   viewportFit: "cover",
 };
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     // <html> before hydration (see src/lib/motion/intro.ts).
     <html
       lang="en"
-      className={`${gloock.variable} ${hanken.variable} h-full antialiased`}
+      className={`${bodoni.variable} ${schibsted.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-canopy focus:px-5 focus:py-3 focus:text-butter"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-butter focus:px-5 focus:py-3 focus:text-canopy"
         >
           Skip to content
         </a>

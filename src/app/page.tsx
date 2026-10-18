@@ -1,18 +1,16 @@
-import { CallBar } from "@/components/home/CallBar";
-import { Closing } from "@/components/home/Closing";
-import { GroundBackdrop } from "@/components/home/GroundBackdrop";
+import { Finale } from "@/components/home/Finale";
+import { FoodDrink } from "@/components/home/FoodDrink";
 import { Header } from "@/components/home/Header";
 import { Hero } from "@/components/home/Hero";
-import { Midday } from "@/components/home/Midday";
-import { Morning } from "@/components/home/Morning";
-import { Night } from "@/components/home/Night";
-import { SiteFooter } from "@/components/home/SiteFooter";
-import { Sunset } from "@/components/home/Sunset";
+import { Rooms } from "@/components/home/Rooms";
+import { Statement } from "@/components/home/Statement";
+import { Visit } from "@/components/home/Visit";
+import { WhatsOn } from "@/components/home/WhatsOn";
 
 /**
- * One day at Patio Bella, in the light of its two rooms:
- * Lugogo morning → midday → sunset at Arena Mall → night.
- * Direction: docs/PATIO-BELLA-ART-DIRECTION.md, section 4.
+ * The Patio Bella homepage: an opening that opens onto the Arena canopy,
+ * the two rooms in a sentence, food and drink travelling past, the two rooms
+ * in one pinned scene, what happens there, how to book, and a single close.
  */
 export default function Home() {
   return (
@@ -20,16 +18,13 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         <Hero />
-        <Morning />
-        <Midday />
-        <Sunset />
-        <Night />
-        <CallBar />
-        <Closing />
+        <Statement />
+        <FoodDrink />
+        <Rooms />
+        <WhatsOn />
+        <Visit />
+        <Finale />
       </main>
-      <SiteFooter />
-      {/* Last, so its triggers measure the sunset pin (see component). */}
-      <GroundBackdrop />
     </>
   );
 }

@@ -2,21 +2,29 @@
 
 import { useRef } from "react";
 
-import { dayparts, photos, stops } from "@/content/home";
+import { introStack, photos, stops } from "@/content/home";
 import {
-  clipReveal,
+  claimIntro,
   DURATION,
   EASE,
   gsap,
+  insetTo,
+  introPending,
   releaseIntro,
   responsive,
+  setInset,
   splitReveal,
   useGSAP,
 } from "@/lib/motion";
 
-import { Aperture } from "./Aperture";
-import { StopLink } from "./StopLink";
+import { Frame, RollLink } from "./primitives";
 
+/**
+ * The opening. On canopy, four photographs from both rooms stack in a small
+ * frame; the Arena canopy arrives last and opens to fill the screen; then the
+ * header, the headline and the actions arrive. Any key, tap or scroll speeds
+ * it up. Without JavaScript, or with reduced motion, the hero is simply there.
+ */
 export function Hero() {
   const root = useRef<HTMLElement>(null);
 
@@ -24,50 +32,70 @@ export function Hero() {
     () => {
       responsive(
         ({ reduceMotion }) => {
-          if (!reduceMotion) {
-            const tl = gsap.timeline({ delay: 0.1, defaults: { ease: EASE.outStrong } });
+          if (reduceMotion) return;
+          const section = root.current!;
 
-            // The logo's ring, drawn as the morning sun.
-            // Dashing exists only for the draw; cleared after so the
-            // finished ring has no seam.
-            tl.fromTo(
-              ".hero-ring-stroke",
-              { strokeDasharray: 1, strokeDashoffset: 1 },
-              {
-                strokeDashoffset: 0,
-                duration: 1.5,
-                ease: EASE.inOut,
-                clearProps: "strokeDasharray,strokeDashoffset",
-              },
-              0,
-            );
-            tl.add(
-              clipReveal(".hero-ring", {
-                from: "circle",
-                media: ".hero-ring .aperture-media",
-                duration: DURATION.cinematic,
-              }),
-              0.15,
-            );
-            splitReveal(".hero-title", { by: "lines", timeline: tl, position: 0.25 });
-            tl.from(".hero-sub", { autoAlpha: 0, y: 14, duration: DURATION.base }, 0.75);
-            tl.from(".hero-arch", { autoAlpha: 0, yPercent: 14, duration: DURATION.slow }, 0.8);
-            tl.from(
-              ".hero-dayline-rule",
-              { scaleX: 0, transformOrigin: "0% 50%", duration: DURATION.slow, ease: EASE.inOut },
-              0.9,
-            );
-            tl.from(".hero-dayline-label", { autoAlpha: 0, y: 8, stagger: 0.07, duration: 0.6 }, 1.05);
-            tl.from(".hero-dayline-marker", { scale: 0, duration: 0.5, ease: "back.out(2)" }, 1.4);
-            tl.from(".hero-callbar-inner", { yPercent: 100, duration: DURATION.slow }, 1.0);
+          if (introPending()) {
+            claimIntro();
+            const stack = section.querySelector<HTMLElement>(".intro-stack")!;
+            const box = section.querySelector<HTMLElement>(".stack-box")!;
+            const header = document.querySelector<HTMLElement>("[data-site-header] .header-inner");
+            gsap.set(stack, { display: "block" });
 
-            // Leaving the morning: the ring's view drifts up, the arch lags.
-            const leave = { trigger: root.current, start: "top top", end: "bottom top", scrub: true };
-            gsap.to(".hero-ring-drift", { yPercent: -7, ease: "none", scrollTrigger: leave });
-            gsap.to(".hero-arch-drift", { yPercent: -22, ease: "none", scrollTrigger: leave });
+            const s = section.getBoundingClientRect();
+            const b = box.getBoundingClientRect();
+            const t = b.top - s.top;
+            const r = s.right - b.right;
+            const btm = s.bottom - b.bottom;
+            const l = b.left - s.left;
+            const frame = section.querySelector<HTMLElement>(".hero-frame")!;
+            setInset(frame, [s.height - btm, r, btm, l], "px");
+
+            const tl = gsap.timeline({ defaults: { ease: EASE.out } });
+
+            // 1. Morning to night, stacked: each photo slides up over the last.
+            gsap.utils.toArray<HTMLElement>(".stack-item").forEach((item, i) => {
+              tl.fromTo(
+                item,
+                { clipPath: "inset(100% 0% 0% 0%)" },
+                { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: EASE.inOut },
+                0.15 + i * 0.3,
+              ).fromTo(
+                item.querySelector(".frame-media"),
+                { scale: 1.3 },
+                { scale: 1, duration: 0.9 },
+                0.15 + i * 0.3,
+              );
+            });
+
+            // 2. The Arena canopy arrives in the same frame, then opens out.
+            const at = 0.15 + introStack.length * 0.3;
+            tl.add(insetTo(frame, [t, r, btm, l], { duration: 0.6, ease: EASE.inOut }, "px"), at)
+              .fromTo(".hero-media", { scale: 1.45 }, { scale: 1, duration: 2.1, ease: EASE.cinematic }, at)
+              .add(insetTo(frame, [0, 0, 0, 0], { duration: 1.3, ease: EASE.cinematic }, "px"), at + 0.75)
+              .set(stack, { display: "none" }, at + 2.1);
+
+            // 3. Then the page: header, headline, actions, the two rooms.
+            const text = at + 1.55;
+            if (header) tl.from(header, { yPercent: -110, duration: DURATION.slow, ease: EASE.outStrong }, text);
+            splitReveal(".hero-title", { by: "lines", timeline: tl, position: text + 0.05, duration: 1.3 });
+            tl.from(".hero-sub", { autoAlpha: 0, y: 18, duration: DURATION.slow }, text + 0.45)
+              .from(".hero-action", { autoAlpha: 0, y: 18, duration: DURATION.slow, stagger: 0.1 }, text + 0.55)
+              .from(".hero-room", { autoAlpha: 0, y: 12, duration: DURATION.base, stagger: 0.12 }, text + 0.75);
+
+            // From-states are applied; content no longer needs the CSS gate.
+            releaseIntro();
+
+            const hurry = () => tl.progress() < 1 && tl.timeScale(4);
+            const events = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
+            events.forEach((e) => window.addEventListener(e, hurry, { passive: true }));
+            tl.eventCallback("onComplete", () => events.forEach((e) => window.removeEventListener(e, hurry)));
           }
-          // From-states are applied (or skipped): safe to un-gate.
-          releaseIntro();
+
+          // Leaving: the room sinks slowly, the words lift away faster.
+          const leave = { trigger: section, start: "top top", end: "bottom top", scrub: true };
+          gsap.to(".hero-media-drift", { yPercent: 16, ease: "none", scrollTrigger: leave });
+          gsap.to(".hero-content", { yPercent: -28, autoAlpha: 0, ease: "none", scrollTrigger: { ...leave, end: "70% top" } });
         },
         ["reduceMotion"],
       );
@@ -79,94 +107,72 @@ export function Hero() {
     <section
       ref={root}
       id="top"
-      data-ground="butter"
-      data-daypart="Morning"
       aria-labelledby="hero-title"
-      className="relative flex min-h-[calc(100svh-var(--header-h))] flex-col overflow-hidden"
+      className="on-canopy relative h-svh min-h-[600px] overflow-hidden bg-canopy text-light"
     >
-      <div className="grid flex-1 grid-cols-1 items-center gap-y-10 px-[4vw] pt-8 pb-12 lg:grid-cols-12 lg:gap-x-[3vw] lg:pt-[6vh]">
-        <div className="lg:col-span-7">
-          <h1
-            id="hero-title"
-            data-intro
-            className="hero-title font-display text-[clamp(2.75rem,6vw,6rem)] leading-[0.95] tracking-[-0.02em]"
-          >
-            Breakfast to the last cocktail, in two Kampala rooms.
-          </h1>
-          <p data-intro className="hero-sub mt-7 max-w-[34ch] text-lg leading-relaxed md:text-xl">
-            Where we all come together, at the new Lugogo Mall and at Arena Mall, Nsambya.
-          </p>
-          <DayLine />
-        </div>
-
-        <div className="relative lg:col-span-5">
-          <div className="hero-ring-drift relative mr-[-14vw] ml-auto w-[88%] md:mr-[4vw] md:w-[62%] lg:mr-0 lg:w-full lg:max-w-[min(36vw,60svh)]">
-            <svg
-              aria-hidden
-              viewBox="0 0 100 100"
-              className="pointer-events-none absolute -inset-[5.5%] size-[111%] -rotate-90 overflow-visible"
-            >
-              <circle
-                data-intro
-                className="hero-ring-stroke"
-                cx="50"
-                cy="50"
-                r="49.5"
-                fill="none"
-                stroke="var(--color-lantern)"
-                strokeWidth="1.4"
-                pathLength={1}
+      {/* Opening stack (JS only; see globals.css). */}
+      <div aria-hidden className="intro-stack absolute inset-0">
+        <div className="flex h-full items-center justify-center">
+          <div className="stack-box relative aspect-[4/5] w-[min(54vw,40svh)] md:w-[min(24vw,42svh)]">
+            {introStack.map((photo) => (
+              <Frame
+                key={photo.src}
+                photo={{ ...photo, alt: "" }}
+                sizes="(min-width: 768px) 24vw, 54vw"
+                eager
+                className="stack-item absolute inset-0"
               />
-            </svg>
-            <div data-intro className="hero-ring">
-              <Aperture
-                photo={photos.lugogoDaylight}
-                shape="ring"
-                sizes="(min-width: 1024px) 36vw, (min-width: 768px) 62vw, 90vw"
-                preload
-              />
-            </div>
-          </div>
-          <div className="hero-arch-drift absolute bottom-[-6%] left-0 w-[34%] md:left-[8%] md:w-[24%] lg:right-[-2%] lg:left-auto lg:w-[34%]">
-            <div data-intro className="hero-arch rounded-t-[999px] rounded-b-plate border-[6px] border-butter">
-              <Aperture photo={photos.cappuccino} shape="arch" sizes="(min-width: 768px) 15vw, 34vw" />
-            </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Desktop and tablet: the two stops anchor the first viewport. On
-          phones the sticky CallBar carries them instead. */}
-      <div className="hidden h-[84px] overflow-hidden md:block">
-        <ul data-intro className="hero-callbar-inner grid h-full grid-cols-2 bg-canopy">
-          {stops.map((stop, i) => (
-            <li key={stop.id} className={i === 0 ? "border-r border-light/15" : ""}>
-              <StopLink stop={stop} variant="bar" />
-            </li>
-          ))}
-        </ul>
+      <div data-intro className="hero-frame absolute inset-0">
+        <div className="hero-media-drift absolute inset-0">
+          {/* The static zoom crops a mall banner out of the left edge. */}
+          <div className="absolute inset-0 md:origin-[88%_40%] md:scale-[1.16]">
+            <Frame photo={photos.arenaCanopy} sizes="100vw" preload mediaClassName="hero-media" className="absolute inset-0" />
+          </div>
+        </div>
+        <div aria-hidden className="absolute inset-0 bg-canopy/50" />
+        <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-canopy/80 to-transparent" />
       </div>
-    </section>
-  );
-}
 
-function DayLine() {
-  return (
-    <div aria-hidden className="mt-12 hidden max-w-[44rem] md:block">
-      <div className="relative">
-        <div data-intro className="hero-dayline-rule h-0.5 bg-canopy" />
-        <span
+      <div className="hero-content relative flex h-full flex-col items-center justify-center px-[6vw] pt-(--header-h) text-center">
+        <h1
+          id="hero-title"
           data-intro
-          className="hero-dayline-marker absolute top-1/2 left-0 size-4 -translate-y-1/2 rounded-full bg-lantern"
-        />
+          className="hero-title display text-[clamp(3rem,7.2vw,6rem)] leading-[0.98]"
+        >
+          <span className="block">Where we all</span>
+          <span className="block">come together.</span>
+        </h1>
+        <p data-intro className="hero-sub mt-7 max-w-[36ch] text-[17px] leading-relaxed text-light/90 md:text-lg">
+          Breakfast to the last cocktail, in two Kampala rooms: the new Lugogo Mall and Arena Mall,
+          Nsambya.
+        </p>
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+          <a
+            data-intro
+            href="#visit"
+            className="hero-action fill-btn inline-flex min-h-12 items-center bg-butter px-7 text-[15px] font-semibold text-canopy [--fill:var(--color-light)]"
+          >
+            Reserve a table
+          </a>
+          <span data-intro className="hero-action">
+            <RollLink href="#food" label="See the food" className="text-[15px] font-medium" />
+          </span>
+        </div>
       </div>
-      <ol className="mt-3 grid grid-cols-4 text-sm font-semibold tracking-[0.12em] uppercase">
-        {dayparts.map((part) => (
-          <li key={part} data-intro className="hero-dayline-label">
-            {part}
+
+      <ul className="pointer-events-none absolute inset-x-[4vw] bottom-[max(1.5rem,env(safe-area-inset-bottom))] flex justify-between text-[13px] font-medium tracking-[0.08em] uppercase">
+        {stops.map((stop) => (
+          <li key={stop.id} data-intro className="hero-room">
+            {stop.name}
+            {stop.isNew ? " · New" : `, ${stop.area}`}
           </li>
         ))}
-      </ol>
-    </div>
+      </ul>
+    </section>
   );
 }

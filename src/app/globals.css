@@ -1,113 +1,148 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
- * The Patio Bella: "First Coffee to Last Light"
- * Colours sampled from the two rooms and the logo
- * (docs/PATIO-BELLA-ART-DIRECTION.md, section 4).
+ * The Patio Bella
+ * Two grounds taken from the two rooms: Lugogo's butter-yellow walls (the
+ * quiet, light sections) and Arena's canopy green (the immersive ones).
  * ------------------------------------------------------------------------- */
 
 @theme {
-  --color-butter: #e8c585; /* Lugogo wall: morning */
-  --color-amber: #da933b; /* Lugogo ceiling: midday */
-  --color-lantern: #b0661e; /* Arena lanterns: rings, markers, the sunset sky */
-  --color-canopy: #10230c; /* Arena canopy: night, ink on light grounds */
-  --color-gold: #cfaa5a; /* Logo: only on canopy */
-  --color-light: #f6ebd6; /* Text on canopy only, never a ground */
+  --color-butter: #e8c585;
+  --color-canopy: #10230c;
+  --color-lantern: #b0661e;
+  --color-gold: #cfaa5a; /* Logo gold: on canopy only */
+  --color-light: #f6ebd6; /* Text on canopy and photos, never a ground */
 
-  --radius-plate: 14px;
+  --radius-frame: 4px;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
-  --font-display: var(--font-gloock), "Iowan Old Style", Georgia, serif;
-  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bodoni), "Bodoni 72", "Didot", Georgia, serif;
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  /* Updated by GroundBackdrop as the day progresses; static fallbacks. */
-  --ground-now: var(--color-butter);
-  --ink-now: var(--color-canopy);
-  --header-h: 72px;
-  --callbar-h: 56px;
+  --header-h: 76px;
   color-scheme: light;
 }
 
 html {
-  scroll-padding-top: calc(var(--header-h) + 16px);
-  scroll-padding-bottom: calc(var(--callbar-h) + 16px);
+  scroll-padding-top: calc(var(--header-h) + 12px);
   -webkit-text-size-adjust: 100%;
+  scrollbar-color: color-mix(in srgb, var(--color-canopy) 55%, transparent) var(--color-butter);
 }
 
 body {
+  overflow-x: clip;
   background: var(--color-butter);
   color: var(--color-canopy);
   font-family: var(--font-sans);
   font-size: 1.0625rem;
-  line-height: 1.5;
+  line-height: 1.55;
   text-rendering: optimizeLegibility;
 }
 
-/* Browser surfaces carry the palette too. */
 ::selection {
   background: var(--color-canopy);
   color: var(--color-butter);
 }
-[data-ground="canopy"] ::selection {
+.on-canopy ::selection {
   background: var(--color-gold);
   color: var(--color-canopy);
 }
 :focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;
-  border-radius: 4px;
-}
-html {
-  scrollbar-color: color-mix(in srgb, var(--ink-now) 45%, transparent) var(--ground-now);
+  border-radius: 2px;
 }
 
-a {
-  text-underline-offset: 0.22em;
-  text-decoration-thickness: 1px;
-}
-
-/* Each section owns its ground. With motion enabled, GroundBackdrop makes
-   sections transparent and crossfades a fixed backdrop instead. */
-[data-ground="butter"] {
-  background-color: var(--color-butter);
-  color: var(--color-canopy);
-}
-[data-ground="amber"] {
-  background-color: var(--color-amber);
-  color: var(--color-canopy);
-}
-[data-ground="canopy"] {
-  background-color: var(--color-canopy);
-  color: var(--color-light);
-}
-html[data-ground-js] [data-ground] {
-  background-color: transparent;
-  transition: color 0.6s var(--ease-out-expo);
-}
-
-/* Headings balance; display never exceeds 6.5rem. */
 h1,
 h2,
 h3 {
   text-wrap: balance;
 }
 
-/* Link underline that draws in on hover (fine pointers). */
-.link-draw {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 1px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 0.5s var(--ease-out-expo);
-  text-decoration: none;
+/* Display type: Bodoni at display optical size. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-optical-sizing: auto;
+  letter-spacing: -0.03em;
 }
-.link-draw:hover,
-.link-draw:focus-visible {
-  background-size: 100% 1px;
+
+/* Roll link: the label slides up and a copy rolls in from below. */
+.roll {
+  display: inline-flex;
+  height: 1.25em;
+  overflow: hidden;
+  line-height: 1.25;
+  vertical-align: bottom;
+}
+.roll > span {
+  display: block;
+  transition: transform 0.55s var(--ease-out-expo);
+}
+.roll > span::after {
+  content: attr(data-label);
+  display: block;
+}
+.roll:hover > span,
+.roll:focus-visible > span {
+  transform: translateY(-50%);
+}
+
+/* Fill button: the ground sweeps in from the left on hover. */
+.fill-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.fill-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--fill, currentColor);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+.fill-btn:hover::before,
+.fill-btn:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Opening stack: shown only by the hero's intro timeline. */
+.intro-stack {
+  display: none;
+}
+
+/* Food gallery: a scrollable strip without JS; the pinned version takes
+   over when motion runs (data-pinned). */
+.food-viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.food-viewport::-webkit-scrollbar {
+  display: none;
+}
+[data-pinned] .food-viewport {
+  overflow: visible;
+  scroll-snap-type: none;
+}
+/* Wider screens without the pinned version: the plates wrap into a grid. */
+@media (min-width: 768px) {
+  .food-viewport {
+    overflow: visible;
+  }
+}
+
+/* Named-dish line: wraps when static, one long line when it moves. */
+[data-moving] .dish-line {
+  white-space: nowrap;
 }
 
 /* ---------------------------------------------------------------------------
@@ -142,40 +177,3 @@ html[data-motion-intro] [data-intro] {
   }
 }
 
-/* Header day line: hidden while the hero shows its own; the lantern marker
-   travels to the current part of the day. Set by GroundBackdrop. */
-.day-indicator {
-  position: relative;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.5s var(--ease-out-expo),
-    visibility 0.5s;
-}
-html[data-past-hero] .day-indicator {
-  opacity: 1;
-  visibility: visible;
-}
-.day-indicator li {
-  opacity: 0.7;
-  transition: opacity 0.4s;
-}
-html[data-daypart="Morning"] .day-indicator [data-part="Morning"],
-html[data-daypart="Midday"] .day-indicator [data-part="Midday"],
-html[data-daypart="Sunset"] .day-indicator [data-part="Sunset"],
-html[data-daypart="Night"] .day-indicator [data-part="Night"] {
-  opacity: 1;
-}
-.day-indicator-marker {
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 9px;
-  height: 9px;
-  margin-left: -4.5px;
-  border-radius: 50%;
-  background: var(--color-lantern);
-  box-shadow: 0 0 0 2px var(--ground-now);
-  transform: translateX(calc((var(--day-i, 0) + 0.5) * 76px));
-  transition: transform 0.9s var(--ease-out-expo);
-}
