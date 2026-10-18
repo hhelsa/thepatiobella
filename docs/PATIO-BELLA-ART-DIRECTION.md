@@ -1,6 +1,6 @@
 # The Patio Bella: art direction proposal
 
-Status: **proposal, awaiting approval. No homepage code has been written.**
+Status: **approved, direction B+ "First Coffee to Last Light" chosen. Homepage implementation is the next stage.**
 
 Companion files:
 
