@@ -28,10 +28,17 @@ export function Hero() {
             const tl = gsap.timeline({ delay: 0.1, defaults: { ease: EASE.outStrong } });
 
             // The logo's ring, drawn as the morning sun.
+            // Dashing exists only for the draw; cleared after so the
+            // finished ring has no seam.
             tl.fromTo(
               ".hero-ring-stroke",
-              { strokeDashoffset: 1 },
-              { strokeDashoffset: 0, duration: 1.5, ease: EASE.inOut },
+              { strokeDasharray: 1, strokeDashoffset: 1 },
+              {
+                strokeDashoffset: 0,
+                duration: 1.5,
+                ease: EASE.inOut,
+                clearProps: "strokeDasharray,strokeDashoffset",
+              },
               0,
             );
             tl.add(
@@ -78,11 +85,11 @@ export function Hero() {
       className="relative flex min-h-[calc(100svh-var(--header-h))] flex-col overflow-hidden"
     >
       <div className="grid flex-1 grid-cols-1 items-center gap-y-10 px-[4vw] pt-8 pb-12 lg:grid-cols-12 lg:gap-x-[3vw] lg:pt-[6vh]">
-        <div className="lg:col-span-6">
+        <div className="lg:col-span-7">
           <h1
             id="hero-title"
             data-intro
-            className="hero-title font-display text-[clamp(2.75rem,5.6vw,6rem)] leading-[0.96] tracking-[-0.02em]"
+            className="hero-title font-display text-[clamp(2.75rem,6vw,6rem)] leading-[0.95] tracking-[-0.02em]"
           >
             Breakfast to the last cocktail, in two Kampala rooms.
           </h1>
@@ -92,8 +99,8 @@ export function Hero() {
           <DayLine />
         </div>
 
-        <div className="relative lg:col-span-6">
-          <div className="hero-ring-drift relative mr-[-14vw] ml-auto w-[88%] md:mr-[4vw] md:w-[62%] lg:mr-[6%] lg:w-full lg:max-w-[min(40vw,62svh)]">
+        <div className="relative lg:col-span-5">
+          <div className="hero-ring-drift relative mr-[-14vw] ml-auto w-[88%] md:mr-[4vw] md:w-[62%] lg:mr-0 lg:w-full lg:max-w-[min(36vw,60svh)]">
             <svg
               aria-hidden
               viewBox="0 0 100 100"
@@ -109,19 +116,18 @@ export function Hero() {
                 stroke="var(--color-lantern)"
                 strokeWidth="1.4"
                 pathLength={1}
-                strokeDasharray="1"
               />
             </svg>
             <div data-intro className="hero-ring">
               <Aperture
                 photo={photos.lugogoDaylight}
                 shape="ring"
-                sizes="(min-width: 1024px) 40vw, (min-width: 768px) 62vw, 90vw"
+                sizes="(min-width: 1024px) 36vw, (min-width: 768px) 62vw, 90vw"
                 preload
               />
             </div>
           </div>
-          <div className="hero-arch-drift absolute bottom-[-6%] left-0 w-[34%] md:left-[8%] md:w-[24%] lg:right-0 lg:left-auto lg:w-[30%]">
+          <div className="hero-arch-drift absolute bottom-[-6%] left-0 w-[34%] md:left-[8%] md:w-[24%] lg:right-[-2%] lg:left-auto lg:w-[34%]">
             <div data-intro className="hero-arch rounded-t-[999px] rounded-b-plate border-[6px] border-butter">
               <Aperture photo={photos.cappuccino} shape="arch" sizes="(min-width: 768px) 15vw, 34vw" />
             </div>

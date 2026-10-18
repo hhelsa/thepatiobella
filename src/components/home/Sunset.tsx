@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useRef } from "react";
 
 import { photos, stops } from "@/content/home";
-import { clipReveal, EASE, gsap, pinnedScene, responsive, useGSAP } from "@/lib/motion";
+import type { Photo } from "@/content/home";
+import { clipReveal, gsap, pinnedScene, responsive, useGSAP } from "@/lib/motion";
 
 import { Aperture } from "./Aperture";
 
@@ -26,46 +27,54 @@ export function Sunset() {
         const stage = root.current?.querySelector<HTMLElement>(".sunset-stage");
         if (!stage) return;
 
-        const tl = isMobile
-          ? gsap.timeline({
-              defaults: { ease: EASE.inOut },
-              scrollTrigger: { trigger: stage, start: "top 70%", end: "bottom 45%", scrub: 1 },
-            })
-          : pinnedScene(stage, { start: "top top+=72", end: "+=120%" });
-
-        // The backdrop lives outside this component, so pass the element:
+        // The backdrop lives outside this component, so pass elements:
         // selector strings here are scoped to the section.
+        const lanternLayer = document.querySelector('[data-ground-layer="lantern"]');
         const canopyLayer = document.querySelector('[data-ground-layer="canopy"]');
 
-        // No ink reads on the midway blend of amber and canopy, so the steep
-        // in-out ease spends little scroll there, and the text steps aside:
-        // it fades out, changes ink at the midpoint, and returns.
-        tl.fromTo(
-          canopyLayer,
-          { opacity: 0 },
-          { opacity: 1, duration: 1, ease: "power3.inOut" },
-          0.1,
-        )
-          .fromTo(".sun-text", { opacity: 1 }, { opacity: 0, duration: 0.08, ease: "none" }, 0.47)
-          .fromTo(root.current, { color: "#10230c" }, { color: "#f6ebd6", duration: 0.01 }, 0.56)
+        const tl = isMobile
+          ? gsap.timeline({
+              defaults: { ease: "none" },
+              scrollTrigger: { trigger: stage, start: "top 65%", end: "bottom 40%", scrub: 1 },
+            })
+          : pinnedScene(stage, { start: "top top+=72", end: "+=140%" });
+
+        tl.set([".sun-ring", ".sun-caption"], { visibility: "visible" }, 0)
+          // The sun sinks below the horizon, and the sky goes lantern.
+          .fromTo(".sun-ring", { yPercent: 0 }, { yPercent: 112, duration: 0.5, ease: "power2.in" }, 0.05)
+          .fromTo(lanternLayer, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "none" }, 0.05)
+          .fromTo(".sun-caption", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.15 }, 0.3)
+          // Body copy steps aside around the lantern peak, where no ink
+          // reaches 4.5:1; the headline stays (large text stays above 3:1).
+          .fromTo(".sun-body", { opacity: 1 }, { opacity: 0, duration: 0.08, ease: "none" }, 0.38)
+          .fromTo(root.current, { color: "#10230c" }, { color: "#f6ebd6", duration: 0.04, ease: "none" }, 0.48)
           .fromTo(
-            ".sun-text",
+            ".sun-body",
             { opacity: 0 },
             { opacity: 1, duration: 0.1, ease: "none", immediateRender: false },
-            0.6,
+            0.64,
           )
-          .fromTo(".sun-sax", { yPercent: 0 }, { yPercent: 100, duration: 1 }, 0)
-          .fromTo(".sun-canopy", { yPercent: -100, scale: 1.18 }, { yPercent: 0, scale: 1, duration: 1 }, 0)
-          .fromTo(".sun-caption", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.08 }, 0.47)
-          .fromTo(".sun-arrive", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.4 }, 0.7);
+          // The lanterns come on: Arena Mall rises from the horizon.
+          .fromTo(
+            ".arena-ring",
+            { clipPath: "circle(0% at 50% 100%)" },
+            { clipPath: "circle(75% at 50% 50%)", duration: 0.45, ease: "power2.out" },
+            0.55,
+          )
+          .fromTo(".arena-ring .ring-media", { scale: 1.18 }, { scale: 1, duration: 0.5, ease: "power2.out" }, 0.55)
+          .fromTo(canopyLayer, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, 0.52)
+          .fromTo(".sun-arrive", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.2 }, 0.85);
 
-        gsap.utils.toArray<HTMLElement>(".arena-frame").forEach((frame, i) => {
-          clipReveal(frame, {
-            from: "bottom",
-            media: frame.querySelector(".aperture-media") ?? undefined,
-            delay: i * 0.1,
-            scrollTrigger: { trigger: ".arena-rooms", start: "top 78%" },
-          });
+        clipReveal(".arena-table", {
+          from: "bottom",
+          media: ".arena-table .aperture-media",
+          scrollTrigger: { trigger: ".arena-rooms", start: "top 78%" },
+        });
+        clipReveal(".arena-dining", {
+          from: "circle",
+          media: ".arena-dining .aperture-media",
+          delay: 0.25,
+          scrollTrigger: { trigger: ".arena-rooms", start: "top 78%" },
         });
       });
     },
@@ -85,11 +94,11 @@ export function Sunset() {
         <div className="relative order-2 md:order-1 md:col-span-5">
           <h2
             id="arena-title"
-            className="sun-text font-display text-[clamp(2.75rem,6vw,5.75rem)] leading-[0.95] tracking-[-0.025em]"
+            className="font-display text-[clamp(2.75rem,6vw,5.75rem)] leading-[0.95] tracking-[-0.025em]"
           >
             Sunset at Arena Mall.
           </h2>
-          <p className="sun-text mt-6 max-w-[34ch] text-lg leading-relaxed">
+          <p className="sun-body mt-6 max-w-[34ch] text-lg leading-relaxed">
             In Nsambya, the lanterns come on under a ceiling of hanging leaves, with the city out
             beyond the glass.
           </p>
@@ -99,61 +108,41 @@ export function Sunset() {
         </div>
 
         <div className="order-1 md:order-2 md:col-span-6 md:col-start-7">
-          <div className="relative mx-auto aspect-square w-[min(84vw,62svh)] rounded-full outline-[9px] outline-offset-[12px] outline-lantern outline-solid md:w-[min(42vw,66svh)]">
-            <div className="absolute inset-0 isolate overflow-hidden rounded-full">
-              <div className="sun-sax absolute inset-0">
-                <Image
-                  src={photos.saxophone.src}
-                  alt={photos.saxophone.alt}
-                  fill
-                  sizes="(min-width: 768px) 42vw, 84vw"
-                  className="object-cover"
-                  style={{ objectPosition: photos.saxophone.position }}
-                />
-              </div>
-              <div className="sun-canopy absolute inset-0">
-                <Image
-                  src={photos.arenaCanopy.src}
-                  alt={photos.arenaCanopy.alt}
-                  fill
-                  sizes="(min-width: 768px) 42vw, 84vw"
-                  className="scale-[1.25] object-cover"
-                  style={{ objectPosition: photos.arenaCanopy.position, transformOrigin: "70% 0%" }}
-                />
+          <div className="mx-auto w-[min(80vw,56svh)] md:w-[min(38vw,62svh)]">
+            {/* The clip box's bottom edge is the horizon the sun sinks behind. */}
+            <div className="relative overflow-hidden px-[3%] pt-[3%]">
+              <div className="relative aspect-square">
+                <Ring className="arena-ring" photo={photos.arenaCanopy} />
+                {/* Without JavaScript only the Arena canopy shows. */}
+                <Ring className="sun-ring invisible" photo={photos.saxophone} zoom="scale-[1.4] origin-[30%_75%]" />
               </div>
             </div>
+            <div aria-hidden className="mx-[-14%] h-0.5 bg-current opacity-40" />
+            <p className="sun-caption invisible mt-6 text-center font-display text-xl">
+              &ldquo;Catching sunsets at Bella&rdquo;
+            </p>
           </div>
-          <p className="sun-caption mt-9 text-center font-display text-xl">
-            &ldquo;Catching sunsets at Bella&rdquo;
-          </p>
         </div>
       </div>
 
       <div className="arena-rooms px-[4vw] pt-[clamp(4rem,10vh,8rem)] pb-[clamp(6rem,14vh,10rem)]">
-        <div className="grid grid-cols-1 gap-y-8 md:grid-cols-12 md:gap-x-[3vw]">
-          <div className="arena-frame md:col-span-7">
+        <div className="grid grid-cols-1 items-start md:grid-cols-12 md:gap-x-[3vw]">
+          <div className="arena-table md:col-span-8">
             <Aperture
               photo={photos.arenaTable}
               shape="plate"
               aspect="aspect-[3/2]"
-              sizes="(min-width: 768px) 56vw, 92vw"
+              sizes="(min-width: 768px) 64vw, 92vw"
             />
           </div>
-          <div className="flex flex-col gap-8 md:col-span-5">
-            <div className="arena-frame w-[86%] max-w-[360px]">
+          {/* Overlaps the table's corner: one room, seen twice. */}
+          <div className="relative z-10 -mt-[18%] ml-auto w-[62%] md:col-span-4 md:mt-[22vh] md:-ml-[9vw] md:w-auto">
+            <div className="arena-dining rounded-plate border-[6px] border-canopy">
               <Aperture
                 photo={photos.arenaDining}
                 shape="plate"
                 aspect="aspect-[3/2]"
-                sizes="(min-width: 768px) 360px, 86vw"
-              />
-            </div>
-            <div className="arena-frame ml-auto w-[70%] max-w-[300px]">
-              <Aperture
-                photo={photos.arenaBar}
-                shape="plate"
-                aspect="aspect-[3/2]"
-                sizes="(min-width: 768px) 300px, 70vw"
+                sizes="(min-width: 768px) 360px, 62vw"
               />
             </div>
           </div>
@@ -174,5 +163,25 @@ export function Sunset() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** A ringed photo: lantern band, a gap, then the image. `zoom` crops out baked-in logos. */
+function Ring({ photo, className, zoom = "" }: { photo: Photo; className: string; zoom?: string }) {
+  return (
+    <div className={`absolute inset-0 rounded-full border-[9px] border-lantern p-[3%] ${className}`}>
+      <div className="relative size-full overflow-hidden rounded-full">
+        <div className="ring-media absolute inset-0">
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            sizes="(min-width: 768px) 38vw, 80vw"
+            className={`object-cover ${zoom}`}
+            style={{ objectPosition: photo.position }}
+          />
+        </div>
+      </div>
+    </div>
   );
 }

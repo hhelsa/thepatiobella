@@ -91,11 +91,11 @@ export function Morning() {
           </div>
         </div>
 
-        <div className="lugogo-rooms relative md:col-span-7 md:h-[min(86svh,58rem)]">
+        <div className="lugogo-rooms relative md:col-span-7 md:h-[min(78svh,44rem)]">
           <div className="lugogo-frame w-[62%] md:absolute md:top-0 md:left-0 md:w-[50%]">
             <Aperture photo={photos.lugogoEntrance} shape="arch" sizes="(min-width: 768px) 30vw, 62vw" />
           </div>
-          <div className="lugogo-frame mt-[-38%] ml-auto w-[52%] md:absolute md:top-[14%] md:right-0 md:mt-0 md:w-[44%]">
+          <div className="lugogo-frame relative z-10 mt-[-34%] ml-auto w-[50%] md:absolute md:top-[10%] md:right-0 md:mt-0 md:w-[44%]">
             <Aperture
               photo={photos.lugogoCounter}
               shape="plate"
@@ -103,7 +103,8 @@ export function Morning() {
               sizes="(min-width: 768px) 26vw, 52vw"
             />
           </div>
-          <div className="lugogo-stair mt-[-12%] ml-[22%] w-[34%] md:absolute md:bottom-0 md:left-[40%] md:mt-0 md:ml-0 md:w-[26%]">
+          {/* Bridges the two rooms: overlaps the entrance and the counter. */}
+          <div className="lugogo-stair relative z-20 hidden md:absolute md:top-[40%] md:left-[36%] md:block md:w-[25%]">
             <div className="lugogo-frame rounded-t-[999px] rounded-b-plate border-[6px] border-butter">
               <Aperture photo={photos.lugogoStaircase} shape="arch" sizes="(min-width: 768px) 16vw, 34vw" />
             </div>

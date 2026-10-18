@@ -2,19 +2,24 @@
 
 import { useRef } from "react";
 
+import { dayparts } from "@/content/home";
 import { gsap, responsive, ScrollTrigger, useGSAP } from "@/lib/motion";
 
-const GROUNDS = ["butter", "amber", "canopy"] as const;
+const DAYPARTS: readonly string[] = dayparts;
+
+const GROUNDS = ["butter", "amber", "lantern", "canopy"] as const;
 type Ground = (typeof GROUNDS)[number];
 
 const RGB: Record<Ground, [number, number, number]> = {
   butter: [232, 197, 133],
   amber: [218, 147, 59],
+  lantern: [176, 102, 30],
   canopy: [16, 35, 12],
 };
 const INK: Record<Ground, string> = {
   butter: "var(--color-canopy)",
   amber: "var(--color-canopy)",
+  lantern: "var(--color-light)",
   canopy: "var(--color-light)",
 };
 
@@ -49,6 +54,7 @@ export function GroundBackdrop() {
       };
       const setNow = (section: HTMLElement) => {
         html.dataset.daypart = section.dataset.daypart;
+        html.style.setProperty("--day-i", String(DAYPARTS.indexOf(section.dataset.daypart ?? "")));
         if (!motion) setGround((section.dataset.ground ?? "butter") as Ground);
       };
 
@@ -61,6 +67,14 @@ export function GroundBackdrop() {
         }),
       );
       if (sections[0]) setNow(sections[0]);
+
+      // The header's travelling day line appears once the hero's own has gone.
+      ScrollTrigger.create({
+        trigger: document.getElementById("top"),
+        start: "bottom 35%",
+        onEnter: () => html.setAttribute("data-past-hero", ""),
+        onLeaveBack: () => html.removeAttribute("data-past-hero"),
+      });
 
       responsive(
         ({ reduceMotion }) => {
@@ -88,22 +102,22 @@ export function GroundBackdrop() {
           }
 
           // Header ground = the visible blend of the layers.
-          const amber = layer("amber");
-          const canopy = layer("canopy");
+          const stack = (["amber", "lantern", "canopy"] as const).map((g) => [g, layer(g)] as const);
           let last = "";
           const sync = () => {
-            const a = Number(amber.style.opacity || 0);
-            const c = Number(canopy.style.opacity || 0);
-            const rgb = RGB.butter.map((b, i) => {
-              const withAmber = b + (RGB.amber[i] - b) * a;
-              return Math.round(withAmber + (RGB.canopy[i] - withAmber) * c);
-            });
-            const key = rgb.join(",");
+            let rgb = [...RGB.butter];
+            let darkness = 0;
+            for (const [g, el] of stack) {
+              const o = Number(el.style.opacity || 0);
+              rgb = rgb.map((v, i) => v + (RGB[g][i] - v) * o);
+              if (g !== "amber") darkness = Math.max(darkness, o);
+            }
+            const key = rgb.map(Math.round).join(",");
             if (key === last) return;
             last = key;
             html.style.setProperty("--ground-now", `rgb(${key})`);
-            // Light ink once the canopy dominates.
-            html.style.setProperty("--ink-now", c > 0.55 ? INK.canopy : INK.butter);
+            // Light ink once lantern or canopy dominates.
+            html.style.setProperty("--ink-now", darkness > 0.6 ? INK.canopy : INK.butter);
           };
           gsap.ticker.add(sync);
           sync();
@@ -120,6 +134,8 @@ export function GroundBackdrop() {
       return () => {
         html.style.removeProperty("--ground-now");
         html.style.removeProperty("--ink-now");
+        html.style.removeProperty("--day-i");
+        html.removeAttribute("data-past-hero");
         delete html.dataset.daypart;
       };
     },

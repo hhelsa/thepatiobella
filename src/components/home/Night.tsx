@@ -7,10 +7,11 @@ import { batchReveal, clipReveal, gsap, responsive, splitReveal, useGSAP } from 
 
 import { Aperture } from "./Aperture";
 
+// Phones: one glass full width, two below. Wider: three at staggered heights.
 const GLASSES = [
-  { photo: photos.hurricane, offset: "md:mt-0", drift: -6 },
-  { photo: photos.highball, offset: "md:mt-[18vh]", drift: -16 },
-  { photo: photos.martini, offset: "md:mt-[7vh]", drift: -10 },
+  { photo: photos.hurricane, layout: "col-span-2 md:col-span-1 md:mt-0", drift: -6 },
+  { photo: photos.highball, layout: "md:mt-[18vh]", drift: -16 },
+  { photo: photos.martini, layout: "mt-[12vw] md:mt-[7vh]", drift: -10 },
 ];
 
 export function Night() {
@@ -73,15 +74,15 @@ export function Night() {
         </p>
       </div>
 
-      <div className="glasses mt-[clamp(3rem,8vh,6rem)] grid grid-cols-3 gap-[3vw]">
-        {GLASSES.map(({ photo, offset }) => (
-          <div key={photo.src} className={offset}>
+      <div className="glasses mt-[clamp(3rem,8vh,6rem)] grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-[3vw]">
+        {GLASSES.map(({ photo, layout }) => (
+          <div key={photo.src} className={layout}>
             <div className="glass">
               <Aperture
                 photo={photo}
                 shape="plate"
                 aspect="aspect-[3/4]"
-                sizes="(min-width: 768px) 30vw, 32vw"
+                sizes="(min-width: 768px) 30vw, 92vw"
               />
             </div>
           </div>

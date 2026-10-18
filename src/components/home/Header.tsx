@@ -137,18 +137,23 @@ export function Header() {
   );
 }
 
-/** Where the visitor is in the page's day. Driven by html[data-daypart]. */
+/**
+ * The day line travels with the visitor: a lantern marker moves to the part
+ * of the day being read. Shown only after the hero's own day line has gone.
+ * Driven by html[data-daypart], --day-i and [data-past-hero].
+ */
 function DayIndicator() {
   return (
-    <ol
-      aria-hidden
-      className="day-indicator relative hidden items-center gap-5 text-xs font-semibold tracking-[0.12em] uppercase xl:flex"
-    >
-      {dayparts.map((part) => (
-        <li key={part} data-part={part} className="opacity-45 transition-opacity duration-500">
-          {part}
-        </li>
-      ))}
-    </ol>
+    <div aria-hidden className="day-indicator hidden w-[248px] xl:block">
+      <ol className="grid grid-cols-4 text-center text-xs font-semibold tracking-[0.1em] uppercase">
+        {dayparts.map((part) => (
+          <li key={part} data-part={part}>
+            {part}
+          </li>
+        ))}
+      </ol>
+      <div className="relative mt-1.5 h-px bg-current opacity-50" />
+      <span className="day-indicator-marker" />
+    </div>
   );
 }

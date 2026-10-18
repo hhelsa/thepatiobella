@@ -148,7 +148,7 @@ export const photos = {
     alt: "The Arena Mall dining room under a ceiling of hanging leaves and woven rattan lanterns",
     width: 1170,
     height: 878,
-    position: "62% 20%",
+    position: "78% 30%",
   },
   arenaDining: {
     src: `${IMG}/interior/arena-dining-room.jpg`,
@@ -220,7 +220,7 @@ export const mains = [
 export const drinks = ["Sangria", "Nojitos", "Martinis", "Margaritas", "The cocktail of the day"];
 
 export const moments = [
-  { title: "Henna nights", text: "Henna artists at the table, flowers drawn while you eat." },
+  { title: "Henna at the table", text: "Henna artists drawing flowers while you eat." },
   { title: "Saxophone at sunset", text: "Live sax as the light goes down — catching sunsets at Bella." },
   { title: "Patio Fun Day", text: "Face painting for the kids while the grown-ups linger." },
 ];

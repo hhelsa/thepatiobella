@@ -9,7 +9,7 @@
 @theme {
   --color-butter: #e8c585; /* Lugogo wall: morning */
   --color-amber: #da933b; /* Lugogo ceiling: midday */
-  --color-lantern: #b0661e; /* Arena lanterns: rings, markers, display only */
+  --color-lantern: #b0661e; /* Arena lanterns: rings, markers, the sunset sky */
   --color-canopy: #10230c; /* Arena canopy: night, ink on light grounds */
   --color-gold: #cfaa5a; /* Logo: only on canopy */
   --color-light: #f6ebd6; /* Text on canopy only, never a ground */
@@ -142,10 +142,23 @@ html[data-motion-intro] [data-intro] {
   }
 }
 
-/* Header day indicator: the current part of the day is lit, with a lantern
-   dot. html[data-daypart] is set by GroundBackdrop. */
-.day-indicator li {
+/* Header day line: hidden while the hero shows its own; the lantern marker
+   travels to the current part of the day. Set by GroundBackdrop. */
+.day-indicator {
   position: relative;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s var(--ease-out-expo),
+    visibility 0.5s;
+}
+html[data-past-hero] .day-indicator {
+  opacity: 1;
+  visibility: visible;
+}
+.day-indicator li {
+  opacity: 0.7;
+  transition: opacity 0.4s;
 }
 html[data-daypart="Morning"] .day-indicator [data-part="Morning"],
 html[data-daypart="Midday"] .day-indicator [data-part="Midday"],
@@ -153,17 +166,16 @@ html[data-daypart="Sunset"] .day-indicator [data-part="Sunset"],
 html[data-daypart="Night"] .day-indicator [data-part="Night"] {
   opacity: 1;
 }
-html[data-daypart="Morning"] .day-indicator [data-part="Morning"]::before,
-html[data-daypart="Midday"] .day-indicator [data-part="Midday"]::before,
-html[data-daypart="Sunset"] .day-indicator [data-part="Sunset"]::before,
-html[data-daypart="Night"] .day-indicator [data-part="Night"]::before {
-  content: "";
+.day-indicator-marker {
   position: absolute;
-  left: -11px;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  margin-top: -3px;
+  bottom: -4px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
   border-radius: 50%;
   background: var(--color-lantern);
+  box-shadow: 0 0 0 2px var(--ground-now);
+  transform: translateX(calc((var(--day-i, 0) + 0.5) * 62px));
+  transition: transform 0.9s var(--ease-out-expo);
 }

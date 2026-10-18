@@ -61,16 +61,24 @@ export function Midday() {
       </h2>
 
       <div className="mt-[clamp(3rem,8vh,6rem)] grid grid-cols-1 gap-y-12 md:grid-cols-12 md:gap-x-[3vw]">
-        <div className="pizza-frame self-start overflow-hidden rounded-plate md:sticky md:top-[calc(var(--header-h)+4vh)] md:col-span-7">
-          <Aperture
-            photo={photos.pizzaPull}
-            shape="plate"
-            aspect="aspect-[4/5] md:aspect-[5/6]"
-            sizes="(min-width: 768px) 56vw, 92vw"
-          />
+        <div className="md:col-span-7">
+          <div className="pizza-frame overflow-hidden rounded-plate">
+            <Aperture
+              photo={photos.pizzaPull}
+              shape="plate"
+              aspect="aspect-[4/5] md:aspect-[5/6]"
+              sizes="(min-width: 768px) 56vw, 92vw"
+            />
+          </div>
+          <div className="mt-12 flex items-end gap-6 md:mt-16 md:ml-[18%]">
+            <div className="sweet-frame w-[42%] shrink-0">
+              <Aperture photo={photos.cheesecake} shape="ring" sizes="(min-width: 768px) 14vw, 40vw" />
+            </div>
+            <p className="pb-4 font-display text-2xl leading-tight">And something sweet to finish.</p>
+          </div>
         </div>
 
-        <div className="flex flex-col md:col-span-5 md:pt-[12vh]">
+        <div className="flex flex-col md:col-span-5 md:pt-[16vh]">
           <div className="chef-frame w-[70%] self-end md:w-[78%]">
             <Aperture
               photo={photos.chefPizza}
@@ -95,12 +103,6 @@ export function Midday() {
             ))}
           </ul>
 
-          <div className="mt-10 flex items-end gap-5">
-            <div className="sweet-frame w-[42%] shrink-0">
-              <Aperture photo={photos.cheesecake} shape="ring" sizes="(min-width: 768px) 14vw, 40vw" />
-            </div>
-            <p className="pb-4 font-display text-2xl leading-tight">And something sweet to finish.</p>
-          </div>
         </div>
       </div>
     </section>
