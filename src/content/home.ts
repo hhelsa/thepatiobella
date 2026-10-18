@@ -206,7 +206,7 @@ export const plates: Plate[] = [
   { photo: photos.pizzaPull, title: "Pizza", note: "Straight from the oven.", size: "tall" },
   { photo: photos.chefPizza, title: "The kitchen", note: "Cooked to order.", size: "mid" },
   { photo: photos.cheesecake, title: "Blueberry cheesecake", note: "Some cravings deserve the sweetest ending.", size: "short" },
-  { photo: photos.highball, title: "Golden hour", note: "Poured at the bar as the sun goes down.", size: "tall" },
+  { photo: photos.hurricane, title: "At the bar", note: "Poured as the sun goes down.", size: "tall" },
   { photo: photos.martini, title: "Martini", note: "Sugared rim, orange and cherry.", size: "mid" },
 ];
 

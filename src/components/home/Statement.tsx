@@ -94,7 +94,7 @@ export function Statement() {
         Two rooms, one table. At Lugogo Mall <InlinePhoto photo={photos.lugogoDaylight} />, butter-yellow
         walls and glass onto the palms. At Arena Mall <InlinePhoto photo={photos.arenaCanopy} />, lanterns
         under a ceiling of leaves. From the first coffee <InlinePhoto photo={photos.cappuccino} /> to the
-        last cocktail <InlinePhoto photo={photos.highball} />, this is where we all come together.
+        last cocktail <InlinePhoto photo={photos.martini} />, this is where we all come together.
       </p>
       <div className="mt-14 flex justify-center">
         <RollLink href="#visit" label="Find both rooms" className="border-b border-canopy/40 pb-1 text-[15px] font-semibold" />

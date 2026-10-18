@@ -166,19 +166,19 @@ export function FoodDrink() {
       </div>
 
       <div className="dish-wrap overflow-hidden border-t border-canopy/15 py-[clamp(4rem,12vh,8rem)]">
-        <p className="dish-line display px-[4vw] text-center text-[clamp(2rem,8vw,7.5rem)] leading-[1.05] [[data-moving]_&]:text-left">
+        <p className="dish-line display px-[4vw] text-center text-[clamp(1.75rem,8.4vw,7.5rem)] leading-[1.08] [[data-moving]_&]:text-left">
           {namedDishes.map((dish, i) => (
             <Fragment key={dish}>
               {i > 0 && (
                 <>
                   {" "}
-                  <span aria-hidden className="text-lantern">
+                  <span aria-hidden className="hidden text-lantern group-data-[moving]/food:inline sm:inline">
                     ·
                   </span>
                   <span className="sr-only">,</span>{" "}
                 </>
               )}
-              <span className="sm:whitespace-nowrap">{dish}</span>
+              <span className="block whitespace-nowrap group-data-[moving]/food:inline sm:inline">{dish}</span>
             </Fragment>
           ))}
         </p>
