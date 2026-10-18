@@ -1,6 +1,6 @@
 # The Patio Bella: art direction proposal
 
-Status: **approved, direction B+ "First Coffee to Last Light" chosen. Homepage implementation is the next stage.**
+Status: **approved and built.** Direction B+ "First Coffee to Last Light" is implemented in `src/app/page.tsx`; the shipped system is recorded in `DESIGN.md`.
 
 Companion files:
 
