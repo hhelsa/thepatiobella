@@ -9,19 +9,19 @@ related_targets: []
 
 Scope: `src/app/page.tsx`, the homepage, which is the competition deliverable. Visitor mode: Persuade.
 Audience and job: Kampala diners, mostly on phones from Instagram, plus competition judges. The visitor should understand two rooms and one brand, want to go, and call a location to reserve.
-Proof: real photography and posted facts only (see PRODUCT.md and docs/PATIO-BELLA-ART-DIRECTION.md). No prices, hours or schedules.
-Build path: code-led (no image generation in this environment).
-Full proposal: docs/PATIO-BELLA-ART-DIRECTION.md, section 4.
+Proof: real photography and posted facts only (PRODUCT.md, src/content/home.ts). No prices, hours or schedules.
+Build path: code-led. The user pinned the reference https://epicura.framer.website/ (redesign request, 2026-10-18); the reference was studied in a browser, and captures are in docs/art-direction/epicura/.
 
 ## Direction contract
 
-THESIS: The page is one Patio Bella day in the real light of its two rooms: Lugogo's butter morning, midday at the table, sunset arrival at Arena Mall under the lanterns, then canopy-green night. It refuses the category default of a full-bleed dark photo with a centred logo and a single reserve button.
-OWN-WORLD: Drenched day fields: Butter #E8C585, Lugogo amber #DA933B, Canopy #10230C, with Lantern #B0661E for the ring and markers and logo gold #CFAA5A on Canopy. Gloock sentence-case display with Hanken Grotesk. Photos only in apertures (ring, Lugogo arch, plate with 14px radius). Pills. A Canopy two-stop call bar. A day line with a lantern marker. No cream ground, gradients, glows or kickers.
-STORY: Visitors see that Patio Bella is two very different Kampala rooms serving breakfast to the last cocktail, notice that Lugogo is new, believe it through real rooms, dishes and rituals, and tap a stop to call and reserve.
-FIRST VIEWPORT: Butter ground with the header (logo, four links, Reserve pill opening the two-stop chooser). The left half holds a Display XL headline, "Breakfast to the last cocktail, in two Kampala rooms.", the subline with the brand line, and the day line at Morning. On the right, a large ring holding Lugogo daylight dining, with a cappuccino arch overlapping it. Along the bottom, the Canopy call bar: Lugogo (NEW) 0794 299 074, then Arena Mall 0775 852 656, each a tel: link.
-FORM: Golden hour across the day (my grounded list, position 1 of 7; chosen by the user over the assigned #7), raised with framed apertures and a persistent two-stop call bar from the assigned direction. Signature: the sun ring, which sets at Arena Mall. seed:58aec1764956fac8
+THESIS: An animation-led restaurant page in the Epicura grammar: quiet, light, centred sections alternating with immersive full-bleed dark moments, motion reserved for a few authored scenes. It refuses the template stack of hero, card grid and testimonials, and any decorative shapes.
+OWN-WORLD: Two grounds from the two rooms: Lugogo butter #E8C585 (light, quiet) and Arena canopy #10230C (immersive). Gold #CFAA5A only on canopy. Bodoni Moda 500 sentence-case display with controlled line breaks; Schibsted Grotesk for text and UI. Square-cornered photo frames (4px). Fill-sweep buttons, roll links. No circles, kickers, cards or gradients beyond legibility scrims.
+STORY: The visitor sees a restaurant that is two very different Kampala rooms, sees its food, drink, rooms and happenings, and calls one of the rooms to reserve.
+FIRST VIEWPORT: Canopy ground; four photos stack in a centred frame, then the Arena canopy opens to full-bleed under a 50% scrim. A centred Bodoni headline, "Where we all / come together.", sits over it with a subline naming both malls, a butter "Reserve a table" button and a "See the food" roll link. Room labels sit bottom-left and bottom-right; the transparent header carries a Reserve chooser.
+FORM: User-pinned reference (Epicura) translated with Patio Bella's assets; supersedes the earlier B+ direction. The signatures are the opening stack-to-full-bleed sequence and the pinned two-rooms scene. seed: none (unavailable)
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
 ## Open decisions
-- Logo SVG and brush-ring vector from the client (CSS ring stands in)
-- Recurrence of rituals; venue of art-wall and cheesecake photos; hours and prices withheld
+- Logo SVG from the client (the 447px JPG stands in)
+- Recurrence of the happenings; venue of the art-wall photo; hours and prices withheld
+- Higher-resolution originals for the full-bleed images (hero, rooms, close)
