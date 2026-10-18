@@ -176,6 +176,6 @@ html[data-daypart="Night"] .day-indicator [data-part="Night"] {
   border-radius: 50%;
   background: var(--color-lantern);
   box-shadow: 0 0 0 2px var(--ground-now);
-  transform: translateX(calc((var(--day-i, 0) + 0.5) * 62px));
+  transform: translateX(calc((var(--day-i, 0) + 0.5) * 76px));
   transition: transform 0.9s var(--ease-out-expo);
 }

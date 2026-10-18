@@ -62,8 +62,10 @@ export function Sunset() {
             0.55,
           )
           .fromTo(".arena-ring .ring-media", { scale: 1.18 }, { scale: 1, duration: 0.5, ease: "power2.out" }, 0.55)
-          .fromTo(canopyLayer, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, 0.52)
-          .fromTo(".sun-arrive", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.2 }, 0.85);
+          .fromTo(canopyLayer, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, 0.52)
+          .fromTo(".sun-arrive", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.15 }, 0.68)
+          // Hold the finished night for the last part of the pin.
+          .to({}, { duration: 0.2 });
 
         clipReveal(".arena-table", {
           from: "bottom",
@@ -117,7 +119,7 @@ export function Sunset() {
                 <Ring className="sun-ring invisible" photo={photos.saxophone} zoom="scale-[1.4] origin-[30%_75%]" />
               </div>
             </div>
-            <div aria-hidden className="mx-[-14%] h-0.5 bg-current opacity-40" />
+            <div aria-hidden className="h-0.5 bg-current opacity-40 md:mx-[-14%]" />
             <p className="sun-caption invisible mt-6 text-center font-display text-xl">
               &ldquo;Catching sunsets at Bella&rdquo;
             </p>

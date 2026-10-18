@@ -144,8 +144,8 @@ export function Header() {
  */
 function DayIndicator() {
   return (
-    <div aria-hidden className="day-indicator hidden w-[248px] xl:block">
-      <ol className="grid grid-cols-4 text-center text-xs font-semibold tracking-[0.1em] uppercase">
+    <div aria-hidden className="day-indicator hidden w-[304px] xl:block">
+      <ol className="grid grid-cols-4 text-center text-xs font-semibold tracking-[0.08em] uppercase">
         {dayparts.map((part) => (
           <li key={part} data-part={part}>
             {part}
