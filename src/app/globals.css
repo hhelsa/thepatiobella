@@ -1,28 +1,113 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------------------------------------------------------------------------
+ * The Patio Bella: "First Coffee to Last Light"
+ * Colours sampled from the two rooms and the logo
+ * (docs/PATIO-BELLA-ART-DIRECTION.md, section 4).
+ * ------------------------------------------------------------------------- */
+
+@theme {
+  --color-butter: #e8c585; /* Lugogo wall: morning */
+  --color-amber: #da933b; /* Lugogo ceiling: midday */
+  --color-lantern: #b0661e; /* Arena lanterns: rings, markers, display only */
+  --color-canopy: #10230c; /* Arena canopy: night, ink on light grounds */
+  --color-gold: #cfaa5a; /* Logo: only on canopy */
+  --color-light: #f6ebd6; /* Text on canopy only, never a ground */
+
+  --radius-plate: 14px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-gloock), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Updated by GroundBackdrop as the day progresses; static fallbacks. */
+  --ground-now: var(--color-butter);
+  --ink-now: var(--color-canopy);
+  --header-h: 72px;
+  --callbar-h: 56px;
+  color-scheme: light;
+}
+
+html {
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  scroll-padding-bottom: calc(var(--callbar-h) + 16px);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-butter);
+  color: var(--color-canopy);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+/* Browser surfaces carry the palette too. */
+::selection {
+  background: var(--color-canopy);
+  color: var(--color-butter);
+}
+[data-ground="canopy"] ::selection {
+  background: var(--color-gold);
+  color: var(--color-canopy);
+}
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+html {
+  scrollbar-color: color-mix(in srgb, var(--ink-now) 45%, transparent) var(--ground-now);
+}
+
+a {
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+/* Each section owns its ground. With motion enabled, GroundBackdrop makes
+   sections transparent and crossfades a fixed backdrop instead. */
+[data-ground="butter"] {
+  background-color: var(--color-butter);
+  color: var(--color-canopy);
+}
+[data-ground="amber"] {
+  background-color: var(--color-amber);
+  color: var(--color-canopy);
+}
+[data-ground="canopy"] {
+  background-color: var(--color-canopy);
+  color: var(--color-light);
+}
+html[data-ground-js] [data-ground] {
+  background-color: transparent;
+  transition: color 0.6s var(--ease-out-expo);
+}
+
+/* Headings balance; display never exceeds 6.5rem. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* Link underline that draws in on hover (fine pointers). */
+.link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s var(--ease-out-expo);
+  text-decoration: none;
+}
+.link-draw:hover,
+.link-draw:focus-visible {
+  background-size: 100% 1px;
 }
 
 /* ---------------------------------------------------------------------------
@@ -55,4 +140,30 @@ html[data-motion-intro] [data-intro] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Header day indicator: the current part of the day is lit, with a lantern
+   dot. html[data-daypart] is set by GroundBackdrop. */
+.day-indicator li {
+  position: relative;
+}
+html[data-daypart="Morning"] .day-indicator [data-part="Morning"],
+html[data-daypart="Midday"] .day-indicator [data-part="Midday"],
+html[data-daypart="Sunset"] .day-indicator [data-part="Sunset"],
+html[data-daypart="Night"] .day-indicator [data-part="Night"] {
+  opacity: 1;
+}
+html[data-daypart="Morning"] .day-indicator [data-part="Morning"]::before,
+html[data-daypart="Midday"] .day-indicator [data-part="Midday"]::before,
+html[data-daypart="Sunset"] .day-indicator [data-part="Sunset"]::before,
+html[data-daypart="Night"] .day-indicator [data-part="Night"]::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: var(--color-lantern);
 }

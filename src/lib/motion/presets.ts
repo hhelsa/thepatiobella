@@ -79,8 +79,11 @@ const CLIP_FROM = {
   left: "inset(0% 100% 0% 0%)",
   right: "inset(0% 0% 0% 100%)",
   center: "inset(50% 50% 50% 50%)",
+  circle: "circle(0% at 50% 50%)",
 } as const;
 const CLIP_OPEN = "inset(0% 0% 0% 0%)";
+// 71% of the reference radius reaches the corners of a square frame.
+const CIRCLE_OPEN = "circle(71% at 50% 50%)";
 
 export interface ClipRevealOptions {
   /** Edge the reveal grows from. */
@@ -106,7 +109,11 @@ export function clipReveal(
   }: ClipRevealOptions = {},
 ): gsap.core.Timeline {
   const tl = gsap.timeline({ delay, scrollTrigger, defaults: { duration, ease } });
-  tl.fromTo(frame, { clipPath: CLIP_FROM[from] }, { clipPath: CLIP_OPEN });
+  tl.fromTo(
+    frame,
+    { clipPath: CLIP_FROM[from] },
+    { clipPath: from === "circle" ? CIRCLE_OPEN : CLIP_OPEN },
+  );
   if (media) tl.fromTo(media, { scale: 1.3 }, { scale: 1 }, 0);
   return tl;
 }
@@ -200,6 +207,8 @@ export function batchReveal(
 }
 
 export interface PinnedSceneOptions {
+  /** Where pinning starts, e.g. "top top+=72" below a sticky header. */
+  start?: string;
   /** Scroll distance of the scene, e.g. "+=200%". */
   end?: string;
   scrub?: boolean | number;
@@ -213,13 +222,13 @@ export interface PinnedSceneOptions {
  */
 export function pinnedScene(
   trigger: Element,
-  { end = "+=200%", scrub = 1, snap, pinSpacing = true }: PinnedSceneOptions = {},
+  { start = "top top", end = "+=200%", scrub = 1, snap, pinSpacing = true }: PinnedSceneOptions = {},
 ): gsap.core.Timeline {
   return gsap.timeline({
     defaults: { ease: EASE.inOut },
     scrollTrigger: {
       trigger,
-      start: "top top",
+      start,
       end,
       scrub,
       snap,
