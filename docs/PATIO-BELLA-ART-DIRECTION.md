@@ -1,6 +1,15 @@
 # The Patio Bella: art direction proposal
 
-Status: **approved and built.** Direction B+ "First Coffee to Last Light" is implemented in `src/app/page.tsx`; the shipped system is recorded in `DESIGN.md`.
+Status: **retired.** This first direction (B+ "First Coffee to Last Light") was built, then replaced by the redesign noted below.
+
+> **Superseded (2026-10-18).** The homepage was redesigned at the user's
+> request after the Epicura reference (https://epicura.framer.website/),
+> studied in a real browser (captures in `docs/art-direction/epicura/`).
+> The current direction is recorded in `.impeccable/surfaces/src-app-page-tsx.md`
+> and the shipped system in `DESIGN.md`. Sections 1 (verified facts) and 2
+> (what the photographs say) still apply; the B+ concept, palette, type and
+> choreography below describe the retired first build.
+
 
 Companion files:
 
