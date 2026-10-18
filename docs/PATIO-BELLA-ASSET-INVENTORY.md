@@ -1,13 +1,14 @@
 # The Patio Bella: asset inventory
 
-Review of the 109 files uploaded to `public/images/patio-bella/_incoming/`
-(99 photos, 10 videos). Every photo was opened and inspected visually; videos
+Review of the 109 files uploaded to `public/images/patio-bella/`
+(99 photos, 10 videos). All paths below are relative to that folder. Every photo was opened and inspected visually; videos
 were checked from frames at 15%, 50% and 85% of their length.
 
-Files are referred to by **#number** (alphabetical order of the current
-filename). The [appendix](#appendix-number-to-current-filename) maps each
-number to its exact current filename. **Nothing has been moved or renamed
-yet.** The proposed paths below take effect only once approved.
+Files are referred to by **#number**. The
+[appendix](#appendix-original-upload-filenames) maps each number to the
+filename it was uploaded with. Files were moved out of `_incoming/` into
+category folders and given descriptive names; their contents are unchanged
+(checksums verified).
 
 ## Key findings
 
@@ -75,16 +76,15 @@ Usable with a crop (logo in a removable corner): #38 penne with parmesan being
 grated, #37 tomato soup with grilled bread, #15/#16 sugar-rimmed cocktails,
 #46 salmon-avocado tower, #68 pizza on a wooden peel.
 
-## Full inventory with proposed organisation
+## Full inventory
 
-The proposed paths assume three additional folders: **`brand/`** for logos,
-**`video/`** for clips, and **`people-and-events/`** for guests, staff and
-events. People and events are a recurring theme, and `other/` would otherwise
-hold most of the best lifestyle shots.
+Besides the original five categories there are three more folders:
+**`brand/`** for logos, **`video/`** for clips, and **`people-and-events/`**
+for guests, staff and events.
 
 ### Food
 
-| # | What it shows | Overlay | Proposed path | Suggested use |
+| # | What it shows | Overlay | Path | Suggested use |
 | --- | --- | --- | --- | --- |
 | 1 | Omelette deluxe with curry sauce, potatoes, avocado, tomato (overhead) | Logo · 911 px | `food/breakfast-omelette-deluxe.jpg` | Breakfast menu thumbnail |
 | 2 | Toasted Bella Cristo sandwich close-up with fruit bowl | Logo · 914 px | `food/breakfast-bella-cristo-closeup.jpg` | Breakfast menu |
@@ -137,7 +137,7 @@ hold most of the best lifestyle shots.
 
 ### Drinks
 
-| # | What it shows | Overlay | Proposed path | Suggested use |
+| # | What it shows | Overlay | Path | Suggested use |
 | --- | --- | --- | --- | --- |
 | 13 | Two Patio Bella takeaway coffee cups held out of a car window | Clean | `drinks/takeaway-coffee-car-window.jpg` | **Homepage shortlist** |
 | 15 | White cocktail, sugared rim, cherries, dark bokeh | Logo | `drinks/cocktail-cherry-sugar-rim.jpg` | Cocktails (crop top-right) |
@@ -157,7 +157,7 @@ hold most of the best lifestyle shots.
 
 ### Interior
 
-| # | What it shows | Overlay | Proposed path | Suggested use |
+| # | What it shows | Overlay | Path | Suggested use |
 | --- | --- | --- | --- | --- |
 | 9 | Arena bar: marble counter, green velvet stools, foliage | Clean · 730 px | `interior/arena-bar-counter.jpg` | Small inset only |
 | 10 | Arena lounge: armchairs, stone feature wall, pampas grass | Clean · 731 px | `interior/arena-lounge.jpg` | Small inset only |
@@ -178,15 +178,15 @@ hold most of the best lifestyle shots.
 
 ### Views and atmosphere
 
-| # | What it shows | Overlay | Proposed path | Suggested use |
+| # | What it shows | Overlay | Path | Suggested use |
 | --- | --- | --- | --- | --- |
 | 56 | Arena dining room with guests, lanterns, city through glass | Clean · landscape | `views-and-atmosphere/arena-dining-city-view.jpg` | **Homepage hero** |
 | 64 | Lugogo dining room in daylight, glass walls onto palms | Clean | `views-and-atmosphere/lugogo-daylight-dining.jpg` | **Homepage shortlist** |
 | 80 | Saxophone silhouette in amber light ("catching sunsets") | Logo + script | `views-and-atmosphere/sunset-saxophone.jpg` | Live-music / evenings mood |
 
-### People and events (proposed new folder)
+### People and events
 
-| # | What it shows | Overlay | Proposed path | Suggested use |
+| # | What it shows | Overlay | Path | Suggested use |
 | --- | --- | --- | --- | --- |
 | 32 | Guest in yellow holding a burger, bar behind | Logo | `people-and-events/guest-burger.jpg` | Social proof |
 | 35 | Chef lifting a pizza slice | Clean | `people-and-events/chef-pizza.jpg` | **Homepage shortlist** |
@@ -198,7 +198,7 @@ hold most of the best lifestyle shots.
 
 ### Promotional graphics and menus (`other/`)
 
-| # | What it shows | Proposed path | Use |
+| # | What it shows | Path | Use |
 | --- | --- | --- | --- |
 | 22 | "New menu just dropped" smashed-plate graphic | `other/promo-new-menu.jpg` | Reference only |
 | 60 | Lugogo "coming soon" map graphic | `other/promo-lugogo-map.jpg` | Reference only |
@@ -209,19 +209,19 @@ hold most of the best lifestyle shots.
 | 90 | "Cocktail of the Week" graphic | `other/promo-cocktail-of-the-week.jpg` | Reference only |
 | 101 | "Mix & Mingle" cocktail offer graphic | `other/promo-mix-and-mingle.jpg` | Reference only |
 
-### Brand (proposed new folder)
+### Brand
 
-| # | What it shows | Proposed path | Use |
+| # | What it shows | Path | Use |
 | --- | --- | --- | --- |
 | 105 | "the Patio Bella" logo, gold brush ring, black serif on marble | `brand/logo-on-marble.jpg` | Reference: **447 px JPG only**. The site needs an SVG or high-resolution PNG logo. |
 | 106 | "Patio Bella" logo, white serif and gold ring on black | `brand/logo-on-black.jpg` | Reference: same as above |
 
-### Video (proposed new folder)
+### Video
 
 All clips are 720×1280 vertical (9:16) except #39 (360×640). All have logo
 overlays, and most have text.
 
-| # | Content | Length | Proposed path | Use |
+| # | Content | Length | Path | Use |
 | --- | --- | --- | --- | --- |
 | 14 | Pizza with sauce drizzle on blue backdrop | 8s | `video/pizza-sauce-drizzle.mp4` | Possible short loop |
 | 17 | Food tasting and chef interview | 44s | `video/food-tasting.mp4` | Reference |
@@ -245,116 +245,116 @@ overlays, and most have text.
 - Consider a short **sunset/view shoot** at Arena Mall. It is the main
   atmospheric story the current set cannot tell cleanly.
 
-## Appendix: number to current filename
+## Appendix: original upload filenames
 
-| # | Size (px) | Current filename in `_incoming/` |
-| --- | --- | --- |
-| 1 | 911×646 | `#12DaysOfBreakfast - Day 1- Omelette DeluxeComes with a choice of-_•_Spinach & Mushroom Omelette.jpg` |
-| 2 | 914×653 | `#12DaysOfBreakfast - Day 10- BELLA CRISTO SANDWICHGrilled chicken 🍗, turkey ham 🍖, cheese 🧀,  (1).jpg` |
-| 3 | 913×652 | `#12DaysOfBreakfast - Day 10- BELLA CRISTO SANDWICHGrilled chicken 🍗, turkey ham 🍖, cheese 🧀, .jpg` |
-| 4 | 902×634 | `#12DaysOfBreakfast - Day 2- Morning Scramble Wrap 🌯Grilled chicken, eggs, avo, cheese & tomatoe.jpg` |
-| 5 | 1170×835 | `#12DaysOfBreakfast - Day 3- Chapati Royale ComboComes with-Chapatti - 2 Eggs - 2 Sausages🍟 Home (1).jpg` |
-| 6 | 1027×733 | `#12DaysOfBreakfast - Day 3- Chapati Royale ComboComes with-Chapatti - 2 Eggs - 2 Sausages🍟 Home.jpg` |
-| 7 | 1027×733 | `#12DaysOfBreakfast - Day 6- Chicken & Eggs BenedictStart your day right with grilled chicken🍗,  (1).jpg` |
-| 8 | 1170×835 | `#12DaysOfBreakfast - Day 6- Chicken & Eggs BenedictStart your day right with grilled chicken🍗, .jpg` |
-| 9 | 730×494 | `A constellation of moments now lights the Patio Bella experience. A tribute to a space crafted w (1).jpg` |
-| 10 | 731×495 | `A constellation of moments now lights the Patio Bella experience. A tribute to a space crafted w (2).jpg` |
-| 11 | 735×498 | `A constellation of moments now lights the Patio Bella experience. A tribute to a space crafted w (3).jpg` |
-| 12 | 728×491 | `A constellation of moments now lights the Patio Bella experience. A tribute to a space crafted w.jpg` |
-| 13 | 1170×1560 | `A fresh look, same coffee you love. ☕✨Our coffee just got a stylish new home. Introducing our ne.jpg` |
-| 14 | 720×1280, video 8s | `A little cheese, a little crunch, and a whole lot of reasons to order another slice. 🍕🤌🏽💙Piz.mp4` |
-| 15 | 1170×1560 | `A little colour, a little sparkle, and the perfect sip. 🍸✨Make your next catch-up a little more (1).jpg` |
-| 16 | 1170×1560 | `A little colour, a little sparkle, and the perfect sip. 🍸✨Make your next catch-up a little more.jpg` |
-| 17 | 720×1280, video 44s | `A little taste of what’s cooking at Patio Bella. 👀🍽️💙Good food deserves a proper taste test, .mp4` |
-| 18 | 1170×1468 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala (1).jpg` |
-| 19 | 1170×1468 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala (2).jpg` |
-| 20 | 1170×1468 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala (3).jpg` |
-| 21 | 1170×1468 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala (4).jpg` |
-| 22 | 1120×1404 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala.jpg` |
-| 23 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u (1).jpg` |
-| 24 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u (2).jpg` |
-| 25 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u (3).jpg` |
-| 26 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u (4).jpg` |
-| 27 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u.jpg` |
-| 28 | 1210×1613 | `Blueberry cheesecake, because some cravings deserve the sweetest ending. 🫐🍰💙Creamy, indulgent (1).jpg` |
-| 29 | 1104×1468 | `Blueberry cheesecake, because some cravings deserve the sweetest ending. 🫐🍰💙Creamy, indulgent (2).jpg` |
-| 30 | 1210×1613 | `Blueberry cheesecake, because some cravings deserve the sweetest ending. 🫐🍰💙Creamy, indulgent.jpg` |
-| 31 | 1170×1461 | `Built to burger-fection 😋🍔📍Arena Mall, Nsambya ☎️ 0775852656 for deliveries. #thepatiobella (1).jpg` |
-| 32 | 1170×1461 | `Built to burger-fection 😋🍔📍Arena Mall, Nsambya ☎️ 0775852656 for deliveries. #thepatiobella (2).jpg` |
-| 33 | 1170×1463 | `Built to burger-fection 😋🍔📍Arena Mall, Nsambya ☎️ 0775852656 for deliveries. #thepatiobella.jpg` |
-| 34 | 1170×1560 | `Did someone say pizza 🍕✨Hot, cheesy, and made just the way you love it.Come grab a slice at Pat (1).jpg` |
-| 35 | 1170×1560 | `Did someone say pizza 🍕✨Hot, cheesy, and made just the way you love it.Come grab a slice at Pat.jpg` |
-| 36 | 1080×1080 | `Friends + food 🥘+ cocktails🍸- perfect Saturday😋Call 0775852656 to reserve your spot for a cel.jpg` |
-| 37 | 1080×1350 | `From scratch to your table, every bite is worth the wait. 🍽️💙 Freshly prepared, full of flavou (1).jpg` |
-| 38 | 1080×1350 | `From scratch to your table, every bite is worth the wait. 🍽️💙 Freshly prepared, full of flavou.jpg` |
-| 39 | 360×640, video 20s | `Golden mornings start here☀️Crispy waffles, fresh fruit, and that perfect sweet touch… your brea.mp4` |
-| 40 | 1170×1561 | `Good cocktails, better company, and a little Patio magic. 🍸✨Your favourite corner for refreshin (1).jpg` |
-| 41 | 1170×1561 | `Good cocktails, better company, and a little Patio magic. 🍸✨Your favourite corner for refreshin (2).jpg` |
-| 42 | 1170×1561 | `Good cocktails, better company, and a little Patio magic. 🍸✨Your favourite corner for refreshin.jpg` |
-| 43 | 720×1280, video 16s | `Good food just got a better deal. 🍽️✨Meet the Patio Combos — thoughtfully paired favourites mad.mp4` |
-| 44 | 1170×1463 | `Good food, beautiful plates, and flavours worth slowing down for. 🤤🍽️From perfectly prepared m (1).jpg` |
-| 45 | 1080×1350 | `Good food, beautiful plates, and flavours worth slowing down for. 🤤🍽️From perfectly prepared m (2).jpg` |
-| 46 | 1170×1463 | `Good food, beautiful plates, and flavours worth slowing down for. 🤤🍽️From perfectly prepared m.jpg` |
-| 47 | 1086×1448 | `Good mornings deserve good food, great coffee, and a space that feels just right. ☀️Introducing .jpg` |
-| 48 | 720×1280, video 10s | `Good mornings start at Patio Bella. ☀️🤍From delicious breakfast bites to your favourite cup of .mp4` |
-| 49 | 720×1280, video 48s | `Great food starts with great chefs. 👨🏽_🍳✨At Patio Bella, we’re always sharpening our skills, .mp4` |
-| 50 | 1024×1279 | `Happy Valentine’s Day! ❤️🌹Celebrate love with flavors as rich as your story. ❤️🍽️✨ Valentine’s (1).jpg` |
-| 51 | 1080×1350 | `Happy Valentine’s Day! ❤️🌹Celebrate love with flavors as rich as your story. ❤️🍽️✨ Valentine’s (2).jpg` |
-| 52 | 1024×1279 | `Happy Valentine’s Day! ❤️🌹Celebrate love with flavors as rich as your story. ❤️🍽️✨ Valentine’s.jpg` |
-| 53 | 1170×1465 | `Hear that sizzle 🔥🥩Our Sizzling Pork comes hot, hearty and packed with flavour ,the kind of pl.jpg` |
-| 54 | 1170×1560 | `Henna Fridays are calling… ✨Good vibes, beautiful art, great food & unforgettable moments await .jpg` |
-| 55 | 1080×1080 | `It’s always a good time for a good cocktail 🍸Buy one cocktail and get one free from 2PM- 8PM ev.jpg` |
-| 56 | 1170×878 | `It’s been a while 🤍What would you love to see us improve or change at Patio BellaTell us in the.jpg` |
-| 57 | 1279×1598 | `It’s the weekend—time for a cocktail fix at The Patio Bella!📍 Arena Mall, Nsambya☎️ 0775 852 65.jpg` |
-| 58 | 1080×1350 | `Juicy, tender, and grilled to perfection. 🔥🥩 Our pork chops are here to turn your “just a quic.jpg` |
-| 59 | 1080×1349 | `Love hangover Our cocktails are the cure. 🍹💃 Keep the fun going—Valentine’s is just a warm-up!.jpg` |
-| 60 | 1170×1560 | `Lugogo, something beautiful is on the way. 👀✨Patio Bella is coming soon ,bringing good food, be.jpg` |
-| 61 | 1086×1448 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo (1).jpg` |
-| 62 | 1086×1448 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo (2).jpg` |
-| 63 | 1086×1448 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo (3).jpg` |
-| 64 | 1086×1448 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo (4).jpg` |
-| 65 | 1170×1560 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo.jpg` |
-| 66 | 720×1280, video 30s | `Lugogo, your Bella era starts NOW! 💙💛✨We’re officially OPEN and ready to welcome you! From del.mp4` |
-| 67 | 1170×1463 | `Lugogo, your Bella era starts now. 💙💛✨We’re officially open, bringing you good food, great cof.jpg` |
-| 68 | 1170×1560 | `Lunch just got an upgrade 🍕🔥Beef pizza at PatioBella- hot, cheesy, and hitting right on time.P.jpg` |
-| 69 | 1170×781 | `Make this Eid celebration special 🌙Gather, dine, and create beautiful memories at PatioBella.#P (1).jpg` |
-| 70 | 1170×780 | `Make this Eid celebration special 🌙Gather, dine, and create beautiful memories at PatioBella.#P (2).jpg` |
-| 71 | 1170×780 | `Make this Eid celebration special 🌙Gather, dine, and create beautiful memories at PatioBella.#P.jpg` |
-| 72 | 1170×1461 | `Mondays are for melted cheese and good vibes.☎️ 0775 852656 for deliveries. #patiobella #arenama.jpg` |
-| 73 | 1170×781 | `Need a pick-me-up A delicious lunch from The Patio Bella is exactly what you need! 🥘😋What slid (1).jpg` |
-| 74 | 1170×781 | `Need a pick-me-up A delicious lunch from The Patio Bella is exactly what you need! 🥘😋What slid (2).jpg` |
-| 75 | 1170×781 | `Need a pick-me-up A delicious lunch from The Patio Bella is exactly what you need! 🥘😋What slid.jpg` |
-| 76 | 1080×1350 | `New flavors, new favorites! Our latest menu is finally here, packed with delicious surprises. Wh (1).jpg` |
-| 77 | 1080×1350 | `New flavors, new favorites! Our latest menu is finally here, packed with delicious surprises. Wh.jpg` |
-| 78 | 1170×1463 | `POV- You said you’d just have a little something… and now the plate is disappearing. 😂🍽️Good f.jpg` |
-| 79 | 1170×1461 | `Patio Bella style = bold flavors, no holding back 🍔🔥#PatioBella #whereweallcometogether.jpg` |
-| 80 | 1000×1333 | `Something special is drifting into this Sunday’s sunset… 🎷🌅This Sunday, we’re turning up the m.jpg` |
-| 81 | 1080×1349 | `Start the week with double the flavor! Buy one Margherita, BBQ Chicken, or Vegetable pizza and g.jpg` |
-| 82 | 1170×1462 | `Such a good day—make it even better with a delicious meal at The Patio Bella. You deserve it! 🍽.jpg` |
-| 83 | 1170×1463 | `That feeling after you take your first bite into our delicious breakfast wrap  🤤😊📸- Chicken &.jpg` |
-| 84 | 1086×1086 | `The Art at Patio Bella ✨More than décor, every piece tells a story. Thoughtfully placed througho (1).jpg` |
-| 85 | 1086×1086 | `The Art at Patio Bella ✨More than décor, every piece tells a story. Thoughtfully placed througho (2).jpg` |
-| 86 | 1086×1086 | `The Art at Patio Bella ✨More than décor, every piece tells a story. Thoughtfully placed througho.jpg` |
-| 87 | 1086×1448 | `The kind of starters that don’t just begin a meal… they start conversations.Good food has a way .jpg` |
-| 88 | 720×1280, video 10s | `The perfect pairings, served just the way you like them. 🍕🍹✨Good food + good drinks + good com.mp4` |
-| 89 | 1080×1350 | `The perfect recipe for a Sunday well spent. #thepatiobella.jpg` |
-| 90 | 1170×1463 | `Today’s mood, served in a glass. 🍸✨Our Cocktail of the Day at Patio Bella is smooth, refreshing.jpg` |
-| 91 | 1170×1461 | `Tuesdays taste better when they come with layers like this.#PatioBella #foodpics #kampalarestura.jpg` |
-| 92 | 1080×1349 | `Unwind, indulge, and be inspired tonight! 🎤✨Cheers to the weekend with a little sip-sip, great .jpg` |
-| 93 | 1037×1382 | `Wake up. Pull up. Eat good. ☀️🍳Breakfast at Patio Bella just hits different. From buttery toast (1).jpg` |
-| 94 | 1037×1382 | `Wake up. Pull up. Eat good. ☀️🍳Breakfast at Patio Bella just hits different. From buttery toast (2).jpg` |
-| 95 | 1037×1382 | `Wake up. Pull up. Eat good. ☀️🍳Breakfast at Patio Bella just hits different. From buttery toast (3).jpg` |
-| 96 | 1037×1382 | `Wake up. Pull up. Eat good. ☀️🍳Breakfast at Patio Bella just hits different. From buttery toast.jpg` |
-| 97 | 720×1280, video 10s | `Watch their imaginations come to life with face painting fun at PatioBella  #ThePatioBella  #Whe.mp4` |
-| 98 | 1080×1350 | `We are off to a good start for this long weekend.#thepatiobella #cocktails #nojitos #sangrias (1).jpg` |
-| 99 | 1080×1349 | `We are off to a good start for this long weekend.#thepatiobella #cocktails #nojitos #sangrias.jpg` |
-| 100 | 1170×1461 | `Weekend reset Start with food that feeds your soul and a vibe that lifts your mood.#patiobella #.jpg` |
-| 101 | 1170×1462 | `Whether you’re into a shaken Margarita or a stirred Martini, one is never enough! Get TWO for th.jpg` |
-| 102 | 1170×1461 | `Wing it the right way 🍗✨Perfectly glazed, perfectly grilled.#PatioBella #WhereWeAllComeTogether.jpg` |
-| 103 | 720×1280, video 24s | `Yesterday’s Henna Experience was everything we hoped for—beautiful art, amazing vibes, and unfor.mp4` |
-| 104 | 1170×1560 | `Your Friday plans just got prettier. ✨🌿Treat yourself to a delicious meal and enjoy complimenta.jpg` |
-| 105 | 447×447 | `patio bella logo 2.jpg` |
-| 106 | 447×447 | `patio bella logo.jpg` |
-| 107 | 1122×1491 | `“It was the most scrumptious cake in the entire world,” says Miss Trunchbull.And honestly We mig.jpg` |
-| 108 | 1170×1560 | `🥩 Some steaks are good. This one is worth coming back for.Perfectly grilled, juicy, and served  (1).jpg` |
-| 109 | 1170×1560 | `🥩 Some steaks are good. This one is worth coming back for.Perfectly grilled, juicy, and served .jpg` |
+| # | Size (px) | Uploaded as | Now |
+| --- | --- | --- | --- |
+| 1 | 911×646 | `#12DaysOfBreakfast - Day 1- Omelette DeluxeComes with a choice of-_•_Spinach & Mushroom Omelette.jpg` | `food/breakfast-omelette-deluxe.jpg` |
+| 2 | 914×653 | `#12DaysOfBreakfast - Day 10- BELLA CRISTO SANDWICHGrilled chicken 🍗, turkey ham 🍖, cheese 🧀,  (1).jpg` | `food/breakfast-bella-cristo-closeup.jpg` |
+| 3 | 913×652 | `#12DaysOfBreakfast - Day 10- BELLA CRISTO SANDWICHGrilled chicken 🍗, turkey ham 🍖, cheese 🧀, .jpg` | `food/breakfast-bella-cristo-plate.jpg` |
+| 4 | 902×634 | `#12DaysOfBreakfast - Day 2- Morning Scramble Wrap 🌯Grilled chicken, eggs, avo, cheese & tomatoe.jpg` | `food/breakfast-scramble-wrap.jpg` |
+| 5 | 1170×835 | `#12DaysOfBreakfast - Day 3- Chapati Royale ComboComes with-Chapatti - 2 Eggs - 2 Sausages🍟 Home (1).jpg` | `food/breakfast-chapati-royale-table.jpg` |
+| 6 | 1027×733 | `#12DaysOfBreakfast - Day 3- Chapati Royale ComboComes with-Chapatti - 2 Eggs - 2 Sausages🍟 Home.jpg` | `food/breakfast-chapati-royale-overhead.jpg` |
+| 7 | 1027×733 | `#12DaysOfBreakfast - Day 6- Chicken & Eggs BenedictStart your day right with grilled chicken🍗,  (1).jpg` | `food/breakfast-eggs-benedict-latte.jpg` |
+| 8 | 1170×835 | `#12DaysOfBreakfast - Day 6- Chicken & Eggs BenedictStart your day right with grilled chicken🍗, .jpg` | `food/breakfast-eggs-benedict-closeup.jpg` |
+| 9 | 730×494 | `A constellation of moments now lights the Patio Bella experience. A tribute to a space crafted w (1).jpg` | `interior/arena-bar-counter.jpg` |
+| 10 | 731×495 | `A constellation of moments now lights the Patio Bella experience. A tribute to a space crafted w (2).jpg` | `interior/arena-lounge.jpg` |
+| 11 | 735×498 | `A constellation of moments now lights the Patio Bella experience. A tribute to a space crafted w (3).jpg` | `interior/arena-dining-room.jpg` |
+| 12 | 728×491 | `A constellation of moments now lights the Patio Bella experience. A tribute to a space crafted w.jpg` | `interior/arena-bar-pendants.jpg` |
+| 13 | 1170×1560 | `A fresh look, same coffee you love. ☕✨Our coffee just got a stylish new home. Introducing our ne.jpg` | `drinks/takeaway-coffee-car-window.jpg` |
+| 14 | 720×1280, video 8s | `A little cheese, a little crunch, and a whole lot of reasons to order another slice. 🍕🤌🏽💙Piz.mp4` | `video/pizza-sauce-drizzle.mp4` |
+| 15 | 1170×1560 | `A little colour, a little sparkle, and the perfect sip. 🍸✨Make your next catch-up a little more (1).jpg` | `drinks/cocktail-cherry-sugar-rim.jpg` |
+| 16 | 1170×1560 | `A little colour, a little sparkle, and the perfect sip. 🍸✨Make your next catch-up a little more.jpg` | `drinks/cocktail-mint-sugar-rim.jpg` |
+| 17 | 720×1280, video 44s | `A little taste of what’s cooking at Patio Bella. 👀🍽️💙Good food deserves a proper taste test, .mp4` | `video/food-tasting.mp4` |
+| 18 | 1170×1468 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala (1).jpg` | `food/chicken-lollipops-captioned.jpg` |
+| 19 | 1170×1468 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala (2).jpg` | `food/bella-burger-captioned.jpg` |
+| 20 | 1170×1468 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala (3).jpg` | `food/fish-fillet-captioned.jpg` |
+| 21 | 1170×1468 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala (4).jpg` | `food/chicken-wrap-captioned.jpg` |
+| 22 | 1120×1404 | `A new chapter is being served at Patio Lugogo. ✨From golden bites and juicy steaks to fresh sala.jpg` | `other/promo-new-menu.jpg` |
+| 23 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u (1).jpg` | `interior/bar-captioned.jpg` |
+| 24 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u (2).jpg` | `interior/dining-art-captioned.jpg` |
+| 25 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u (3).jpg` | `interior/dining-olive-chairs-captioned.jpg` |
+| 26 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u (4).jpg` | `interior/dining-wine-captioned.jpg` |
+| 27 | 1086×1448 | `Above the city, where golden sunsets meet rooftop vibes. ✨Take in the breathtaking views, soak u.jpg` | `interior/entrance-captioned.jpg` |
+| 28 | 1210×1613 | `Blueberry cheesecake, because some cravings deserve the sweetest ending. 🫐🍰💙Creamy, indulgent (1).jpg` | `food/blueberry-cheesecake-storefront.jpg` |
+| 29 | 1104×1468 | `Blueberry cheesecake, because some cravings deserve the sweetest ending. 🫐🍰💙Creamy, indulgent (2).jpg` | `food/blueberry-cheesecake.jpg` |
+| 30 | 1210×1613 | `Blueberry cheesecake, because some cravings deserve the sweetest ending. 🫐🍰💙Creamy, indulgent.jpg` | `food/blueberry-cheesecake-overhead.jpg` |
+| 31 | 1170×1461 | `Built to burger-fection 😋🍔📍Arena Mall, Nsambya ☎️ 0775852656 for deliveries. #thepatiobella (1).jpg` | `food/double-burger-gloved-hands.jpg` |
+| 32 | 1170×1461 | `Built to burger-fection 😋🍔📍Arena Mall, Nsambya ☎️ 0775852656 for deliveries. #thepatiobella (2).jpg` | `people-and-events/guest-burger.jpg` |
+| 33 | 1170×1463 | `Built to burger-fection 😋🍔📍Arena Mall, Nsambya ☎️ 0775852656 for deliveries. #thepatiobella.jpg` | `food/burgers-shared-table.jpg` |
+| 34 | 1170×1560 | `Did someone say pizza 🍕✨Hot, cheesy, and made just the way you love it.Come grab a slice at Pat (1).jpg` | `food/pizza-cheese-pull.jpg` |
+| 35 | 1170×1560 | `Did someone say pizza 🍕✨Hot, cheesy, and made just the way you love it.Come grab a slice at Pat.jpg` | `people-and-events/chef-pizza.jpg` |
+| 36 | 1080×1080 | `Friends + food 🥘+ cocktails🍸- perfect Saturday😋Call 0775852656 to reserve your spot for a cel.jpg` | `people-and-events/guest-laughing-drink.jpg` |
+| 37 | 1080×1350 | `From scratch to your table, every bite is worth the wait. 🍽️💙 Freshly prepared, full of flavou (1).jpg` | `food/tomato-soup-grilled-bread.jpg` |
+| 38 | 1080×1350 | `From scratch to your table, every bite is worth the wait. 🍽️💙 Freshly prepared, full of flavou.jpg` | `food/penne-parmesan-grating.jpg` |
+| 39 | 360×640, video 20s | `Golden mornings start here☀️Crispy waffles, fresh fruit, and that perfect sweet touch… your brea.mp4` | `video/waffles.mp4` |
+| 40 | 1170×1561 | `Good cocktails, better company, and a little Patio magic. 🍸✨Your favourite corner for refreshin (1).jpg` | `drinks/sunrise-highball-marble.jpg` |
+| 41 | 1170×1561 | `Good cocktails, better company, and a little Patio magic. 🍸✨Your favourite corner for refreshin (2).jpg` | `drinks/red-martini-bar.jpg` |
+| 42 | 1170×1561 | `Good cocktails, better company, and a little Patio magic. 🍸✨Your favourite corner for refreshin.jpg` | `drinks/hurricane-cocktail-bar.jpg` |
+| 43 | 720×1280, video 16s | `Good food just got a better deal. 🍽️✨Meet the Patio Combos — thoughtfully paired favourites mad.mp4` | `video/patio-combos.mp4` |
+| 44 | 1170×1463 | `Good food, beautiful plates, and flavours worth slowing down for. 🤤🍽️From perfectly prepared m (1).jpg` | `food/t-bone-steak-onion-rings.jpg` |
+| 45 | 1080×1350 | `Good food, beautiful plates, and flavours worth slowing down for. 🤤🍽️From perfectly prepared m (2).jpg` | `food/steak-skewers-salmon-overhead.jpg` |
+| 46 | 1170×1463 | `Good food, beautiful plates, and flavours worth slowing down for. 🤤🍽️From perfectly prepared m.jpg` | `food/salmon-avocado-tower.jpg` |
+| 47 | 1086×1448 | `Good mornings deserve good food, great coffee, and a space that feels just right. ☀️Introducing .jpg` | `drinks/cappuccino-croissant.jpg` |
+| 48 | 720×1280, video 10s | `Good mornings start at Patio Bella. ☀️🤍From delicious breakfast bites to your favourite cup of .mp4` | `video/good-mornings.mp4` |
+| 49 | 720×1280, video 48s | `Great food starts with great chefs. 👨🏽_🍳✨At Patio Bella, we’re always sharpening our skills, .mp4` | `video/chef-training.mp4` |
+| 50 | 1024×1279 | `Happy Valentine’s Day! ❤️🌹Celebrate love with flavors as rich as your story. ❤️🍽️✨ Valentine’s (1).jpg` | `food/chicken-roulade-closeup.jpg` |
+| 51 | 1080×1350 | `Happy Valentine’s Day! ❤️🌹Celebrate love with flavors as rich as your story. ❤️🍽️✨ Valentine’s (2).jpg` | `food/wine-dinner-table.jpg` |
+| 52 | 1024×1279 | `Happy Valentine’s Day! ❤️🌹Celebrate love with flavors as rich as your story. ❤️🍽️✨ Valentine’s.jpg` | `food/chicken-roulade-plate.jpg` |
+| 53 | 1170×1465 | `Hear that sizzle 🔥🥩Our Sizzling Pork comes hot, hearty and packed with flavour ,the kind of pl.jpg` | `food/sizzling-pork-skillet.jpg` |
+| 54 | 1170×1560 | `Henna Fridays are calling… ✨Good vibes, beautiful art, great food & unforgettable moments await .jpg` | `people-and-events/henna-shoulder.jpg` |
+| 55 | 1080×1080 | `It’s always a good time for a good cocktail 🍸Buy one cocktail and get one free from 2PM- 8PM ev.jpg` | `drinks/bartender-blue-martini.jpg` |
+| 56 | 1170×878 | `It’s been a while 🤍What would you love to see us improve or change at Patio BellaTell us in the.jpg` | `views-and-atmosphere/arena-dining-city-view.jpg` |
+| 57 | 1279×1598 | `It’s the weekend—time for a cocktail fix at The Patio Bella!📍 Arena Mall, Nsambya☎️ 0775 852 65.jpg` | `drinks/orange-cocktail-gloved-hand.jpg` |
+| 58 | 1080×1350 | `Juicy, tender, and grilled to perfection. 🔥🥩 Our pork chops are here to turn your “just a quic.jpg` | `food/pork-chops-captioned.jpg` |
+| 59 | 1080×1349 | `Love hangover Our cocktails are the cure. 🍹💃 Keep the fun going—Valentine’s is just a warm-up!.jpg` | `drinks/blue-hurricane-lime.jpg` |
+| 60 | 1170×1560 | `Lugogo, something beautiful is on the way. 👀✨Patio Bella is coming soon ,bringing good food, be.jpg` | `other/promo-lugogo-map.jpg` |
+| 61 | 1086×1448 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo (1).jpg` | `interior/lugogo-entrance.jpg` |
+| 62 | 1086×1448 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo (2).jpg` | `interior/lugogo-corner-table.jpg` |
+| 63 | 1086×1448 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo (3).jpg` | `interior/lugogo-staircase.jpg` |
+| 64 | 1086×1448 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo (4).jpg` | `views-and-atmosphere/lugogo-daylight-dining.jpg` |
+| 65 | 1170×1560 | `Lugogo, we’re officially OPEN! 🤍✨Patio Bella Lugogo is now ready to welcome you — delicious foo.jpg` | `interior/lugogo-counter.jpg` |
+| 66 | 720×1280, video 30s | `Lugogo, your Bella era starts NOW! 💙💛✨We’re officially OPEN and ready to welcome you! From del.mp4` | `video/lugogo-opening.mp4` |
+| 67 | 1170×1463 | `Lugogo, your Bella era starts now. 💙💛✨We’re officially open, bringing you good food, great cof.jpg` | `other/promo-lugogo-open.jpg` |
+| 68 | 1170×1560 | `Lunch just got an upgrade 🍕🔥Beef pizza at PatioBella- hot, cheesy, and hitting right on time.P.jpg` | `food/pizza-peel-overhead.jpg` |
+| 69 | 1170×781 | `Make this Eid celebration special 🌙Gather, dine, and create beautiful memories at PatioBella.#P (1).jpg` | `food/table-spread-overhead.jpg` |
+| 70 | 1170×780 | `Make this Eid celebration special 🌙Gather, dine, and create beautiful memories at PatioBella.#P (2).jpg` | `food/table-spread-dining-room.jpg` |
+| 71 | 1170×780 | `Make this Eid celebration special 🌙Gather, dine, and create beautiful memories at PatioBella.#P.jpg` | `food/dessert-and-burgers-table.jpg` |
+| 72 | 1170×1461 | `Mondays are for melted cheese and good vibes.☎️ 0775 852656 for deliveries. #patiobella #arenama.jpg` | `food/pizza-being-served.jpg` |
+| 73 | 1170×781 | `Need a pick-me-up A delicious lunch from The Patio Bella is exactly what you need! 🥘😋What slid (1).jpg` | `food/pizza-board-overhead.jpg` |
+| 74 | 1170×781 | `Need a pick-me-up A delicious lunch from The Patio Bella is exactly what you need! 🥘😋What slid (2).jpg` | `food/chicken-tenders-fries.jpg` |
+| 75 | 1170×781 | `Need a pick-me-up A delicious lunch from The Patio Bella is exactly what you need! 🥘😋What slid.jpg` | `food/steak-board-overhead.jpg` |
+| 76 | 1080×1350 | `New flavors, new favorites! Our latest menu is finally here, packed with delicious surprises. Wh (1).jpg` | `other/menu-mains.jpg` |
+| 77 | 1080×1350 | `New flavors, new favorites! Our latest menu is finally here, packed with delicious surprises. Wh.jpg` | `other/menu-breakfast-cafe.jpg` |
+| 78 | 1170×1463 | `POV- You said you’d just have a little something… and now the plate is disappearing. 😂🍽️Good f.jpg` | `people-and-events/guest-steak-dinner-captioned.jpg` |
+| 79 | 1170×1461 | `Patio Bella style = bold flavors, no holding back 🍔🔥#PatioBella #whereweallcometogether.jpg` | `food/cheeseburger-closeup.jpg` |
+| 80 | 1000×1333 | `Something special is drifting into this Sunday’s sunset… 🎷🌅This Sunday, we’re turning up the m.jpg` | `views-and-atmosphere/sunset-saxophone.jpg` |
+| 81 | 1080×1349 | `Start the week with double the flavor! Buy one Margherita, BBQ Chicken, or Vegetable pizza and g.jpg` | `other/promo-pizza-monday.jpg` |
+| 82 | 1170×1462 | `Such a good day—make it even better with a delicious meal at The Patio Bella. You deserve it! 🍽.jpg` | `food/pita-platter-cocktail.jpg` |
+| 83 | 1170×1463 | `That feeling after you take your first bite into our delicious breakfast wrap  🤤😊📸- Chicken &.jpg` | `people-and-events/guest-breakfast-wrap.jpg` |
+| 84 | 1086×1086 | `The Art at Patio Bella ✨More than décor, every piece tells a story. Thoughtfully placed througho (1).jpg` | `interior/art-wall.jpg` |
+| 85 | 1086×1086 | `The Art at Patio Bella ✨More than décor, every piece tells a story. Thoughtfully placed througho (2).jpg` | `interior/art-red-portrait.jpg` |
+| 86 | 1086×1086 | `The Art at Patio Bella ✨More than décor, every piece tells a story. Thoughtfully placed througho.jpg` | `interior/art-colour-portrait.jpg` |
+| 87 | 1086×1448 | `The kind of starters that don’t just begin a meal… they start conversations.Good food has a way .jpg` | `food/spring-rolls-dip.jpg` |
+| 88 | 720×1280, video 10s | `The perfect pairings, served just the way you like them. 🍕🍹✨Good food + good drinks + good com.mp4` | `video/perfect-pairings.mp4` |
+| 89 | 1080×1350 | `The perfect recipe for a Sunday well spent. #thepatiobella.jpg` | `food/curry-rice-chapati.jpg` |
+| 90 | 1170×1463 | `Today’s mood, served in a glass. 🍸✨Our Cocktail of the Day at Patio Bella is smooth, refreshing.jpg` | `other/promo-cocktail-of-the-week.jpg` |
+| 91 | 1170×1461 | `Tuesdays taste better when they come with layers like this.#PatioBella #foodpics #kampalarestura.jpg` | `food/club-sandwich-closeup.jpg` |
+| 92 | 1080×1349 | `Unwind, indulge, and be inspired tonight! 🎤✨Cheers to the weekend with a little sip-sip, great .jpg` | `drinks/passion-mojito-closeup.jpg` |
+| 93 | 1037×1382 | `Wake up. Pull up. Eat good. ☀️🍳Breakfast at Patio Bella just hits different. From buttery toast (1).jpg` | `food/breakfast-toast-captioned.jpg` |
+| 94 | 1037×1382 | `Wake up. Pull up. Eat good. ☀️🍳Breakfast at Patio Bella just hits different. From buttery toast (2).jpg` | `drinks/cappuccino-breakfast-captioned.jpg` |
+| 95 | 1037×1382 | `Wake up. Pull up. Eat good. ☀️🍳Breakfast at Patio Bella just hits different. From buttery toast (3).jpg` | `drinks/orange-juice-breakfast-captioned.jpg` |
+| 96 | 1037×1382 | `Wake up. Pull up. Eat good. ☀️🍳Breakfast at Patio Bella just hits different. From buttery toast.jpg` | `food/breakfast-scrambled-eggs-captioned.jpg` |
+| 97 | 720×1280, video 10s | `Watch their imaginations come to life with face painting fun at PatioBella  #ThePatioBella  #Whe.mp4` | `video/fun-day-face-painting.mp4` |
+| 98 | 1080×1350 | `We are off to a good start for this long weekend.#thepatiobella #cocktails #nojitos #sangrias (1).jpg` | `drinks/sangria-glass-bar.jpg` |
+| 99 | 1080×1349 | `We are off to a good start for this long weekend.#thepatiobella #cocktails #nojitos #sangrias.jpg` | `drinks/sangria-closeup.jpg` |
+| 100 | 1170×1461 | `Weekend reset Start with food that feeds your soul and a vibe that lifts your mood.#patiobella #.jpg` | `food/roulade-and-wine.jpg` |
+| 101 | 1170×1462 | `Whether you’re into a shaken Margarita or a stirred Martini, one is never enough! Get TWO for th.jpg` | `other/promo-mix-and-mingle.jpg` |
+| 102 | 1170×1461 | `Wing it the right way 🍗✨Perfectly glazed, perfectly grilled.#PatioBella #WhereWeAllComeTogether.jpg` | `food/glazed-wings-platter.jpg` |
+| 103 | 720×1280, video 24s | `Yesterday’s Henna Experience was everything we hoped for—beautiful art, amazing vibes, and unfor.mp4` | `video/henna-experience.mp4` |
+| 104 | 1170×1560 | `Your Friday plans just got prettier. ✨🌿Treat yourself to a delicious meal and enjoy complimenta.jpg` | `people-and-events/henna-hand.jpg` |
+| 105 | 447×447 | `patio bella logo 2.jpg` | `brand/logo-on-marble.jpg` |
+| 106 | 447×447 | `patio bella logo.jpg` | `brand/logo-on-black.jpg` |
+| 107 | 1122×1491 | `“It was the most scrumptious cake in the entire world,” says Miss Trunchbull.And honestly We mig.jpg` | `food/banana-cake-slice.jpg` |
+| 108 | 1170×1560 | `🥩 Some steaks are good. This one is worth coming back for.Perfectly grilled, juicy, and served  (1).jpg` | `food/steak-mash-closeup.jpg` |
+| 109 | 1170×1560 | `🥩 Some steaks are good. This one is worth coming back for.Perfectly grilled, juicy, and served .jpg` | `food/steak-vegetables-closeup.jpg` |

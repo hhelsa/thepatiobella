@@ -4,11 +4,13 @@ Real photography for the website, collected from The Patio Bella's Instagram.
 
 ## Where to put photos
 
-Upload every photo, unsorted, into **`_incoming/`**. You do not need to sort
+Upload new photos, unsorted, into **`_incoming/`**. You do not need to sort
 or rename anything.
 
-Claude then reviews each photo and proposes where it belongs. Nothing is moved
-or renamed until you approve. Moving a file keeps it byte-for-byte identical.
+Claude then reviews each photo and proposes a folder and descriptive name.
+Nothing is moved or renamed until you approve, and moving a file keeps it
+byte-for-byte identical. The first batch of 109 files has already been
+sorted.
 
 | Folder | Contents |
 | --- | --- |
@@ -17,7 +19,10 @@ or renamed until you approve. Moving a file keeps it byte-for-byte identical.
 | `drinks/` | Cocktails, coffee, juices, bar shots |
 | `interior/` | Dining room, seating, décor, bar, details |
 | `views-and-atmosphere/` | The view, sunsets, terrace, ambience, evening light |
-| `other/` | People, events, signage, promotions, anything else |
+| `people-and-events/` | Guests, staff, chefs, henna and fun-day events |
+| `brand/` | Logos |
+| `video/` | Video clips (MP4) |
+| `other/` | Promotional graphics and menus (reference only) |
 
 ### File requirements
 
@@ -34,10 +39,10 @@ or renamed until you approve. Moving a file keeps it byte-for-byte identical.
 Files in `public/` are served from the site root, so
 
 ```
-public/images/patio-bella/food/lemon-penne.jpg
+public/images/patio-bella/food/pizza-cheese-pull.jpg
 ```
 
-is available at `/images/patio-bella/food/lemon-penne.jpg`. Components render
+is available at `/images/patio-bella/food/pizza-cheese-pull.jpg`. Components render
 them with Next.js `<Image>`, which serves resized, modern-format versions for
 each screen size and lazy-loads images below the fold:
 
@@ -45,15 +50,16 @@ each screen size and lazy-loads images below the fold:
 import Image from "next/image";
 
 <Image
-  src="/images/patio-bella/food/lemon-penne.jpg"
-  alt="Lemon-zested penne with parmesan"
-  width={1080}
-  height={1350}
+  src="/images/patio-bella/food/pizza-cheese-pull.jpg"
+  alt="A slice of pizza lifted with stretching melted cheese"
+  width={1170}
+  height={1560}
   sizes="(min-width: 1024px) 50vw, 100vw"
 />
 ```
 
 Filenames are lowercase-with-hyphens and describe the subject
-(e.g. `sunset-terrace-wide.jpg`), so code and alt text stay readable. The
-review of every photo, and which ones are suggested for the homepage, is in
-`docs/PATIO-BELLA-ASSET-INVENTORY.md` (created once photos are uploaded).
+(e.g. `arena-dining-city-view.jpg`), so code and alt text stay readable.
+What every photo shows, its watermark/overlay status, the original upload
+filename and which ones are suggested for the homepage are in
+`docs/PATIO-BELLA-ASSET-INVENTORY.md`.
