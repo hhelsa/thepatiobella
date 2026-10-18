@@ -4,64 +4,34 @@
   "title": "Design System: The Patio Bella",
   "extensions": {
     "colorMeta": {
+      "canopy": {
+        "role": "primary",
+        "displayName": "Canopy",
+        "canonical": "oklch(23.3% 0.049 140.2)",
+        "tonalRamp": [
+          "#050e04",
+          "#1b2818",
+          "#354531",
+          "#51644d",
+          "#6e8569",
+          "#90a68c",
+          "#b7cbb3",
+          "#e3f4df"
+        ]
+      },
       "butter": {
         "role": "secondary",
         "displayName": "Lugogo Butter",
         "canonical": "oklch(83.9% 0.091 82.0)",
         "tonalRamp": [
-          "#130900",
-          "#342100",
-          "#5a3c00",
-          "#7b5b18",
-          "#9d7d3e",
-          "#c2a061",
-          "#e6c486",
-          "#ffebc1"
-        ]
-      },
-      "amber": {
-        "role": "secondary",
-        "displayName": "Lugogo Amber",
-        "canonical": "oklch(71.9% 0.132 68.2)",
-        "tonalRamp": [
-          "#190500",
-          "#411800",
-          "#6d2e00",
-          "#904f00",
-          "#b57102",
-          "#db943c",
-          "#ffb967",
-          "#ffe4ae"
-        ]
-      },
-      "lantern": {
-        "role": "tertiary",
-        "displayName": "Lantern",
-        "canonical": "oklch(58.2% 0.125 59.2)",
-        "tonalRamp": [
-          "#190500",
-          "#421600",
-          "#6f2b00",
-          "#934c00",
-          "#b86d28",
-          "#de904e",
-          "#ffb576",
-          "#ffe2b7"
-        ]
-      },
-      "canopy": {
-        "role": "primary",
-        "displayName": "Canopy Night",
-        "canonical": "oklch(23.3% 0.049 140.2)",
-        "tonalRamp": [
-          "#070d06",
-          "#1c2919",
-          "#344830",
-          "#53684e",
-          "#738a6e",
-          "#95ad90",
-          "#b9d1b4",
-          "#e3f4e0"
+          "#160700",
+          "#332000",
+          "#533b07",
+          "#745921",
+          "#987839",
+          "#b89a61",
+          "#dcc08e",
+          "#ffebc0"
         ]
       },
       "gold": {
@@ -69,137 +39,180 @@
         "displayName": "Logo Gold",
         "canonical": "oklch(75.5% 0.108 84.9)",
         "tonalRamp": [
-          "#130900",
-          "#362000",
-          "#5c3b00",
-          "#7d5b00",
-          "#a07c29",
-          "#c49f4f",
-          "#e9c477",
-          "#ffecb8"
+          "#170700",
+          "#342000",
+          "#543b00",
+          "#765805",
+          "#9a7724",
+          "#bb9a53",
+          "#dec082",
+          "#ffebb6"
+        ]
+      },
+      "lantern": {
+        "role": "tertiary",
+        "displayName": "Lantern",
+        "canonical": "oklch(58.2% 0.125 59.2)",
+        "tonalRamp": [
+          "#1f0000",
+          "#411500",
+          "#642f00",
+          "#8a4b04",
+          "#b26923",
+          "#d28c52",
+          "#f5b581",
+          "#ffe1b5"
         ]
       },
       "light": {
         "role": "neutral",
-        "displayName": "Lamplight",
+        "displayName": "Warm Light",
         "canonical": "oklch(94.3% 0.030 83.6)",
         "tonalRamp": [
-          "#0e0b06",
-          "#2a2419",
-          "#4a4130",
-          "#69604e",
-          "#8b816e",
-          "#aea490",
-          "#d2c8b4",
-          "#f5eee0"
+          "#0f0a04",
+          "#292318",
+          "#463f31",
+          "#655d4d",
+          "#867c69",
+          "#a79d8c",
+          "#ccc3b3",
+          "#f5eedf"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Chapter titles; hero at 6vw/-0.02em, closing brand line at 8vw/0.92/-0.03em; capped at 6rem."
+        "purpose": "Hero headline only; centred, two authored lines."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Sub-chapter heads and the art quote."
+        "purpose": "Section titles; two sentence-case lines; sizes run clamp(2.75-3.25rem, 5-8vw, 4.75-6rem) per section."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Names of dishes, drinks, moments and stops."
+        "purpose": "Room, happening and location names."
+      },
+      "statement": {
+        "displayName": "Statement",
+        "purpose": "The centred about-sentence with inline photographs, max 21em."
+      },
+      "caption-title": {
+        "displayName": "Caption title",
+        "purpose": "Dish names under plates; chooser location names."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "The closing 'Patio Bella' in the footer, one line."
       },
       "lead": {
         "displayName": "Lead",
-        "purpose": "Paragraph under each heading, 34-40ch."
+        "purpose": "Section intros, 18-20px, max 30-34ch."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Base text, to 44ch."
+        "purpose": "Running copy, 17px, max 40-46ch."
+      },
+      "ui": {
+        "displayName": "UI",
+        "purpose": "Buttons and emphasised links; nav at weight 500."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Day-line part names and place labels only; uppercase."
-      },
-      "nav": {
-        "displayName": "Nav",
-        "purpose": "Header links and the Reserve pill."
+        "purpose": "Uppercase room labels at the hero's foot only."
       }
     },
     "shadows": [
       {
-        "name": "chooser-lift",
-        "value": "0 18px 40px -12px rgb(16 35 12 / 0.45)",
-        "purpose": "Reservation chooser panel."
+        "name": "overlay",
+        "value": "0 24px 48px -16px rgb(16 35 12 / 0.5)",
+        "purpose": "The reserve chooser floating over the hero; the system's only shadow."
+      }
+    ],
+    "scrims": [
+      {
+        "name": "scrim-top",
+        "value": "linear-gradient(to bottom, rgb(16 35 12 / 0.7), transparent)",
+        "purpose": "Under the header over the hero photograph (160px)."
       },
       {
-        "name": "callbar-lift",
-        "value": "0 -10px 30px -12px rgb(16 35 12 / 0.35)",
-        "purpose": "Phone call bar, cast upward."
+        "name": "scrim-headline",
+        "value": "radial-gradient(ellipse 62% 46% at 50% 52%, rgb(16 35 12 / 0.62), transparent 100%)",
+        "purpose": "Behind the centred hero headline."
       },
       {
-        "name": "marker-halo",
-        "value": "0 0 0 2px var(--ground-now)",
-        "purpose": "Cuts the header day marker out of its rule."
+        "name": "scrim-bottom",
+        "value": "linear-gradient(to top, rgb(16 35 12 / 0.75), transparent)",
+        "purpose": "Along the hero foot for the room labels (160px)."
+      },
+      {
+        "name": "scrim-room",
+        "value": "linear-gradient(to top, rgb(16 35 12 / 0.85), rgb(16 35 12 / 0.25), transparent)",
+        "purpose": "Full-bleed room panels with bottom-left copy."
       }
     ],
     "motion": [
       {
-        "name": "ease-out-expo",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "CSS transitions: link draw, ground ink, day marker."
-      },
-      {
-        "name": "EASE.out",
+        "name": "ease-out",
         "value": "power3.out",
-        "purpose": "GSAP default."
+        "purpose": "Default entrances."
       },
       {
-        "name": "EASE.outStrong",
+        "name": "ease-out-strong",
         "value": "expo.out",
-        "purpose": "Intro timeline, clip reveals, chooser FLIP."
+        "purpose": "Header arrival, Flip morphs, menu links."
       },
       {
-        "name": "EASE.inOut",
+        "name": "ease-in-out",
         "value": "power2.inOut",
-        "purpose": "Ring stroke draw, day rule."
+        "purpose": "Clip-path wipes and stack slides."
       },
       {
-        "name": "EASE.cinematic",
+        "name": "ease-cinematic",
         "value": "expo.inOut",
-        "purpose": "Hero ring clip reveal."
+        "purpose": "The canopy opening to full bleed; menu wipe."
       },
       {
-        "name": "DURATION.fast",
+        "name": "ease-out-expo-css",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "CSS transitions: roll links (0.55s) and fill sweeps (0.6s)."
+      },
+      {
+        "name": "duration-fast",
         "value": "0.35s",
         "purpose": "Small state changes."
       },
       {
-        "name": "DURATION.base",
+        "name": "duration-base",
         "value": "0.8s",
-        "purpose": "GSAP default; batch reveals."
+        "purpose": "Standard entrances."
       },
       {
-        "name": "DURATION.slow",
+        "name": "duration-slow",
         "value": "1.2s",
-        "purpose": "Clip reveals, arch and call band entrances."
+        "purpose": "Headline and copy reveals."
       },
       {
-        "name": "DURATION.cinematic",
+        "name": "duration-cinematic",
         "value": "1.6s",
-        "purpose": "Hero ring opening."
+        "purpose": "Large scene moves."
       },
       {
-        "name": "STAGGER",
-        "value": "0.035s / 0.08s / 0.14s",
-        "purpose": "Tight, base, loose staggers."
+        "name": "seam-reveal",
+        "value": "clip-path inset(8.4% 6% 0% 6%) to inset(0) scrubbed from top bottom to top 25%",
+        "purpose": "Change of ground between sections."
       },
       {
-        "name": "sunset-pin",
-        "value": "pinned +=140% (desktop), scrubbed 65%-40% (phones)",
-        "purpose": "Sun ring sets, ground crossfades amber to lantern to canopy."
+        "name": "reduced-motion",
+        "value": "no pin, scrub, split or parallax; content static",
+        "purpose": "prefers-reduced-motion: reduce."
       }
     ],
     "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
       {
         "name": "md",
         "value": "768px"
@@ -207,141 +220,132 @@
       {
         "name": "lg",
         "value": "1024px"
-      },
-      {
-        "name": "xl",
-        "value": "1280px"
       }
     ]
   },
   "components": [
     {
-      "name": "Call Pill (light ground)",
+      "name": "Butter Button",
       "kind": "button",
-      "refersTo": "button-call-on-light",
-      "description": "The reservation call on butter and amber grounds: a tel: link, number in tabular figures.",
-      "html": "<div class=\"ds-ground-butter\"><a class=\"ds-call-light\" href=\"tel:+256794299074\">Call Lugogo <span class=\"ds-num\">0794 299 074</span></a></div>",
-      "css": ".ds-ground-butter { background: var(--color-butter, #e8c585); padding: 32px; } .ds-call-light { font-family: var(--font-sans), 'Hanken Grotesk', system-ui, sans-serif; display: inline-flex; align-items: center; gap: 12px; border-radius: 9999px; background: var(--color-canopy, #10230c); color: var(--color-butter, #e8c585); padding: 14px 24px; font-weight: 600; font-size: 1.0625rem; text-decoration: none; transition: background-color 0.15s; } .ds-call-light:hover { background: color-mix(in srgb, var(--color-canopy, #10230c) 85%, transparent); } .ds-call-light:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; } .ds-num { font-variant-numeric: tabular-nums; }"
+      "refersTo": "button-butter",
+      "description": "Primary action on canopy: Reserve. Warm Light sweeps in from the left on hover.",
+      "html": "<a class=\"ds-btn ds-btn-butter\" href=\"#\">Reserve a table</a>",
+      "css": ".ds-btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;min-height:48px;padding:0 28px;font-family:var(--font-sans,'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif);font-size:15px;font-weight:600;letter-spacing:.01em;text-decoration:none;border-radius:0}.ds-btn::before{content:'';position:absolute;inset:0;z-index:-1;background:var(--fill);transform:scaleX(0);transform-origin:right center;transition:transform .6s cubic-bezier(.16,1,.3,1)}.ds-btn:hover::before,.ds-btn:focus-visible::before{transform:scaleX(1);transform-origin:left center}.ds-btn:focus-visible{outline:2px solid currentColor;outline-offset:4px}.ds-btn-butter{background:var(--color-butter,#e8c585);color:var(--color-canopy,#10230c);--fill:var(--color-light,#f6ebd6)}"
     },
     {
-      "name": "Call Pill (Canopy ground)",
+      "name": "Gold Call Button",
       "kind": "button",
-      "refersTo": "button-call-on-canopy",
-      "description": "The reservation call on Canopy: Gold fill, Lamplight on hover.",
-      "html": "<div class=\"ds-ground-canopy\"><a class=\"ds-call-canopy\" href=\"tel:+256775852656\">Call Arena Mall <span class=\"ds-num\">0775 852 656</span></a></div>",
-      "css": ".ds-ground-canopy { background: var(--color-canopy, #10230c); padding: 32px; } .ds-call-canopy { font-family: var(--font-sans), 'Hanken Grotesk', system-ui, sans-serif; display: inline-flex; align-items: center; gap: 12px; border-radius: 9999px; background: var(--color-gold, #cfaa5a); color: var(--color-canopy, #10230c); padding: 14px 24px; font-weight: 600; font-size: 1.0625rem; text-decoration: none; transition: background-color 0.15s; } .ds-call-canopy:hover { background: var(--color-light, #f6ebd6); } .ds-call-canopy:focus-visible { outline: 2px solid var(--color-light, #f6ebd6); outline-offset: 4px; } .ds-num { font-variant-numeric: tabular-nums; }"
+      "refersTo": "button-gold",
+      "description": "Call a location from canopy (finale). Phone number in tabular figures.",
+      "html": "<div style=\"background:#10230c;padding:24px\"><a class=\"ds-btn-gold\" href=\"#\">Call Lugogo Mall <span>0794 299 074</span></a></div>",
+      "css": ".ds-btn-gold{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;gap:12px;align-items:center;min-height:48px;padding:0 24px;background:var(--color-gold,#cfaa5a);color:var(--color-canopy,#10230c);font-family:var(--font-sans,'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif);font-size:15px;font-weight:600;letter-spacing:.01em;text-decoration:none}.ds-btn-gold span{font-variant-numeric:tabular-nums;opacity:.8}.ds-btn-gold::before{content:'';position:absolute;inset:0;z-index:-1;background:var(--color-light,#f6ebd6);transform:scaleX(0);transform-origin:right center;transition:transform .6s cubic-bezier(.16,1,.3,1)}.ds-btn-gold:hover::before,.ds-btn-gold:focus-visible::before{transform:scaleX(1);transform-origin:left center}.ds-btn-gold:focus-visible{outline:2px solid #f6ebd6;outline-offset:4px}"
     },
     {
-      "name": "Large Stop",
+      "name": "Canopy Call Button",
+      "kind": "button",
+      "refersTo": "button-canopy",
+      "description": "Call a location from butter (visit). Hover fill shown in Warm Light here; the shipped lantern fill is not a system value.",
+      "html": "<div style=\"background:#e8c585;padding:24px\"><a class=\"ds-btn-canopy\" href=\"#\">Call Arena Mall</a></div>",
+      "css": ".ds-btn-canopy{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;min-height:48px;padding:0 24px;background:var(--color-canopy,#10230c);color:var(--color-butter,#e8c585);font-family:var(--font-sans,'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif);font-size:15px;font-weight:600;letter-spacing:.01em;text-decoration:none;transition:color .5s}.ds-btn-canopy::before{content:'';position:absolute;inset:0;z-index:-1;background:var(--color-light,#f6ebd6);transform:scaleX(0);transform-origin:right center;transition:transform .6s cubic-bezier(.16,1,.3,1)}.ds-btn-canopy:hover,.ds-btn-canopy:focus-visible{color:var(--color-canopy,#10230c)}.ds-btn-canopy:hover::before,.ds-btn-canopy:focus-visible::before{transform:scaleX(1);transform-origin:left center}.ds-btn-canopy:focus-visible{outline:2px solid #10230c;outline-offset:4px}"
+    },
+    {
+      "name": "Roll Link",
       "kind": "custom",
-      "refersTo": "button-call-on-canopy",
-      "description": "Closing-section stop block: Gloock name, NEW tag, place label, Gold number pill with inner Canopy pill.",
-      "html": "<div class=\"ds-ground-canopy\"><div class=\"ds-stop\"><div class=\"ds-stop-head\"><h3 class=\"ds-stop-name\">Lugogo</h3><span class=\"ds-tag-new\">New</span></div><p class=\"ds-stop-place\">Lugogo Mall</p><a class=\"ds-stop-call\" href=\"tel:+256794299074\"><span class=\"ds-stop-num\">0794 299 074</span><span class=\"ds-stop-inner\">Call to reserve</span></a></div></div>",
-      "css": ".ds-ground-canopy { background: var(--color-canopy, #10230c); color: var(--color-light, #f6ebd6); padding: 32px; } .ds-stop { font-family: var(--font-sans), 'Hanken Grotesk', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px; border-top: 1px solid color-mix(in srgb, var(--color-light, #f6ebd6) 20%, transparent); padding-top: 32px; } .ds-stop-head { display: flex; align-items: baseline; gap: 16px; } .ds-stop-name { font-family: var(--font-display), Gloock, Georgia, serif; font-weight: 400; font-size: 3.75rem; line-height: 1; margin: 0; } .ds-tag-new { border-radius: 9999px; background: var(--color-amber, #da933b); color: var(--color-canopy, #10230c); padding: 4px 10px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; } .ds-stop-place { margin: 0; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-light, #f6ebd6) 75%, transparent); } .ds-stop-call { display: inline-flex; width: fit-content; align-items: center; gap: 20px; border-radius: 9999px; background: var(--color-gold, #cfaa5a); color: var(--color-canopy, #10230c); padding: 12px 12px 12px 28px; text-decoration: none; transition: background-color 0.15s; } .ds-stop-call:hover { background: var(--color-light, #f6ebd6); } .ds-stop-call:focus-visible { outline: 2px solid var(--color-light, #f6ebd6); outline-offset: 4px; } .ds-stop-num { font-size: 1.875rem; font-weight: 600; font-variant-numeric: tabular-nums; } .ds-stop-inner { border-radius: 9999px; background: var(--color-canopy, #10230c); color: var(--color-light, #f6ebd6); padding: 8px 16px; font-size: 0.875rem; font-weight: 600; transition: transform 0.3s; } .ds-stop-call:hover .ds-stop-inner { transform: translateX(2px); }"
-    },
-    {
-      "name": "NEW Tag",
-      "kind": "chip",
-      "refersTo": "tag-new",
-      "description": "Marks Lugogo as the newly opened branch; nowhere else.",
-      "html": "<div class=\"ds-ground-canopy\"><span class=\"ds-tag-new\">New</span></div>",
-      "css": ".ds-ground-canopy { background: var(--color-canopy, #10230c); padding: 24px; } .ds-tag-new { font-family: var(--font-sans), 'Hanken Grotesk', system-ui, sans-serif; display: inline-block; border-radius: 9999px; background: var(--color-amber, #da933b); color: var(--color-canopy, #10230c); padding: 4px 10px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }"
+      "refersTo": "roll-link",
+      "description": "The text link: label rolls up, a copy rolls in from below.",
+      "html": "<div style=\"background:#e8c585;padding:24px;color:#10230c\"><a class=\"ds-roll\" href=\"#\"><span data-label=\"Find both rooms\">Find both rooms</span></a></div>",
+      "css": ".ds-roll{display:inline-flex;height:1.25em;overflow:hidden;line-height:1.25;color:inherit;text-decoration:none;font-family:var(--font-sans,'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif);font-size:15px;font-weight:600;border-bottom:1px solid rgb(16 35 12 / .4);padding-bottom:4px;box-sizing:content-box}.ds-roll>span{display:block;transition:transform .55s cubic-bezier(.16,1,.3,1)}.ds-roll>span::after{content:attr(data-label);display:block}.ds-roll:hover>span,.ds-roll:focus-visible>span{transform:translateY(-50%)}.ds-roll:focus-visible{outline:2px solid currentColor;outline-offset:4px}"
     },
     {
       "name": "Header",
       "kind": "nav",
-      "refersTo": "button-reserve",
-      "description": "Sticky 72px header in the current ground and ink: logo roundel, four draw-underline links, Reserve pill.",
-      "html": "<header class=\"ds-header\"><span class=\"ds-logo\" aria-hidden=\"true\"></span><nav><ul class=\"ds-nav\"><li><a class=\"ds-link\" href=\"#\">Lugogo</a></li><li><a class=\"ds-link\" href=\"#\">Arena Mall</a></li><li><a class=\"ds-link\" href=\"#\">The day</a></li><li><a class=\"ds-link\" href=\"#\">Rituals</a></li></ul></nav><button class=\"ds-reserve\" type=\"button\">Reserve</button></header>",
-      "css": ".ds-header { font-family: var(--font-sans), 'Hanken Grotesk', system-ui, sans-serif; display: flex; align-items: center; gap: 32px; height: 72px; padding: 0 4vw; background: var(--color-butter, #e8c585); color: var(--color-canopy, #10230c); } .ds-logo { width: 48px; height: 48px; border-radius: 9999px; background: #000; box-shadow: inset 0 0 0 4px var(--color-gold, #cfaa5a); flex-shrink: 0; } .ds-nav { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 15px; font-weight: 600; letter-spacing: 0.04em; } .ds-link { color: inherit; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 0.5s cubic-bezier(0.16, 1, 0.3, 1); } .ds-link:hover, .ds-link:focus-visible { background-size: 100% 1px; } .ds-reserve { font-family: var(--font-sans), 'Hanken Grotesk', system-ui, sans-serif; margin-left: auto; border: 0; border-radius: 9999px; background: var(--color-canopy, #10230c); color: var(--color-butter, #e8c585); padding: 12px 24px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background-color 0.7s, color 0.7s; } .ds-reserve:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }"
+      "refersTo": "header",
+      "description": "Fixed canopy bar, transparent over the hero; roll-link nav and a butter Reserve button.",
+      "html": "<header class=\"ds-header\"><span class=\"ds-logo\" aria-hidden=\"true\"></span><nav><a href=\"#\">Food &amp; drink</a><a href=\"#\">The rooms</a><a href=\"#\">What's on</a><a href=\"#\">Visit</a></nav><button class=\"ds-reserve\">Reserve</button></header>",
+      "css": ".ds-header{display:flex;align-items:center;gap:40px;height:76px;padding:0 4vw;background:var(--color-canopy,#10230c);color:var(--color-light,#f6ebd6);font-family:var(--font-sans,'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif)}.ds-logo{width:44px;height:44px;border-radius:50%;background:#000;box-shadow:inset 0 0 0 3px #cfaa5a}.ds-header nav{display:flex;gap:36px}.ds-header nav a{color:inherit;text-decoration:none;font-size:15px;font-weight:500}.ds-header nav a:hover{opacity:.8}.ds-header a:focus-visible,.ds-reserve:focus-visible{outline:2px solid currentColor;outline-offset:4px}.ds-reserve{margin-left:auto;min-height:44px;padding:0 20px;border:0;border-radius:0;background:var(--color-butter,#e8c585);color:var(--color-canopy,#10230c);font:600 15px/1 var(--font-sans,'Schibsted Grotesk',sans-serif);cursor:pointer}.ds-reserve:hover{background:var(--color-light,#f6ebd6)}"
     },
     {
-      "name": "Day Line",
+      "name": "Reserve Chooser",
       "kind": "custom",
-      "refersTo": "",
-      "description": "Four parts of the day over a rule with a Lantern marker at the current part.",
-      "html": "<div class=\"ds-ground-butter\"><div class=\"ds-dayline\"><div class=\"ds-dayline-rule\"><span class=\"ds-dayline-marker\"></span></div><ol class=\"ds-dayline-parts\"><li>Morning</li><li>Midday</li><li>Sunset</li><li>Night</li></ol></div></div>",
-      "css": ".ds-ground-butter { background: var(--color-butter, #e8c585); color: var(--color-canopy, #10230c); padding: 32px; } .ds-dayline { font-family: var(--font-sans), 'Hanken Grotesk', system-ui, sans-serif; max-width: 44rem; } .ds-dayline-rule { position: relative; height: 2px; background: var(--color-canopy, #10230c); } .ds-dayline-marker { position: absolute; top: 50%; left: 0; width: 16px; height: 16px; border-radius: 9999px; background: var(--color-lantern, #b0661e); transform: translateY(-50%); } .ds-dayline-parts { display: grid; grid-template-columns: repeat(4, 1fr); list-style: none; margin: 12px 0 0; padding: 0; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }"
+      "refersTo": "reserve-chooser",
+      "description": "Butter panel morphing from the Reserve button; one row per location, inverting to canopy on hover.",
+      "html": "<div class=\"ds-chooser\"><p class=\"ds-chooser-h\">Call to reserve</p><a class=\"ds-chooser-row\" href=\"#\"><span><span class=\"ds-chooser-name\">Lugogo Mall <small>New</small></span><span class=\"ds-chooser-tel\">0794 299 074</span></span><span>Call</span></a><a class=\"ds-chooser-row\" href=\"#\"><span><span class=\"ds-chooser-name\">Arena Mall</span><span class=\"ds-chooser-tel\">0775 852 656</span></span><span>Call</span></a></div>",
+      "css": ".ds-chooser{width:min(92vw,400px);padding:8px;background:var(--color-butter,#e8c585);color:var(--color-canopy,#10230c);box-shadow:0 24px 48px -16px rgb(16 35 12 / .5);font-family:var(--font-sans,'Schibsted Grotesk',sans-serif)}.ds-chooser-h{margin:0;padding:12px 16px 8px;font:500 24px/1.2 var(--font-display,'Bodoni Moda',Didot,Georgia,serif);letter-spacing:-.03em}.ds-chooser-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px;border-top:1px solid rgb(16 35 12 / .15);color:inherit;text-decoration:none;font-size:14px;font-weight:600;transition:background .3s,color .3s}.ds-chooser-row:hover,.ds-chooser-row:focus-visible{background:var(--color-canopy,#10230c);color:var(--color-butter,#e8c585)}.ds-chooser-name{display:block;font:500 28px/1 var(--font-display,'Bodoni Moda',Didot,Georgia,serif);letter-spacing:-.03em}.ds-chooser-name small{margin-left:8px;font:600 11px var(--font-sans,sans-serif);letter-spacing:.14em;text-transform:uppercase;vertical-align:middle}.ds-chooser-tel{display:block;margin-top:6px;font-size:15px;font-weight:400;opacity:.8;font-variant-numeric:tabular-nums}"
     },
     {
-      "name": "Phone Call Bar",
-      "kind": "nav",
-      "refersTo": "call-bar",
-      "description": "Phones only: sticky 56px Canopy bar, one tel: link per stop.",
-      "html": "<nav class=\"ds-callbar\"><a href=\"tel:+256794299074\"><span class=\"ds-cb-name\">Lugogo</span><span class=\"ds-cb-cta\">Call to reserve</span></a><a href=\"tel:+256775852656\"><span class=\"ds-cb-name\">Arena Mall</span><span class=\"ds-cb-cta\">Call to reserve</span></a></nav>",
-      "css": ".ds-callbar { font-family: var(--font-sans), 'Hanken Grotesk', system-ui, sans-serif; display: grid; grid-template-columns: 1fr 1fr; height: 56px; max-width: 390px; background: var(--color-canopy, #10230c); box-shadow: 0 -10px 30px -12px rgb(16 35 12 / 0.35); } .ds-callbar a { display: flex; flex-direction: column; justify-content: center; padding: 8px 20px; color: var(--color-light, #f6ebd6); text-decoration: none; } .ds-callbar a + a { border-left: 1px solid color-mix(in srgb, var(--color-light, #f6ebd6) 15%, transparent); } .ds-callbar a:active { background: rgb(255 255 255 / 0.1); } .ds-callbar a:focus-visible { outline: 2px solid currentColor; outline-offset: -4px; } .ds-cb-name { font-family: var(--font-display), Gloock, Georgia, serif; font-size: 1.25rem; line-height: 1; } .ds-cb-cta { margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--color-gold, #cfaa5a); }"
-    },
-    {
-      "name": "Apertures",
+      "name": "Photo Frame with Caption",
       "kind": "card",
-      "refersTo": "aperture-plate",
-      "description": "Ring, arch and plate frames for photography; overlapping frames take a 6px ground-coloured mat.",
-      "html": "<div class=\"ds-ground-butter ds-apertures\"><div class=\"ds-ap ds-ap-ring\"></div><div class=\"ds-ap ds-ap-plate\"></div><div class=\"ds-ap ds-ap-arch ds-ap-mat\"></div></div>",
-      "css": ".ds-ground-butter { background: var(--color-butter, #e8c585); } .ds-apertures { position: relative; display: flex; align-items: flex-end; gap: 24px; padding: 32px; } .ds-ap { overflow: hidden; background: color-mix(in srgb, var(--color-canopy, #10230c) 20%, transparent); } .ds-ap-ring { width: 160px; aspect-ratio: 1; border-radius: 9999px; outline: 1.4px solid var(--color-lantern, #b0661e); outline-offset: 6px; } .ds-ap-plate { width: 128px; aspect-ratio: 4 / 5; border-radius: 14px; } .ds-ap-arch { width: 96px; aspect-ratio: 3 / 4; border-radius: 999px 999px 14px 14px; margin-left: -56px; } .ds-ap-mat { border: 6px solid var(--color-butter, #e8c585); }"
+      "refersTo": "photo-frame",
+      "description": "A 4px clipping frame; the image layer inside scales on reveal. Bodoni caption title, note at 75% ink.",
+      "html": "<figure class=\"ds-plate\"><div class=\"ds-frame\"><div class=\"ds-frame-media\"></div></div><figcaption><span class=\"ds-plate-name\">First coffee</span><span class=\"ds-plate-note\">Cappuccino and a croissant.</span></figcaption></figure>",
+      "css": ".ds-plate{margin:0;width:220px;color:var(--color-canopy,#10230c);font-family:var(--font-sans,'Schibsted Grotesk',sans-serif)}.ds-frame{position:relative;overflow:hidden;aspect-ratio:3/4;border-radius:4px;background:rgb(16 35 12 / .3)}.ds-frame-media{position:absolute;inset:0;background:linear-gradient(160deg,#b0661e,#10230c);transform:scale(1.15);transition:transform 1.2s cubic-bezier(.16,1,.3,1)}.ds-plate:hover .ds-frame-media{transform:scale(1)}.ds-plate figcaption{margin-top:16px}.ds-plate-name{display:block;font:500 1.5rem/1.25 var(--font-display,'Bodoni Moda',Didot,Georgia,serif);letter-spacing:-.03em}.ds-plate-note{display:block;margin-top:4px;font-size:16px;color:rgb(16 35 12 / .75)}"
+    },
+    {
+      "name": "Happening Row",
+      "kind": "custom",
+      "refersTo": "happening-row",
+      "description": "On canopy: hairline, photo, Bodoni title and copy at 80% light.",
+      "html": "<div style=\"background:#10230c;padding:24px\"><div class=\"ds-happening\"><div class=\"ds-happening-photo\"></div><div><h3>Henna at the table</h3><p>Henna artists drawing for guests while you eat.</p></div></div></div>",
+      "css": ".ds-happening{display:grid;grid-template-columns:8rem 1fr;gap:32px;align-items:center;padding:32px 0;border-top:1px solid rgb(246 235 214 / .25);color:var(--color-light,#f6ebd6);font-family:var(--font-sans,'Schibsted Grotesk',sans-serif)}.ds-happening-photo{aspect-ratio:4/5;border-radius:4px;background:#3a2a14}.ds-happening h3{margin:0;font:500 2.5rem/1 var(--font-display,'Bodoni Moda',Didot,Georgia,serif);letter-spacing:-.03em}.ds-happening p{margin:12px 0 0;max-width:42ch;font-size:17px;line-height:1.625;color:rgb(246 235 214 / .8)}"
     }
   ],
   "narrative": {
-    "northStar": "One Day in Two Rooms",
-    "overview": "The system is a single restaurant day told in the sampled light of Patio Bella's two rooms. Grounds are drenched, whole-width fields of colour that move through the day: Lugogo's butter morning, amber midday, a lantern sunset, and the canopy-green night of Arena Mall. Nothing sits on a neutral page; the colour of a section is its time of day, and the header, scrollbar and selection follow that time.\n\nPhotography never runs full bleed. It is held in apertures, shapes taken from the rooms themselves: the ring of the logo, the round-topped arch of Lugogo's doorways, and the plate. Apertures overlap one another at different sizes on an asymmetric twelve-column field, so rooms read as places you look into, not banners. Display type is Gloock in sentence case, set large and tight; everything else is Hanken Grotesk. The only action anywhere is calling one of two locations, and it travels with the visitor as pills, a two-stop call bar and a chooser panel.\n\nDensity is low and spacing is generous, in viewport-relative units: 4vw gutters, 3vw column gaps, section padding that scales with viewport height. Motion is the day itself: grounds crossfade, apertures open by clip, and the sun ring sets at Arena Mall. With reduced motion or no JavaScript, each section simply owns its own ground and everything is visible.",
+    "northStar": "Two Rooms, One Table",
+    "overview": "The page alternates between two grounds taken from the two real rooms: Lugogo's butter-yellow walls for the quiet, light, centred sections, and Arena's canopy green for the immersive, full-bleed moments. Photographs carry the atmosphere; type carries the voice. Display type is Bodoni Moda at weight 500 in sentence case with authored line breaks; everything functional is Schibsted Grotesk. Corners are square or nearly so. There are no cards, no decorative shapes and no gradients except scrims that exist to keep type legible over photographs.\n\nMotion is reserved for a few authored scenes rather than spread evenly: an opening where photographs stack in a small centred frame and the Arena canopy opens to full bleed, a pinned two-rooms scene, a horizontally travelling food gallery, words that fill with ink as the statement is read, and section seams that open from an inset panel so each change of ground is a movement, not a cut. Everything is visible without JavaScript and with reduced motion.\n\nDensity is low and the rhythm is generous: big vertical spacing on the light sections, viewport-height moments on the dark ones.",
     "keyCharacteristics": [
-      "Whole-section colour grounds that mark time of day (butter, amber, lantern, canopy).",
-      "Photography only inside ring, arch and plate apertures, overlapping.",
-      "Gloock sentence-case display with Hanken Grotesk; no other faces.",
-      "Pill-shaped call actions; a Canopy two-stop call bar; a day line with a lantern marker.",
-      "Flat surfaces; depth comes from overlap and the 6px ground-coloured mat, not shadow."
+      "Two grounds only: butter (light, quiet) and canopy (immersive); gold and light belong to canopy.",
+      "Bodoni Moda 500, sentence case, tight tracking (-0.03em), authored two-line breaks.",
+      "Photographs in square-cornered frames (4px); the frame clips, the image inside moves.",
+      "Fill-sweep buttons and roll links are the only interactive flourishes.",
+      "Ground changes are revealed by clip-path seams, never by gradients."
     ],
     "rules": [
       {
-        "name": "The Ground Is the Hour Rule",
-        "body": "Every section declares one ground from butter, amber or canopy, and the ground follows the order of the day. Lantern is a ground only in the sunset transition, never a static section.",
+        "name": "The Two Grounds Rule",
+        "body": "A section's background is canopy or butter, nothing else. Warm Light is ink, never ground.",
         "section": "colors"
       },
       {
         "name": "The Gold Stays Home Rule",
-        "body": "Logo Gold appears only on a Canopy ground. On butter and amber, the call action is a Canopy pill instead.",
+        "body": "Gold appears only on canopy. On butter it has no contrast and no meaning.",
         "section": "colors"
       },
       {
-        "name": "The No Cream Ground Rule",
-        "body": "Lamplight is ink, never a background. The only place it fills a surface is the hover state of a gold pill.",
+        "name": "The Scrim Only Rule",
+        "body": "Gradients exist only as canopy-tinted scrims behind type on photographs (top, bottom, a centred radial behind a headline) and as masks that fade a photograph into canopy. No decorative gradients.",
         "section": "colors"
       },
       {
-        "name": "The Lantern Contrast Rule",
-        "body": "Neither Canopy nor Lamplight reaches 4.5:1 on Lantern (about 3.7:1). On a Lantern ground only display-size type may stay visible; body copy fades out until the ground is Canopy.",
-        "section": "colors"
+        "name": "The Authored Break Rule",
+        "body": "Display and headline text breaks where it was written, as block-level lines, not where the browser wraps. Headings also use `text-wrap: balance`.",
+        "section": "typography"
       },
       {
         "name": "The Sentence Case Rule",
-        "body": "Display and headlines are sentence case and end with a full stop. Uppercase belongs only to the day line, the NEW tag and place labels.",
+        "body": "Bodoni is always sentence case at weight 500. Uppercase belongs only to small Schibsted labels.",
         "section": "typography"
       },
       {
-        "name": "The Names in Serif Rule",
-        "body": "Rooms, dishes, drinks and moments are set in Gloock even at list size; instructions and facts are set in Hanken.",
-        "section": "typography"
-      },
-      {
-        "name": "The Mat Not Shadow Rule",
-        "body": "An aperture that overlaps another is separated by a 6px border in the section's ground colour, never by a drop shadow.",
+        "name": "The Flat Ground Rule",
+        "body": "Surfaces sit flat. A shadow is permitted only on a floating overlay that covers a photograph.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** give every section one ground from butter, amber or canopy, in the order of the day, and set ink by ground (Canopy on butter and amber, Lamplight on canopy).",
-      "**Do** put every photograph in a ring, arch or plate aperture, and overlap apertures with a 6px ground-coloured mat.",
-      "**Do** make every reservation action a tel: link in a pill, with the number in tabular figures, and give both locations equal presence with the NEW tag on Lugogo.",
-      "**Do** set display and headlines in Gloock 400, sentence case, tight (0.92 to 1.02 line height, negative tracking), capped at 6rem.",
-      "**Do** keep Logo Gold on Canopy grounds only.",
-      "**Do** keep every section readable on its own static ground with reduced motion and without JavaScript."
+      "**Do** set every section on canopy or butter, and change ground with a seam reveal (clip from a 6% side inset to full) rather than a gradient.",
+      "**Do** keep gold and Warm Light text on canopy; on butter, ink is canopy at full or reduced opacity.",
+      "**Do** break display and headline text into authored sentence-case lines.",
+      "**Do** frame every photograph in a square-cornered (4px) clipping frame and animate the image inside it, not the frame's layout box.",
+      "**Do** use the motion tokens in `src/lib/motion` (power3.out, expo.out, power2.inOut, expo.inOut; 0.35/0.8/1.2/1.6s) and animate only transforms, opacity and clip-path.",
+      "**Do** keep every label on a fill at 4.5:1 or better in rest and hover states, including during the fill sweep."
     ],
     "donts": [
-      "**Don't** run photography full bleed or behind text.",
-      "**Don't** use Lamplight (or any cream) as a ground.",
-      "**Don't** use colour gradients on grounds or surfaces, glows, or drop shadows on apertures; the two Canopy lifts are the only shadows.",
-      "**Don't** add eyebrows or kickers above headlines; uppercase is reserved for the day line, the NEW tag and place labels.",
-      "**Don't** set body copy on a Lantern ground; it does not reach 4.5:1.",
-      "**Don't** add typefaces beyond Gloock and Hanken Grotesk."
+      "**Don't** use cards, rounded pills or decorative circles; the logo mark is the only round shape.",
+      "**Don't** add decorative gradients; scrims and photo fade masks are the only gradients.",
+      "**Don't** add shadows to sections, frames or buttons.",
+      "**Don't** put small uppercase labels or eyebrows above headings; uppercase is reserved for the hero's room labels and the \"New\" tag.",
+      "**Don't** use Warm Light as a section ground or gold on butter.",
+      "**Don't** hide content with CSS outside the hero's intro gate; without JavaScript or with reduced motion, every section is simply there."
     ]
   }
 }

@@ -89,7 +89,7 @@ export function CallButton({
   const styles =
     tone === "dark"
       ? "bg-gold text-canopy [--fill:var(--color-light)]"
-      : "bg-canopy text-butter [--fill:var(--color-lantern)] hover:text-light";
+      : "bg-canopy text-butter [--fill:var(--color-light)] hover:text-canopy";
   return (
     <a
       href={`tel:${stop.tel}`}

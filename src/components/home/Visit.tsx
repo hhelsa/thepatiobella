@@ -156,7 +156,7 @@ export function Visit() {
                       href={stop.directions}
                       target="_blank"
                       rel="noreferrer"
-                      className="fill-btn inline-flex min-h-12 items-center bg-canopy px-6 text-[15px] font-semibold text-butter transition-colors duration-500 [--fill:var(--color-lantern)] hover:text-light"
+                      className="fill-btn inline-flex min-h-12 items-center bg-canopy px-6 text-[15px] font-semibold text-butter transition-colors duration-500 [--fill:var(--color-light)] hover:text-canopy"
                     >
                       Get directions
                     </a>
