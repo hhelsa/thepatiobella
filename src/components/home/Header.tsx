@@ -44,12 +44,13 @@ export function Header() {
       const header = root.current!;
       const hero = document.getElementById("top");
       if (!hero) return;
-      ScrollTrigger.create({
+      const st = ScrollTrigger.create({
         trigger: hero,
-        start: "top top",
+        start: "top bottom",
         end: () => `bottom top+=${header.offsetHeight}`,
         onToggle: (self) => header.toggleAttribute("data-over-hero", self.isActive),
       });
+      header.toggleAttribute("data-over-hero", st.isActive || window.scrollY < hero.offsetHeight - header.offsetHeight);
     },
     { scope: root },
   );

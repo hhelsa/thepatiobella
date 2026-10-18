@@ -18,7 +18,7 @@ THESIS: An animation-led restaurant page in the Epicura grammar: quiet, light, c
 OWN-WORLD: Two grounds from the two rooms: Lugogo butter #E8C585 (light, quiet) and Arena canopy #10230C (immersive). Gold #CFAA5A only on canopy. Bodoni Moda 500 sentence-case display with controlled line breaks; Schibsted Grotesk for text and UI. Square-cornered photo frames (4px). Fill-sweep buttons, roll links. No circles, kickers, cards or gradients beyond legibility scrims.
 STORY: The visitor sees a restaurant that is two very different Kampala rooms, sees its food, drink, rooms and happenings, and calls one of the rooms to reserve.
 FIRST VIEWPORT: Canopy ground; four photos stack in a centred frame, then the Arena canopy opens to full-bleed under a 50% scrim. A centred Bodoni headline, "Where we all / come together.", sits over it with a subline naming both malls, a butter "Reserve a table" button and a "See the food" roll link. Room labels sit bottom-left and bottom-right; the transparent header carries a Reserve chooser.
-FORM: User-pinned reference (Epicura) translated with Patio Bella's assets; supersedes the earlier B+ direction. The signatures are the opening stack-to-full-bleed sequence and the pinned two-rooms scene. seed: none (unavailable)
+FORM: User-pinned reference (Epicura) translated with Patio Bella's assets; supersedes the earlier B+ direction; the pinned reference beats the surface roll. The signatures are the opening stack-to-full-bleed sequence and the pinned two-rooms scene. seed:69a126693e648c10
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
 ## Open decisions

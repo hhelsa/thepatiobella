@@ -134,8 +134,11 @@ export function Hero() {
             <Frame photo={photos.arenaCanopy} sizes="100vw" preload mediaClassName="hero-media" className="absolute inset-0" />
           </div>
         </div>
-        <div aria-hidden className="absolute inset-0 bg-canopy/50" />
-        <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-canopy/80 to-transparent" />
+        {/* Shade only where type sits: under the header, behind the headline
+            block, and along the foot for the room labels. */}
+        <div aria-hidden className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-canopy/70 to-transparent" />
+        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_62%_46%_at_50%_52%,rgb(16_35_12/0.62),transparent_100%)]" />
+        <div aria-hidden className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-canopy/75 to-transparent" />
       </div>
 
       <div className="hero-content relative flex h-full flex-col items-center justify-center px-[6vw] pt-(--header-h) text-center">

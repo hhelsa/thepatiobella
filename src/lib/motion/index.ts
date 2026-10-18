@@ -16,6 +16,7 @@ export {
   setInset,
   pinnedScene,
   scrubMedia,
+  seamReveal,
   splitReveal,
   type BatchRevealOptions,
   type ClipRevealOptions,

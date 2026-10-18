@@ -88,7 +88,7 @@ export function CallButton({
 }) {
   const styles =
     tone === "dark"
-      ? "bg-butter text-canopy [--fill:var(--color-light)]"
+      ? "bg-gold text-canopy [--fill:var(--color-light)]"
       : "bg-canopy text-butter [--fill:var(--color-lantern)] hover:text-light";
   return (
     <a

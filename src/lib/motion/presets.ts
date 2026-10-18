@@ -289,3 +289,20 @@ export function insetTo(
   insetTweens.set(target, tween);
   return tween;
 }
+
+/**
+ * Section seam: as a section scrolls in, it opens from an inset panel to
+ * full width over the previous section's ground (which its wrapper paints),
+ * so the change of ground is a movement rather than a hard cut.
+ */
+export function seamReveal(section: Element, { inset = 6 }: { inset?: number } = {}): gsap.core.Tween {
+  return gsap.fromTo(
+    section,
+    { clipPath: `inset(${inset * 1.4}% ${inset}% 0% ${inset}%)` },
+    {
+      clipPath: "inset(0% 0% 0% 0%)",
+      ease: "none",
+      scrollTrigger: { trigger: section, start: "top bottom", end: "top 25%", scrub: true },
+    },
+  );
+}

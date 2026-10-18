@@ -7,20 +7,18 @@ import { EASE, pinnedScene, responsive, useGSAP } from "@/lib/motion";
 
 import { Frame, RollLink } from "./primitives";
 
-const ROOMS: { id: string; photo: Photo; label: string; name: string; text: string }[] = [
+const ROOMS: { id: string; photo: Photo; name: string; text: string }[] = [
   {
     id: "lugogo",
     photo: photos.lugogoDaylight,
-    label: "New · By day",
     name: "Lugogo Mall",
-    text: "Butter-yellow walls, painted leaves and glass walls onto the palms, near Kyadondo Rugby Grounds.",
+    text: "Newly opened, near Kyadondo Rugby Grounds. By day: butter-yellow walls, painted leaves and glass walls onto the palms.",
   },
   {
     id: "arena",
     photo: { ...photos.arenaCanopy, position: "62% 45%" },
-    label: "Nsambya · By night",
     name: "Arena Mall",
-    text: "Rattan lanterns under a ceiling of hanging leaves, with the city beyond the glass.",
+    text: "In Nsambya. By night: rattan lanterns under a ceiling of hanging leaves, with the city beyond the glass.",
   },
 ];
 
@@ -85,7 +83,6 @@ export function Rooms() {
             <Frame photo={room.photo} sizes="100vw" className="absolute inset-0" />
             <div className="room-shade pointer-events-none absolute inset-0 bg-linear-to-t from-canopy/85 via-canopy/25 to-transparent" />
             <div className="room-copy absolute inset-x-[4vw] bottom-[max(2.5rem,7svh)] grid gap-4 md:max-w-[44rem]">
-              <p className="text-[13px] font-semibold tracking-[0.14em] text-gold uppercase">{room.label}</p>
               <h3 id={`room-${room.id}`} className="display text-[clamp(3.25rem,8vw,6rem)] leading-[0.92]">
                 {room.name}
               </h3>

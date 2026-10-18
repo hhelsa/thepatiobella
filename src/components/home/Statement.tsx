@@ -13,7 +13,7 @@ function InlinePhoto({ photo }: { photo: Photo }) {
   return (
     <span
       aria-hidden
-      className="inline-photo relative mx-[0.14em] inline-block h-[0.78em] w-[1.45em] -translate-y-[0.04em] overflow-hidden rounded-[3px] align-baseline"
+      className="inline-photo relative mx-[0.14em] inline-block h-[0.9em] w-[1.75em] -translate-y-[0.04em] overflow-hidden rounded-[3px] align-baseline"
     >
       <span className="inline-photo-media absolute inset-0 block">
         <Image

@@ -101,11 +101,11 @@ export function WhatsOn() {
         <div className="lg:col-span-8">
           <ul className="happenings">
             {happenings.map((item) => (
-              <li key={item.title} className="happening relative grid grid-cols-[minmax(0,1fr)] gap-5 py-8 md:grid-cols-[9rem_minmax(0,1fr)] md:items-center md:gap-8 group-data-[hover-reveal]/whats:md:grid-cols-[minmax(0,1fr)]">
+              <li key={item.title} className="happening relative grid grid-cols-[minmax(0,1fr)] gap-5 py-8 md:grid-cols-[13rem_minmax(0,1fr)] md:items-center md:gap-8 group-data-[hover-reveal]/whats:md:grid-cols-[minmax(0,1fr)]">
                 <span aria-hidden className="happening-rule absolute inset-x-0 top-0 h-px bg-light/25" />
                 <Frame
                   photo={item.photo}
-                  sizes="(min-width: 768px) 144px, 92vw"
+                  sizes="(min-width: 768px) 208px, 92vw"
                   className="aspect-[4/3] w-full rounded-(--radius-frame) md:aspect-[4/5] group-data-[hover-reveal]/whats:hidden"
                 />
                 <div className="flex flex-col gap-3">
