@@ -169,16 +169,19 @@ export function FoodDrink() {
         <p className="dish-line display px-[4vw] text-center text-[clamp(1.75rem,8.4vw,7.5rem)] leading-[1.08] [[data-moving]_&]:text-left">
           {namedDishes.map((dish, i) => (
             <Fragment key={dish}>
-              {i > 0 && (
-                <>
-                  {" "}
-                  <span aria-hidden className="hidden text-lantern group-data-[moving]/food:inline sm:inline">
-                    ·
-                  </span>
-                  <span className="sr-only">,</span>{" "}
-                </>
-              )}
-              <span className="block whitespace-nowrap group-data-[moving]/food:inline sm:inline">{dish}</span>
+              {/* The separator trails its name (joined by a no-break space),
+                  so a line can never begin with one. */}
+              <span className="block whitespace-nowrap group-data-[moving]/food:inline sm:inline">
+                {dish}
+                {i < namedDishes.length - 1 && (
+                  <>
+                    <span aria-hidden className="hidden text-lantern group-data-[moving]/food:inline sm:inline">
+                      {"\u00a0·"}
+                    </span>
+                    <span className="sr-only">,</span>
+                  </>
+                )}
+              </span>{" "}
             </Fragment>
           ))}
         </p>
