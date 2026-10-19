@@ -217,6 +217,13 @@ export const photos = {
     width: 1170,
     height: 1561,
   },
+  guestLaughing: {
+    src: `${IMG}/people-and-events/guest-laughing-drink-clean.jpg`,
+    alt: "A guest in a sunflower-print dress laughing, a cocktail in hand, at the Arena Mall bar",
+    width: 880,
+    height: 975,
+    position: "50% 30%",
+  },
   lugogoEntrance: {
     src: `${IMG}/interior/lugogo-entrance.jpg`,
     alt: "The Lugogo entrance under the Patio Bella sign, with a staircase and plants on yellow walls",

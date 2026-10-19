@@ -9,8 +9,8 @@ import { CallButton, Frame } from "./primitives";
 import { SiteFooter } from "./SiteFooter";
 
 /**
- * The close. Canopy opens out of the butter page; the Lugogo entrance
- * melts into the ground beside the last invitation, which carries the two
+ * The close. Canopy opens out of the butter page; a guest laughing at the
+ * bar melts into the ground beside the last invitation, which carries the two
  * calls. The footer sits on solid canopy below, ending in the wordmark,
  * which rises letter by letter.
  */
@@ -60,9 +60,9 @@ export function Finale() {
         >
           <div
             aria-hidden
-            className="absolute inset-x-0 top-0 h-[58svh] [mask-image:linear-gradient(to_bottom,black_55%,transparent)] md:inset-y-0 md:right-0 md:left-auto md:h-auto md:w-[60%] md:[mask-image:linear-gradient(to_right,transparent,black_40%)]"
+            className="absolute inset-x-0 top-0 h-[58svh] [mask-image:linear-gradient(to_bottom,black_55%,transparent)] md:inset-y-0 md:right-0 md:left-auto md:h-auto md:w-[60%] md:[mask-image:linear-gradient(to_right,transparent,black_20%)]"
           >
-            <Frame photo={photos.lugogoEntrance} sizes="(min-width: 768px) 60vw, 100vw" mediaClassName="finale-media" className="absolute inset-0" />
+            <Frame photo={photos.guestLaughing} sizes="(min-width: 768px) 60vw, 100vw" mediaClassName="finale-media" className="absolute inset-0" />
           </div>
 
           <div className="relative px-[4vw] pt-[50svh] pb-[12vh] md:col-span-7 md:py-[16vh] lg:col-span-6">
