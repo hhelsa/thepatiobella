@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { programmes } from "@/content/home";
 import { clipReveal, EASE, gsap, responsive, splitReveal, useGSAP } from "@/lib/motion";
 
-import { PosterVideo } from "./PosterVideo";
+import { ClipVideo, PosterVideo } from "./PosterVideo";
 import { Frame, RollLink } from "./primitives";
 
 /**
@@ -81,6 +81,8 @@ export function WhatsOn() {
               <div className={`programme-media w-[78%] text-base md:col-span-5 md:w-full ${i % 2 ? "md:col-start-8" : "md:col-start-2"} ${i % 2 ? "ml-auto" : ""}`}>
                 {p.id === "sunsets" ? (
                   <PosterVideo className="mx-auto w-full max-w-[420px] rounded-(--radius-frame)" />
+                ) : p.clip ? (
+                  <ClipVideo clip={p.clip} sizing="aspect-[4/5]" className="rounded-(--radius-frame)" />
                 ) : (
                   <Frame photo={p.photo} sizes="(min-width: 768px) 38vw, 78vw" className="aspect-[4/5] rounded-(--radius-frame)" />
                 )}

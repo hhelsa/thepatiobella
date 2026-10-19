@@ -2,15 +2,14 @@
 
 import { useRef } from "react";
 
-import { photos, sunsetsVideo } from "@/content/home";
+import { photos, sunsetsVideo, type Clip } from "@/content/home";
 import { prefersReducedMotion, ScrollTrigger, useGSAP } from "@/lib/motion";
 
 /**
- * The Catching Sunsets poster, as the restaurant posted it (a short muted
- * loop). It plays only while on screen and never with reduced motion; the
- * poster frame stands in otherwise.
+ * A muted loop from the restaurant's posts. It plays only while on screen and
+ * never with reduced motion; the poster frame stands in otherwise.
  */
-export function PosterVideo({ className = "" }: { className?: string }) {
+export function ClipVideo({ clip, className = "", sizing = "aspect-[9/16]" }: { clip: Clip; className?: string; sizing?: string }) {
   const root = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -31,17 +30,27 @@ export function PosterVideo({ className = "" }: { className?: string }) {
   );
 
   return (
-    <div ref={root} className={`relative aspect-[9/16] overflow-hidden bg-canopy ${className}`}>
+    <div ref={root} className={`frame relative overflow-hidden bg-canopy ${sizing} ${className}`}>
       <video
-        className="absolute inset-0 size-full object-cover"
-        src={sunsetsVideo}
-        poster={photos.sunsetsPoster.src}
+        className="frame-media absolute inset-0 size-full object-cover"
+        src={clip.src}
+        poster={clip.poster}
         muted
         loop
         playsInline
         preload="none"
-        aria-label={photos.sunsetsPoster.alt}
+        aria-label={clip.label}
       />
     </div>
+  );
+}
+
+/** The Catching Sunsets poster, as the restaurant posted it. */
+export function PosterVideo({ className = "" }: { className?: string }) {
+  return (
+    <ClipVideo
+      clip={{ src: sunsetsVideo, poster: photos.sunsetsPoster.src, label: photos.sunsetsPoster.alt }}
+      className={className}
+    />
   );
 }

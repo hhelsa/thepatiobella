@@ -16,7 +16,7 @@ const ROOMS: { id: string; photo: Photo; name: string; text: string }[] = [
   },
   {
     id: "arena",
-    photo: photos.arenaBar,
+    photo: photos.arenaHero,
     name: "Arena Mall",
     text: "Our Nsambya branch. A copper-arched bar under hanging greenery, rattan lanterns, and the city beyond the glass.",
   },

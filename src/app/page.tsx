@@ -1,7 +1,9 @@
+import { Bar } from "@/components/home/Bar";
 import { Finale } from "@/components/home/Finale";
 import { FoodDrink } from "@/components/home/FoodDrink";
 import { Header } from "@/components/home/Header";
 import { Hero } from "@/components/home/Hero";
+import { Reel } from "@/components/home/Reel";
 import { Rooms } from "@/components/home/Rooms";
 import { Statement } from "@/components/home/Statement";
 import { Visit } from "@/components/home/Visit";
@@ -20,7 +22,9 @@ export default function Home() {
         <Hero />
         <Statement />
         <FoodDrink />
+        <Reel />
         <Rooms />
+        <Bar />
         <WhatsOn />
         <Visit />
         <Finale />

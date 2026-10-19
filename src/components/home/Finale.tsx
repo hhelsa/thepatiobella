@@ -62,7 +62,7 @@ export function Finale() {
             aria-hidden
             className="absolute inset-x-0 top-0 h-[58svh] [mask-image:linear-gradient(to_bottom,black_55%,transparent)] md:inset-y-0 md:right-0 md:left-auto md:h-auto md:w-[60%] md:[mask-image:linear-gradient(to_right,transparent,black_40%)]"
           >
-            <Frame photo={photos.highball} sizes="(min-width: 768px) 60vw, 100vw" mediaClassName="finale-media" className="absolute inset-0" />
+            <Frame photo={photos.arenaBar} sizes="(min-width: 768px) 60vw, 100vw" mediaClassName="finale-media" className="absolute inset-0" />
           </div>
 
           <div className="relative px-[4vw] pt-[50svh] pb-[12vh] md:col-span-7 md:py-[16vh] lg:col-span-6">

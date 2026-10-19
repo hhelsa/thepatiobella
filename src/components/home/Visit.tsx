@@ -19,7 +19,7 @@ import {
 import { Frame, RollLink } from "./primitives";
 
 const ROOM_PHOTO = {
-  lugogo: photos.lugogoEntrance,
+  lugogo: photos.lugogoCounter,
   arena: photos.arenaSunsetDinner,
 } as const;
 

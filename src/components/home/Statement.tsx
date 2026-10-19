@@ -91,10 +91,10 @@ export function Statement() {
       className="relative bg-butter px-[6vw] py-[clamp(8rem,26vh,15rem)] text-canopy"
     >
       <p className="statement-text display mx-auto max-w-[21em] text-center text-[clamp(1.9rem,3.7vw,3.6rem)] leading-[1.14]">
-        Two branches, one table. At Arena Mall <InlinePhoto photo={photos.arenaHero} />, lanterns
-        under a ceiling of leaves. At our new Lugogo Mall branch <InlinePhoto photo={photos.lugogoDaylight} />,
-        butter-yellow walls and glass onto the palms. From the first coffee <InlinePhoto photo={photos.cappuccino} /> to the
-        last cocktail <InlinePhoto photo={photos.martini} />, this is where we all come together.
+        Two branches, one table. At Arena Mall <InlinePhoto photo={photos.arenaDiningRoom} />, lanterns
+        under a ceiling of leaves. At our new Lugogo Mall branch <InlinePhoto photo={photos.lugogoCornerTable} />,
+        butter-yellow walls and glass onto the palms. From the first coffee <InlinePhoto photo={photos.takeawayCoffee} /> to the
+        last cocktail <InlinePhoto photo={photos.highball} />, this is where we all come together.
       </p>
       <div className="mt-14 flex justify-center">
         <RollLink href="#visit" label="Find both branches" className="border-b border-canopy/40 pb-1 text-[15px] font-semibold" />

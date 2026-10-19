@@ -42,7 +42,7 @@ export function Frame({
           preload={preload}
           {...(eager && !preload ? { loading: "eager" as const } : {})}
           className="object-cover"
-          style={{ objectPosition: photo.position ?? "50% 50%", scale: photo.zoom }}
+          style={{ objectPosition: photo.position ?? "50% 50%", scale: photo.zoom, transformOrigin: photo.origin }}
         />
       </div>
     </div>

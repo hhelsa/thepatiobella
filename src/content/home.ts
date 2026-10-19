@@ -17,6 +17,8 @@ export type Photo = {
   position?: string;
   /** Static zoom that crops a baked-in logo or caption out of the frame. */
   zoom?: number;
+  /** Where that zoom is anchored (CSS transform-origin), away from the logo. */
+  origin?: string;
 };
 
 export type Stop = {
@@ -67,7 +69,52 @@ export const nav = [
   { href: "/contact", label: "Contact" },
 ];
 
+// Stills from the posts that carry a corner logo or an address strip are
+// zoomed from the opposite corner so the overlay falls outside the frame.
+const cropped = (src: string, alt: string, width: number, height: number, origin: string, zoom = 1.3): Photo => ({
+  src: `${IMG}/${src}`,
+  alt,
+  width,
+  height,
+  zoom,
+  origin,
+});
+
 export const photos = {
+  mixologist: cropped("drinks/bartender-blue-martini.jpg", "A Patio Bella mixologist pouring blue liqueur into a martini glass", 1080, 1080, "35% 58%", 1.32),
+  blueHurricane: cropped("drinks/blue-hurricane-lime.jpg", "A lime wheel being set on a blue hurricane cocktail", 1080, 1349, "30% 55%", 1.32),
+  orangeCocktail: cropped("drinks/orange-cocktail-gloved-hand.jpg", "An orange cocktail garnished with fruit, held in a gloved hand", 1279, 1598, "35% 55%"),
+  mintCocktail: cropped("drinks/cocktail-mint-sugar-rim.jpg", "A cocktail with a sugared rim and a mint garnish", 1170, 1560, "30% 75%", 1.25),
+  sangria: cropped("drinks/sangria-glass-bar.jpg", "Sangria with red fruit in a wine glass, the bar glowing behind", 1080, 1350, "30% 55%", 1.35),
+  burger: cropped("food/double-burger-gloved-hands.jpg", "A stacked double burger held in gloved hands", 1170, 1461, "30% 70%", 1.25),
+  tBone: cropped("food/t-bone-steak-onion-rings.jpg", "A T-bone steak with onion rings, potato wedges and pepper sauce", 1170, 1463, "25% 75%"),
+  tomatoSoup: cropped("food/tomato-soup-grilled-bread.jpg", "Tomato soup with a cream swirl and grilled bread on a red table", 1080, 1350, "50% 95%"),
+  salmonTower: cropped("food/salmon-avocado-tower.jpg", "A salmon and avocado tower on a textured plate", 1170, 1463, "40% 80%"),
+  wings: cropped("food/glazed-wings-platter.jpg", "Glazed chicken wings on a long white platter", 1170, 1461, "30% 50%", 1.38),
+  takeawayCoffee: {
+    src: `${IMG}/drinks/takeaway-coffee-car-window.jpg`,
+    alt: "Two Patio Bella takeaway cups held out of a car window",
+    width: 1170,
+    height: 1560,
+  },
+  lugogoCornerTable: {
+    src: `${IMG}/interior/lugogo-corner-table.jpg`,
+    alt: "A corner table at Lugogo beside a flowering olive tree",
+    width: 1086,
+    height: 1448,
+  },
+  lugogoCounter: {
+    src: `${IMG}/interior/lugogo-counter.jpg`,
+    alt: "The Lugogo counter under an illuminated Patio Bella sign and painted leaves",
+    width: 1170,
+    height: 1560,
+  },
+  arenaDiningRoom: {
+    src: `${IMG}/interior/arena-dining-room.jpg`,
+    alt: "Green velvet chairs and rattan pendants at Arena Mall",
+    width: 735,
+    height: 498,
+  },
   // High-resolution photographs of the Arena Mall branch.
   arenaHero: {
     src: `${IMG}/interior/arena-canopy-dining-hq.jpg`,
@@ -222,7 +269,7 @@ export const photos = {
 } satisfies Record<string, Photo>;
 
 /** The opening stack, in order; the hero image follows it. */
-export const introStack = [photos.lugogoDaylight, photos.cappuccino, photos.pizzaPull, photos.arenaBar];
+export const introStack = [photos.tomatoSoup, photos.salmonTower, photos.wings, photos.sangria];
 
 export type Plate = {
   photo: Photo;
@@ -237,12 +284,30 @@ export const plates: Plate[] = [
   { photo: photos.cappuccino, title: "First coffee", note: "Cappuccino and a croissant on black marble.", size: "tall" },
   { photo: photos.guestBreakfast, title: "Breakfast wrap", note: "From the #12DaysOfBreakfast.", size: "mid" },
   { photo: photos.penne, title: "Penne", note: "Parmesan grated at the pass.", size: "short" },
-  { photo: photos.pizzaPull, title: "Pizza", note: "Straight from the oven.", size: "tall" },
-  { photo: photos.chefPizza, title: "The kitchen", note: "Cooked to order.", size: "mid" },
-  { photo: photos.cheesecake, title: "Blueberry cheesecake", note: "Some cravings deserve the sweetest ending.", size: "short" },
-  { photo: photos.hurricane, title: "At the bar", note: "Poured as the sun goes down.", size: "tall" },
-  { photo: photos.martini, title: "Martini", note: "Sugared rim, orange and cherry.", size: "mid" },
+  { photo: photos.burger, title: "Built to burger-fection", note: "Stacked high, served with fries.", size: "tall" },
+  { photo: photos.pizzaPull, title: "Pizza", note: "Straight from the oven.", size: "mid" },
+  { photo: photos.chefPizza, title: "The kitchen", note: "Cooked to order.", size: "short" },
+  { photo: photos.tBone, title: "From the grill", note: "Steak, onion rings, wedges and pepper sauce.", size: "tall" },
+  { photo: photos.cheesecake, title: "Blueberry cheesecake", note: "Some cravings deserve the sweetest ending.", size: "mid" },
 ];
+
+/** The bar, for the "Behind the bar" scene. */
+export const barShots = [photos.blueHurricane, photos.orangeCocktail, photos.mintCocktail, photos.martini];
+
+export type Clip = { src: string; poster: string; label: string };
+const clip = (name: string, label: string): Clip => ({
+  src: `${IMG}/video/${name}-web.mp4`,
+  poster: `${IMG}/video/${name}-poster.jpg`,
+  label,
+});
+
+/** Short clips from the restaurant's own posts. */
+export const clips = {
+  combos: clip("patio-combos", "Glazed meats from the grill, served as Patio Combos"),
+  waffles: clip("waffles", "Waffles dusted with sugar, topped with strawberries and syrup"),
+  pizza: clip("pizza-sauce-drizzle", "Sauce drizzled over a pizza fresh from the oven"),
+  henna: clip("henna-experience", "Henna being drawn on a guest's hand"),
+};
 
 /** Named in Patio Bella's own posts and menu photos. */
 export const namedDishes = [
@@ -268,6 +333,7 @@ export const programmes = [
     offer: "Buy a meal, get your henna free",
     where: "At Patio Bella",
     photo: photos.henna,
+    clip: clips.henna,
   },
   {
     id: "sunsets",
