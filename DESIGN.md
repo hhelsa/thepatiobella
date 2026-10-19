@@ -1,6 +1,6 @@
 ---
 name: The Patio Bella
-description: Two Kampala rooms, one table. Quiet butter sections and immersive canopy moments, told in photographs and Bodoni.
+description: Two Kampala rooms, one table. Quiet butter sections and immersive canopy moments, told in photographs and Noto Serif Display.
 colors:
   canopy: "#10230c"
   butter: "#e8c585"
@@ -9,60 +9,60 @@ colors:
   lantern: "#b0661e"
 typography:
   display:
-    fontFamily: "Bodoni Moda, Bodoni 72, Didot, Georgia, serif"
+    fontFamily: "Noto Serif Display, Noto Serif Display 72, Didot, Georgia, serif"
     fontSize: "clamp(3rem, 7.2vw, 6rem)"
     fontWeight: 500
     lineHeight: 0.98
     letterSpacing: "-0.03em"
     fontVariation: "opsz auto"
   headline:
-    fontFamily: "Bodoni Moda, Bodoni 72, Didot, Georgia, serif"
+    fontFamily: "Noto Serif Display, Noto Serif Display 72, Didot, Georgia, serif"
     fontSize: "clamp(2.75rem, 5.4vw, 5rem)"
     fontWeight: 500
     lineHeight: 0.98
     letterSpacing: "-0.03em"
   title:
-    fontFamily: "Bodoni Moda, Bodoni 72, Didot, Georgia, serif"
+    fontFamily: "Noto Serif Display, Noto Serif Display 72, Didot, Georgia, serif"
     fontSize: "clamp(2.25rem, 4.4vw, 4.25rem)"
     fontWeight: 500
     lineHeight: 1
     letterSpacing: "-0.03em"
   statement:
-    fontFamily: "Bodoni Moda, Bodoni 72, Didot, Georgia, serif"
+    fontFamily: "Noto Serif Display, Noto Serif Display 72, Didot, Georgia, serif"
     fontSize: "clamp(1.9rem, 3.7vw, 3.6rem)"
     fontWeight: 500
     lineHeight: 1.14
     letterSpacing: "-0.03em"
   caption-title:
-    fontFamily: "Bodoni Moda, Bodoni 72, Didot, Georgia, serif"
+    fontFamily: "Noto Serif Display, Noto Serif Display 72, Didot, Georgia, serif"
     fontSize: "clamp(1.375rem, 1.9vw, 1.75rem)"
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: "-0.03em"
   wordmark:
-    fontFamily: "Bodoni Moda, Bodoni 72, Didot, Georgia, serif"
+    fontFamily: "Noto Serif Display, Noto Serif Display 72, Didot, Georgia, serif"
     fontSize: "clamp(4.5rem, 19vw, 19rem)"
     fontWeight: 500
     lineHeight: 0.82
     letterSpacing: "-0.035em"
   lead:
-    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Montserrat, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.625
   body:
-    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Montserrat, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.55
   ui:
-    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Montserrat, ui-sans-serif, system-ui, sans-serif"
     fontSize: "15px"
     fontWeight: 600
     lineHeight: 1.25
     letterSpacing: "0.01em"
   label:
-    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Montserrat, ui-sans-serif, system-ui, sans-serif"
     fontSize: "13px"
     fontWeight: 500
     lineHeight: 1.25
@@ -128,7 +128,7 @@ components:
 
 **Creative North Star: "Two Rooms, One Table"**
 
-The page alternates between two grounds taken from the two real rooms: Lugogo's butter-yellow walls for the quiet, light, centred sections, and Arena's canopy green for the immersive, full-bleed moments. Photographs carry the atmosphere; type carries the voice. Display type is Bodoni Moda at weight 500 in sentence case with authored line breaks; everything functional is Schibsted Grotesk. Corners are square or nearly so. There are no cards, no decorative shapes and no gradients except scrims that exist to keep type legible over photographs.
+The page alternates between two grounds taken from the two real rooms: Lugogo's butter-yellow walls for the quiet, light, centred sections, and Arena's canopy green for the immersive, full-bleed moments. Photographs carry the atmosphere; type carries the voice. Display type is Noto Serif Display at weight 500 in sentence case with authored line breaks; everything functional is Montserrat. Corners are square or nearly so. There are no cards, no decorative shapes and no gradients except scrims that exist to keep type legible over photographs.
 
 Motion is reserved for a few authored scenes rather than spread evenly: an opening where photographs stack in a small centred frame and the Arena canopy opens to full bleed, a pinned two-rooms scene, a horizontally travelling food gallery, words that fill with ink as the statement is read, and section seams that open from an inset panel so each change of ground is a movement, not a cut. Everything is visible without JavaScript and with reduced motion.
 
@@ -136,7 +136,7 @@ Density is low and the rhythm is generous: big vertical spacing on the light sec
 
 **Key Characteristics:**
 - Two grounds only: butter (light, quiet) and canopy (immersive); gold and light belong to canopy.
-- Bodoni Moda 500, sentence case, tight tracking (-0.03em), authored two-line breaks.
+- Noto Serif Display 500, sentence case, tight tracking (-0.03em), authored two-line breaks.
 - Photographs in square-cornered frames (4px); the frame clips, the image inside moves.
 - Fill-sweep buttons and roll links are the only interactive flourishes.
 - Ground changes are revealed by clip-path seams, never by gradients.
@@ -168,8 +168,8 @@ A two-ground palette pulled from the rooms themselves, with gold and a warm crea
 
 ## Typography
 
-**Display Font:** Bodoni Moda (with Bodoni 72, Didot, Georgia), loaded with its optical-size axis and `font-optical-sizing: auto`.
-**Body Font:** Schibsted Grotesk (with ui-sans-serif, system-ui).
+**Display Font:** Noto Serif Display (with Noto Serif Display 72, Didot, Georgia), loaded with its optical-size axis and `font-optical-sizing: auto`.
+**Body Font:** Montserrat (with ui-sans-serif, system-ui).
 
 **Character:** A high-contrast Didone at display sizes against a sturdy, slightly condensed grotesk: dinner-menu elegance on one side, plain directions and phone numbers on the other.
 
@@ -188,7 +188,7 @@ A two-ground palette pulled from the rooms themselves, with gold and a warm crea
 ### Named Rules
 **The Authored Break Rule.** Display and headline text breaks where it was written, as block-level lines, not where the browser wraps. Headings also use `text-wrap: balance`.
 
-**The Sentence Case Rule.** Bodoni is always sentence case at weight 500. Uppercase belongs only to small Schibsted labels.
+**The Sentence Case Rule.** Noto Serif Display is always sentence case at weight 500. Uppercase belongs only to small Montserrat labels.
 
 ## Layout
 
@@ -228,17 +228,17 @@ A rectangle that clips; the image layer inside it scales or drifts. Reveals open
 
 ### Navigation
 - **Header:** fixed, 76px, Warm Light text. Solid canopy everywhere except over the hero, where the bar fades transparent (0.7s). Logo left, roll-link nav at 15px from lg up, Reserve and (below lg) Menu right.
-- **Reserve chooser:** the Reserve button morphs (Flip, 0.6s) into a butter panel listing both locations: Bodoni names, phone numbers, a Call action; each row inverts to canopy on hover. Escape and outside clicks close it.
-- **Mobile menu:** full-screen canopy, opened by a clip-path wipe; Bodoni links at clamp(2.75rem, 11vw, 4.5rem) rise from masks; phone numbers in gold at the foot.
+- **Reserve chooser:** the Reserve button morphs (Flip, 0.6s) into a butter panel listing both locations: Noto Serif Display names, phone numbers, a Call action; each row inverts to canopy on hover. Escape and outside clicks close it.
+- **Mobile menu:** full-screen canopy, opened by a clip-path wipe; Noto Serif Display links at clamp(2.75rem, 11vw, 4.5rem) rise from masks; phone numbers in gold at the foot.
 
 ### Inline Photo (signature)
 Small photographs (1.75em by 0.9em, 3px radius) set into the statement sentence like words, opening from their centre line as the reader reaches them while the words fill from 16% to full ink.
 
 ### Happening Row
-On canopy: a hairline, a 13rem photo and a Bodoni title. With a fine pointer the photos leave the rows and a single cursor-following frame (max 320px) wipes in the hovered row's image.
+On canopy: a hairline, a 13rem photo and a Noto Serif Display title. With a fine pointer the photos leave the rows and a single cursor-following frame (max 320px) wipes in the hovered row's image.
 
 ### Dish Line
-Menu names in Bodoni at up to 7.5rem, separated by a lantern middle dot, running sideways with the scroll when motion is on and wrapping centred when it is not.
+Menu names in Noto Serif Display at up to 7.5rem, separated by a lantern middle dot, running sideways with the scroll when motion is on and wrapping centred when it is not.
 
 ## Do's and Don'ts
 
