@@ -21,7 +21,7 @@ import { Frame, RollLink } from "./primitives";
 
 /**
  * The opening. On canopy, four dishes and drinks stack in a small
- * frame; the Arena canopy arrives last and opens to fill the screen; then the
+ * frame; the Arena Mall bar arrives last and opens to fill the screen; then the
  * header, the headline and the actions arrive. Any key, tap or scroll speeds
  * it up. Without JavaScript, or with reduced motion, the hero is simply there.
  */
@@ -68,7 +68,7 @@ export function Hero() {
               );
             });
 
-            // 2. The Arena canopy arrives in the same frame, then opens out.
+            // 2. The Arena bar arrives in the same frame, then opens out.
             const at = 0.15 + introStack.length * 0.3;
             tl.add(insetTo(frame, [t, r, btm, l], { duration: 0.6, ease: EASE.inOut }, "px"), at)
               .fromTo(".hero-media", { scale: 1.45 }, { scale: 1, duration: 2.1, ease: EASE.cinematic }, at)
@@ -110,22 +110,21 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="on-canopy relative min-h-svh overflow-hidden bg-canopy text-light md:h-svh md:min-h-[620px]"
     >
-      {/* The Lugogo branch, beside the words: right half on wide screens,
-          the top of the screen on phones. */}
-      <div data-intro className="hero-frame absolute inset-x-0 top-0 h-[54svh] md:inset-y-0 md:right-0 md:left-auto md:h-auto md:w-[56%]">
+      {/* The Arena Mall bar, full screen, with the words over it. */}
+      <div data-intro className="hero-frame absolute inset-0">
         <div className="hero-media-drift absolute inset-0">
-          <Frame photo={photos.lugogoEntrance} sizes="(min-width: 768px) 56vw, 100vw" preload mediaClassName="hero-media" className="absolute inset-0" />
+          <Frame photo={photos.arenaBar} sizes="100vw" preload mediaClassName="hero-media" className="absolute inset-0" />
         </div>
-        <div aria-hidden className="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-canopy/60 to-transparent md:hidden" />
-        <p className="absolute right-4 bottom-4 bg-canopy/80 px-3 py-1.5 text-[13px] font-medium md:right-6 md:bottom-6">
-          Lugogo Mall, our newest branch
-        </p>
+        {/* Scrims: the header at the top, the words at the bottom left. */}
+        <div aria-hidden className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-canopy/75 to-transparent" />
+        <div aria-hidden className="absolute inset-0 bg-linear-to-t from-canopy via-canopy/55 via-45% to-transparent to-75%" />
+        <div aria-hidden className="absolute inset-0 hidden bg-linear-to-r from-canopy/85 via-canopy/35 via-45% to-transparent to-70% md:block" />
       </div>
 
-      {/* Opening stack (JS only; see globals.css), centred in the photo panel. */}
-      <div aria-hidden className="intro-stack absolute inset-x-0 top-0 h-[54svh] md:inset-y-0 md:right-0 md:left-auto md:h-auto md:w-[56%]">
+      {/* Opening stack (JS only; see globals.css), centred on screen. */}
+      <div aria-hidden className="intro-stack absolute inset-0">
         <div className="flex h-full items-center justify-center">
-          <div className="stack-box relative aspect-[4/5] w-[min(46vw,30svh)] md:w-[min(22vw,40svh)]">
+          <div className="stack-box relative aspect-[4/5] w-[min(52vw,40svh)] md:w-[min(24vw,44svh)]">
             {introStack.map((photo) => (
               <Frame
                 key={photo.src}
@@ -139,11 +138,11 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="hero-content relative flex h-full flex-col justify-end px-[4vw] pt-[calc(54svh+2rem)] pb-[max(2rem,5svh)] md:w-[44%] md:pt-(--header-h) md:pb-[max(3rem,8svh)]">
+      <div className="hero-content relative flex min-h-svh flex-col justify-end px-[4vw] pt-(--header-h) pb-[max(2.5rem,7svh)] md:h-full md:min-h-0 md:pb-[max(3rem,9svh)]">
         <h1
           id="hero-title"
           data-intro
-          className="hero-title display text-[clamp(2.75rem,5.4vw,6.25rem)] leading-[0.95]"
+          className="hero-title display text-[clamp(3rem,7.4vw,8.5rem)] leading-[0.92] [text-shadow:0_2px_30px_rgb(16_35_12/0.5)]"
         >
           <span className="block">Where we all</span>
           <span className="block">come together.</span>
