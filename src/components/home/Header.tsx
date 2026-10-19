@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { instagram, nav, stops } from "@/content/home";
@@ -96,7 +97,7 @@ export function Header() {
         className="absolute inset-0 bg-canopy transition-opacity duration-700 group-data-[over-hero]/header:opacity-0"
       />
       <div data-intro className="header-inner relative flex h-full items-center gap-10 px-[4vw]">
-        <a href="#top" className="shrink-0 rounded-full" aria-label="The Patio Bella, back to top">
+        <Link href="/" className="shrink-0 rounded-full" aria-label="The Patio Bella, home">
           <Image
             src="/images/patio-bella/brand/logo-on-black.jpg"
             alt=""
@@ -105,7 +106,7 @@ export function Header() {
             loading="eager"
             className="size-11 rounded-full"
           />
-        </a>
+        </Link>
 
         <nav aria-label="Main" className="hidden lg:block">
           <ul className="flex gap-9 text-[15px] font-medium">
@@ -253,9 +254,9 @@ function MenuOverlay({ onClose }: { onClose: () => void }) {
         <ul className="flex flex-col gap-2">
           {nav.map((item) => (
             <li key={item.href} className="overflow-hidden">
-              <a href={item.href} onClick={close} className="menu-link display block text-[clamp(2.75rem,11vw,4.5rem)] leading-[1.05]">
+              <Link href={item.href} onClick={close} className="menu-link display block text-[clamp(2.75rem,11vw,4.5rem)] leading-[1.05]">
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

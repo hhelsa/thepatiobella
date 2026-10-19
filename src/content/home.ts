@@ -61,13 +61,41 @@ export const instagram = {
 };
 
 export const nav = [
-  { href: "#food", label: "Food & drink" },
-  { href: "#rooms", label: "The rooms" },
-  { href: "#whats-on", label: "What’s on" },
-  { href: "#visit", label: "Visit" },
+  { href: "/menu", label: "Menu" },
+  { href: "/about", label: "About" },
+  { href: "/whats-on", label: "What’s on" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export const photos = {
+  // High-resolution photographs of the Arena Mall branch.
+  arenaHero: {
+    src: `${IMG}/interior/arena-canopy-dining-hq.jpg`,
+    alt: "The Arena Mall dining room: green and ivory chairs under a ceiling of hanging leaves and woven rattan lanterns",
+    width: 1400,
+    height: 933,
+    position: "50% 45%",
+  },
+  arenaSunsetDinner: {
+    src: `${IMG}/people-and-events/arena-sunset-dinner.jpg`,
+    alt: "Two guests laughing over dinner by the windows at Arena Mall as the sun sets over the city",
+    width: 1400,
+    height: 933,
+    position: "45% 50%",
+  },
+  arenaBar: {
+    src: `${IMG}/interior/arena-bar-hq.jpg`,
+    alt: "The Arena Mall bar: a copper arch of shelves and bottles under hanging greenery, green velvet stools in front",
+    width: 1400,
+    height: 800,
+    position: "50% 50%",
+  },
+  sunsetsPoster: {
+    src: `${IMG}/other/catching-sunsets-poster.jpg`,
+    alt: "Poster for Catching Sunsets at Bella, featuring AHundred and Fifi every Sunday at Arena Mall, Nsambya",
+    width: 720,
+    height: 1280,
+  },
   arenaCanopy: {
     src: `${IMG}/views-and-atmosphere/arena-dining-city-view.jpg`,
     alt: "The Arena Mall dining room under a ceiling of hanging leaves and woven rattan lanterns, guests at their tables",
@@ -149,6 +177,12 @@ export const photos = {
     height: 1448,
     position: "50% 50%",
   },
+  lugogoStaircase: {
+    src: `${IMG}/interior/lugogo-staircase.jpg`,
+    alt: "A stone staircase rising through an arched doorway at Lugogo",
+    width: 1086,
+    height: 1448,
+  },
   arenaTable: {
     src: `${IMG}/food/table-spread-dining-room.jpg`,
     alt: "A table at Arena Mall set with pasta, burgers, fries and dessert beside a green banquette",
@@ -188,7 +222,7 @@ export const photos = {
 } satisfies Record<string, Photo>;
 
 /** The opening stack, in order; the hero image follows it. */
-export const introStack = [photos.lugogoDaylight, photos.cappuccino, photos.pizzaPull, photos.hurricane];
+export const introStack = [photos.lugogoDaylight, photos.cappuccino, photos.pizzaPull, photos.arenaBar];
 
 export type Plate = {
   photo: Photo;
@@ -222,20 +256,27 @@ export const namedDishes = [
   "Nojitos",
 ];
 
-export const happenings = [
+export const sunsetsVideo = `${IMG}/video/catching-sunsets-poster.mp4`;
+
+/** The weekly programmes, as announced by Patio Bella. */
+export const programmes = [
   {
-    title: "Henna at the table",
-    text: "Henna artists drawing flowers while you eat.",
+    id: "henna",
+    day: "Fridays",
+    title: "Henna Fridays",
+    text: "Come through for your favourite meal and enjoy complimentary henna on us. Good food, beautiful moments, and a little Friday glow-up.",
+    offer: "Buy a meal, get your henna free",
+    where: "At Patio Bella",
     photo: photos.henna,
   },
   {
-    title: "Saxophone at sunset",
-    text: "Live sax as the light goes down: catching sunsets at Bella.",
-    photo: photos.saxophone,
-  },
-  {
-    title: "The art on the walls",
-    text: "More than décor, every piece tells a story.",
-    photo: photos.artWall,
+    id: "sunsets",
+    day: "Sundays",
+    title: "Catching Sunsets at Bella",
+    text: "Catching sunsets with the band at Patio Bella: good music, golden skies, and even better vibes.",
+    offer: "Buy a cocktail, get one free",
+    where: "Arena Mall, Nsambya · featuring AHundred and Fifi",
+    rsvp: { phone: "0775 852 656", tel: "+256775852656" },
+    photo: photos.arenaSunsetDinner,
   },
 ];

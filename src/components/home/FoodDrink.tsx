@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Fragment, useRef } from "react";
 
 import { namedDishes, plates, type Plate } from "@/content/home";
@@ -7,12 +8,13 @@ import { clipReveal, gsap, responsive, splitReveal, useGSAP } from "@/lib/motion
 
 import { Frame } from "./primitives";
 
-// Height-led on wider screens so the gallery always fits one viewport;
-// width-led on phones for a comfortable swipe.
+// Pinned (tablet and desktop): sized in container-height units of the space
+// left under the heading, so frames and captions always fit the viewport.
+// Static: a grid across the measure. Phones: a width-led swipe strip.
 const SIZES: Record<Plate["size"], string> = {
-  tall: "w-[72vw] aspect-[3/4] md:w-full group-data-[pinned]/food:md:w-[calc(min(54svh,44vw)*0.75)]",
-  mid: "w-[64vw] aspect-[4/5] md:mt-[10svh] md:w-full group-data-[pinned]/food:md:w-[calc(min(42svh,34vw)*0.8)]",
-  short: "w-[58vw] aspect-square md:mt-[18svh] md:w-full group-data-[pinned]/food:md:w-[min(32svh,26vw)]",
+  tall: "w-[72vw] aspect-[3/4] md:w-full group-data-[pinned]/food:md:h-[64cqh] group-data-[pinned]/food:md:w-auto",
+  mid: "w-[64vw] aspect-[4/5] md:mt-[10svh] md:w-full group-data-[pinned]/food:md:mt-[8cqh] group-data-[pinned]/food:md:h-[50cqh] group-data-[pinned]/food:md:w-auto",
+  short: "w-[58vw] aspect-square md:mt-[18svh] md:w-full group-data-[pinned]/food:md:mt-[16cqh] group-data-[pinned]/food:md:h-[40cqh] group-data-[pinned]/food:md:w-auto",
 };
 
 /**
@@ -128,17 +130,33 @@ export function FoodDrink() {
         <div className="flex flex-col gap-6 px-[4vw] md:flex-row md:items-end md:justify-between">
           <h2
             id="food-title"
-            className="food-title display text-[clamp(2.75rem,6vw,5.75rem)] leading-[0.96]"
+            className="food-title display text-[clamp(2.75rem,6vw,5.75rem)] leading-[0.96] group-data-[pinned]/food:md:text-[clamp(2.5rem,min(5vw,8.5svh),5.25rem)]"
           >
             <span className="block">From the kitchen</span>
             <span className="block">and the bar.</span>
           </h2>
-          <p className="food-intro max-w-[30ch] text-lg leading-relaxed md:pb-3 md:text-right md:text-xl">
-            Morning to night: a few of the plates and glasses that reach our tables.
-          </p>
+          <div className="food-intro flex flex-col gap-5 md:items-end md:pb-2">
+            <p className="max-w-[30ch] text-lg leading-relaxed md:text-right">
+              Morning to night: a few of the plates and glasses that reach our tables.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/menu#food"
+                className="fill-btn inline-flex min-h-12 items-center bg-canopy px-6 text-[15px] font-semibold text-butter transition-colors duration-500 [--fill:var(--color-light)] hover:text-canopy"
+              >
+                Food menu
+              </Link>
+              <Link
+                href="/menu#drinks"
+                className="fill-btn inline-flex min-h-12 items-center border border-canopy px-6 text-[15px] font-semibold text-canopy transition-colors duration-500 [--fill:var(--color-canopy)] hover:text-butter"
+              >
+                Drinks menu
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="food-viewport mt-[clamp(2.5rem,6svh,4rem)] md:flex-1">
+        <div className="food-viewport mt-[clamp(2.5rem,6svh,4rem)] md:flex-1 group-data-[pinned]/food:md:mt-[3svh] group-data-[pinned]/food:md:min-h-0 group-data-[pinned]/food:md:[container-type:size]">
           <ul className="food-track flex w-max items-start gap-5 px-[4vw] md:grid md:w-auto md:grid-cols-4 md:gap-x-[2.6vw] md:gap-y-14 group-data-[pinned]/food:md:flex group-data-[pinned]/food:md:w-max">
             {plates.map((plate) => (
               <li key={plate.photo.src} className="plate flex-none snap-start">
@@ -148,11 +166,11 @@ export function FoodDrink() {
                     sizes="(min-width: 768px) 30vw, 72vw"
                     className={`rounded-(--radius-frame) ${SIZES[plate.size]}`}
                   />
-                  <figcaption className="mt-4 w-0 min-w-full">
+                  <figcaption className="mt-4 w-0 min-w-full group-data-[pinned]/food:md:mt-3">
                     <span className="display block text-[clamp(1.375rem,1.9vw,1.75rem)] leading-tight">
                       {plate.title}
                     </span>
-                    <span className="mt-1 block text-base text-canopy/75">{plate.note}</span>
+                    <span className="mt-1 block text-base text-canopy/75 group-data-[pinned]/food:md:line-clamp-2">{plate.note}</span>
                   </figcaption>
                 </figure>
               </li>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 import type { Photo, Stop } from "@/content/home";
@@ -60,13 +61,17 @@ export function RollLink({
   className?: string;
   external?: boolean;
 }) {
+  const inner = <span data-label={label}>{label}</span>;
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} className={`roll ${className}`}>
+        {inner}
+      </Link>
+    );
+  }
   return (
-    <a
-      href={href}
-      className={`roll ${className}`}
-      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-    >
-      <span data-label={label}>{label}</span>
+    <a href={href} className={`roll ${className}`} {...(external ? { target: "_blank", rel: "noreferrer" } : {})}>
+      {inner}
     </a>
   );
 }

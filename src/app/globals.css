@@ -18,8 +18,8 @@
 }
 
 @theme inline {
-  --font-display: var(--font-bodoni), "Bodoni 72", "Didot", Georgia, serif;
-  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-logo-serif), Georgia, serif;
+  --font-sans: var(--font-logo-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -38,8 +38,8 @@ body {
   background: var(--color-butter);
   color: var(--color-canopy);
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
-  line-height: 1.55;
+  font-size: 1rem;
+  line-height: 1.65;
   text-rendering: optimizeLegibility;
 }
 
@@ -66,9 +66,9 @@ h3 {
 /* Display type: Bodoni at display optical size. */
 .display {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-optical-sizing: auto;
-  letter-spacing: -0.03em;
+  font-weight: 620;
+  font-stretch: 87.5%;
+  letter-spacing: -0.015em;
 }
 
 /* Roll link: the label slides up and a copy rolls in from below. */
@@ -130,7 +130,8 @@ h3 {
   display: none;
 }
 [data-pinned] .food-viewport {
-  overflow: visible;
+  overflow-x: visible;
+  overflow-y: clip;
   scroll-snap-type: none;
 }
 /* Wider screens without the pinned version: the plates wrap into a grid. */

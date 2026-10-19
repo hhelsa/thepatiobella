@@ -129,32 +129,29 @@ export function Hero() {
 
       <div data-intro className="hero-frame absolute inset-0">
         <div className="hero-media-drift absolute inset-0">
-          {/* The static zoom crops a mall banner out of the left edge. */}
-          <div className="absolute inset-0 md:origin-[88%_40%] md:scale-[1.16]">
-            <Frame photo={photos.arenaCanopy} sizes="100vw" preload mediaClassName="hero-media" className="absolute inset-0" />
-          </div>
+          <Frame photo={photos.arenaHero} sizes="100vw" preload mediaClassName="hero-media" className="absolute inset-0" />
         </div>
         {/* Shade only where type sits: under the header, behind the headline
             block, and along the foot for the room labels. */}
         <div aria-hidden className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-canopy/70 to-transparent" />
-        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_62%_46%_at_50%_52%,rgb(16_35_12/0.62),transparent_100%)]" />
+        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_75%_70%_at_12%_88%,rgb(16_35_12/0.82),transparent_70%)]" />
         <div aria-hidden className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-canopy/75 to-transparent" />
       </div>
 
-      <div className="hero-content relative flex h-full flex-col items-center justify-center px-[6vw] pt-(--header-h) text-center">
+      <div className="hero-content relative flex h-full flex-col items-start justify-end px-[4vw] pt-(--header-h) pb-[max(5.5rem,13svh)]">
         <h1
           id="hero-title"
           data-intro
-          className="hero-title display text-[clamp(3rem,7.2vw,6rem)] leading-[0.98]"
+          className="hero-title display text-[clamp(3rem,7.6vw,7rem)] leading-[0.94]"
         >
           <span className="block">Where we all</span>
           <span className="block">come together.</span>
         </h1>
         <p data-intro className="hero-sub mt-7 max-w-[36ch] text-[17px] leading-relaxed text-light/90 md:text-lg">
-          Breakfast to the last cocktail, in two Kampala rooms: the new Lugogo Mall and Arena Mall,
-          Nsambya.
+          Breakfast to the last cocktail at our two Kampala branches: Arena Mall, Nsambya, and the
+          new Lugogo Mall.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
             data-intro
             href="#visit"
@@ -163,7 +160,7 @@ export function Hero() {
             Reserve a table
           </a>
           <span data-intro className="hero-action">
-            <RollLink href="#food" label="See the food" className="text-[15px] font-medium" />
+            <RollLink href="/menu" label="View the menu" className="text-[15px] font-medium" />
           </span>
         </div>
       </div>

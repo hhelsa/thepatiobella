@@ -1,26 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Schibsted_Grotesk } from "next/font/google";
+import { Montserrat, Noto_Serif_Display } from "next/font/google";
 
 import { MotionRuntime } from "@/components/motion/MotionRuntime";
 import { introGateScript } from "@/lib/motion/intro";
 
 import "./globals.css";
 
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
+// The two faces of the logo: the high-contrast serif of "Patio" and the
+// geometric sans of "BELLA".
+const serif = Noto_Serif_Display({
+  variable: "--font-logo-serif",
   subsets: ["latin"],
-  axes: ["opsz"],
+  axes: ["wdth"],
 });
 
-const schibsted = Schibsted_Grotesk({
-  variable: "--font-schibsted",
+const sans = Montserrat({
+  variable: "--font-logo-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "The Patio Bella · Lugogo Mall & Arena Mall, Kampala",
   description:
-    "Breakfast to the last cocktail in two Kampala rooms: the new Patio Bella at Lugogo Mall and Patio Bella at Arena Mall, Nsambya. Where we all come together.",
+    "Patio Bella, two branches in Kampala: Arena Mall, Nsambya and the new Lugogo Mall. Breakfast to the last cocktail. Where we all come together.",
 };
 
 export const viewport: Viewport = {
@@ -34,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     // <html> before hydration (see src/lib/motion/intro.ts).
     <html
       lang="en"
-      className={`${bodoni.variable} ${schibsted.variable} h-full antialiased`}
+      className={`${serif.variable} ${sans.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

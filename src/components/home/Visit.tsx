@@ -20,13 +20,13 @@ import { Frame, RollLink } from "./primitives";
 
 const ROOM_PHOTO = {
   lugogo: photos.lugogoEntrance,
-  arena: photos.arenaTable,
+  arena: photos.arenaSunsetDinner,
 } as const;
 
 /**
- * Reservations. Two rooms, each with its number and a call action. On wide
- * screens the photograph beside them changes to whichever room the visitor
- * points at or tabs into; on phones each room carries its own photograph.
+ * Finding us. Two branches, each with its number and a call action. On wide
+ * screens the photograph beside them changes to whichever branch the visitor
+ * points at or tabs into; on phones each branch carries its own photograph.
  */
 export function Visit() {
   const root = useRef<HTMLElement>(null);
@@ -118,8 +118,8 @@ export function Visit() {
               <span className="block">Find us.</span>
             </h2>
             <p className="visit-lede mt-6 max-w-[34ch] text-lg leading-relaxed md:text-xl">
-              Two rooms across Kampala. Tables are booked by phone, at either
-              room.
+              Two branches across Kampala. Tables are booked by phone, at
+              either branch.
             </p>
 
             <div className="mt-14 grid gap-14">

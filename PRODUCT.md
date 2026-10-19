@@ -52,8 +52,13 @@ family fun days.
 - Both locations get equal presence, but Lugogo is newly opened and should
   be pushed slightly harder.
 - Show real business details exactly as posted, marked for verification before
-  launch. **Do not show prices or opening hours** unless the user confirms
-  them.
+  launch. Menu prices are shown as printed on the posted menu (user request,
+  2026-10-19). **Do not show opening hours** unless the user confirms them.
+- The two locations are **branches** (never "rooms").
+- Type: only the two faces of the logo: a high-contrast serif for "Patio"
+  (Noto Serif Display, full weight) and a geometric sans for "BELLA"
+  (Montserrat).
+- Site structure: Home, Menu, About, What's on, Contact.
 - No online booking system, ordering system or CMS exists; none may be implied.
 
 ## Brand Commitments
@@ -74,8 +79,18 @@ Verified from the restaurant's own posts:
 - **Lugogo Mall**: RSVP 0794 299 074; map pin "Patio Bella Lugogo Mall,
   8JG4+JR Kampala", near Kyadondo Rugby Grounds. The opening graphic states
   hours of 7:00am–midnight; this is **unconfirmed and not to be shown**.
-- Recurring events: Henna Fridays, Sunday sunset saxophone sessions
-  ("catching sunsets at Bella"), Patio Fun Day (face painting) on Sundays.
+- Weekly programmes (confirmed by the user):
+  - **Henna Fridays** at Patio Bella: "Come through for your favourite meal and
+    enjoy complimentary henna on us." Buy a meal, get your henna free.
+  - **Catching Sunsets at Bella**, every Sunday at Arena Mall, Nsambya,
+    featuring AHundred and Fifi: "good music, golden skies, and even better
+    vibes." Buy a cocktail, get one free. RSVP 0775 852 656 (poster:
+    `public/images/patio-bella/video/catching-sunsets-poster.mp4`).
+- Full menu with prices: `src/content/menu.ts`, transcribed from the posted
+  menu photos.
+- High-resolution Arena Mall photographs supplied by the user:
+  `interior/arena-canopy-dining-hq.jpg` (hero), `interior/arena-bar-hq.jpg`,
+  `people-and-events/arena-sunset-dinner.jpg`.
 - Named dishes and drinks from posts and menu photos: e.g. Bella Burger,
   Chapati Royale combo, Chicken & Eggs Benedict, blueberry cheesecake,
   sangria, nojitos.
@@ -83,8 +98,8 @@ Verified from the restaurant's own posts:
   `docs/PATIO-BELLA-ASSET-INVENTORY.md`.
 
 Absent, and never to be invented: reviews, testimonials, ratings, awards,
-press, founding story, chef names, prices, opening hours, booking widgets and
-social follower counts.
+press, founding story, chef names, opening hours, booking widgets and social
+follower counts.
 
 ## Product Principles
 

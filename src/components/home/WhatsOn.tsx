@@ -2,82 +2,51 @@
 
 import { useRef } from "react";
 
-import { happenings, instagram } from "@/content/home";
-import { EASE, gsap, insetTo, responsive, setInset, splitReveal, useGSAP } from "@/lib/motion";
+import { programmes } from "@/content/home";
+import { clipReveal, EASE, gsap, responsive, splitReveal, useGSAP } from "@/lib/motion";
 
+import { PosterVideo } from "./PosterVideo";
 import { Frame, RollLink } from "./primitives";
 
 /**
- * What happens at Patio Bella, as a typographic list. With a mouse, each
- * line's photograph opens beside the cursor as it is pointed at; everywhere
- * else the photographs sit inline with their lines. No dates or schedules:
- * the posts show these happening, not how often.
+ * The weekly programmes. Each day's name runs huge across the section and
+ * slides with the scroll; the photograph (or the Sunday poster) opens beside
+ * the details and the offer.
  */
 export function WhatsOn() {
   const root = useRef<HTMLElement>(null);
 
   useGSAP(
-    (_, contextSafe) => {
-      responsive(({ reduceMotion, canHover }) => {
+    () => {
+      responsive(({ reduceMotion }) => {
         if (reduceMotion) return;
-        const section = root.current!;
 
         splitReveal(".whats-title", { scrollTrigger: { trigger: ".whats-title", start: "top 85%" } });
-        gsap.utils.toArray<HTMLElement>(".happening").forEach((row) => {
-          const trigger = { trigger: row, start: "top 88%" };
-          gsap.from(row.querySelector(".happening-rule"), { scaleX: 0, transformOrigin: "0% 50%", duration: 1.2, ease: EASE.inOut, scrollTrigger: trigger });
-          splitReveal(row.querySelector(".happening-title")!, { scrollTrigger: trigger, duration: 1.1 });
-          gsap.from(row.querySelector(".happening-text"), { autoAlpha: 0, y: 12, duration: 0.8, delay: 0.25, scrollTrigger: trigger });
-        });
-
-        if (!canHover || !contextSafe) return;
-
-        // Pointer follower: one frame per line, opened on hover.
-        section.setAttribute("data-hover-reveal", "");
-        const follower = section.querySelector<HTMLElement>(".follower")!;
-        const shots = gsap.utils.toArray<HTMLElement>(".follower .frame");
-        shots.forEach((shot) => setInset(shot, [100, 0, 0, 0]));
-        const moveX = gsap.quickTo(follower, "x", { duration: 0.7, ease: EASE.out });
-        const moveY = gsap.quickTo(follower, "y", { duration: 0.7, ease: EASE.out });
-
-        const onMove = contextSafe((e: PointerEvent) => {
-          const r = section.getBoundingClientRect();
-          moveX(e.clientX - r.left);
-          moveY(e.clientY - r.top);
-        });
-        const show = contextSafe((i: number) => {
-          shots.forEach((shot, j) => {
-            if (j === i) {
-              // Enter from below; leave upwards.
-              setInset(shot, [100, 0, 0, 0]);
-              insetTo(shot, [0, 0, 0, 0], { duration: 0.7, ease: EASE.outStrong });
-            } else {
-              insetTo(shot, [0, 0, 100, 0], { duration: 0.6, ease: EASE.inOut });
-            }
+        gsap.utils.toArray<HTMLElement>(".programme").forEach((row, i) => {
+          const dir = i % 2 === 0 ? 1 : -1;
+          gsap.fromTo(
+            row.querySelector(".programme-day"),
+            { xPercent: 12 * dir },
+            {
+              xPercent: -12 * dir,
+              ease: "none",
+              scrollTrigger: { trigger: row, start: "top bottom", end: "bottom top", scrub: true },
+            },
+          );
+          clipReveal(row.querySelector(".programme-media")!, {
+            from: "bottom",
+            media: row.querySelector(".frame-media") ?? undefined,
+            scrollTrigger: { trigger: row, start: "top 75%" },
           });
-          gsap.to(".happening", { opacity: (j: number) => (j === i ? 1 : 0.35), duration: 0.5, overwrite: "auto" });
+          gsap.from(row.querySelectorAll(".programme-reveal"), {
+            autoAlpha: 0,
+            y: 24,
+            duration: 0.9,
+            stagger: 0.09,
+            ease: EASE.out,
+            scrollTrigger: { trigger: row, start: "top 70%" },
+          });
         });
-        const hide = contextSafe(() => {
-          shots.forEach((shot) => insetTo(shot, [0, 0, 100, 0], { duration: 0.5, ease: EASE.inOut }));
-          gsap.to(".happening", { opacity: 1, duration: 0.5, overwrite: "auto" });
-        });
-
-        const list = section.querySelector<HTMLElement>(".happenings")!;
-        const rows = gsap.utils.toArray<HTMLElement>(".happening");
-        const enters = rows.map((row, i) => {
-          const fn = () => show(i);
-          row.addEventListener("pointerenter", fn);
-          return () => row.removeEventListener("pointerenter", fn);
-        });
-        section.addEventListener("pointermove", onMove);
-        list.addEventListener("pointerleave", hide);
-
-        return () => {
-          enters.forEach((off) => off());
-          section.removeEventListener("pointermove", onMove);
-          list.removeEventListener("pointerleave", hide);
-          section.removeAttribute("data-hover-reveal");
-        };
       });
     },
     { scope: root },
@@ -88,50 +57,58 @@ export function WhatsOn() {
       ref={root}
       id="whats-on"
       aria-labelledby="whats-title"
-      className="group/whats on-canopy relative overflow-hidden bg-canopy px-[4vw] py-[clamp(7rem,18vh,12rem)] text-light"
+      className="on-canopy relative overflow-hidden bg-canopy py-[clamp(7rem,18vh,12rem)] text-light"
     >
-      <div className="grid gap-y-14 lg:grid-cols-12 lg:gap-x-[3vw]">
-        <div className="lg:col-span-4">
-          <h2 id="whats-title" className="whats-title display text-[clamp(2.75rem,5vw,4.75rem)] leading-[0.98] lg:sticky lg:top-[calc(var(--header-h)+6svh)]">
-            <span className="block">Seen at</span>
-            <span className="block">Patio Bella.</span>
-          </h2>
-        </div>
+      <h2 id="whats-title" className="whats-title display px-[4vw] text-center text-[clamp(2.75rem,5.6vw,5.25rem)] leading-[0.98]">
+        <span className="block">Every week</span>
+        <span className="block">at Patio Bella.</span>
+      </h2>
 
-        <div className="lg:col-span-8">
-          <ul className="happenings">
-            {happenings.map((item) => (
-              <li key={item.title} className="happening relative grid grid-cols-[minmax(0,1fr)] gap-5 py-8 md:grid-cols-[13rem_minmax(0,1fr)] md:items-center md:gap-8 group-data-[hover-reveal]/whats:md:grid-cols-[minmax(0,1fr)]">
-                <span aria-hidden className="happening-rule absolute inset-x-0 top-0 h-px bg-light/25" />
-                <Frame
-                  photo={item.photo}
-                  sizes="(min-width: 768px) 208px, 92vw"
-                  className="aspect-[4/3] w-full rounded-(--radius-frame) md:aspect-[4/5] group-data-[hover-reveal]/whats:hidden"
-                />
-                <div className="flex flex-col gap-3">
-                  <h3 className="happening-title display text-[clamp(2.25rem,4.4vw,4.25rem)] leading-[1]">{item.title}</h3>
-                  <p className="happening-text max-w-[42ch] text-[17px] leading-relaxed text-light/80">{item.text}</p>
+      <div className="mt-[clamp(4rem,10vh,7rem)] grid gap-[clamp(6rem,16vh,11rem)]">
+        {programmes.map((p, i) => (
+          <article key={p.id} className="programme relative" aria-labelledby={`programme-${p.id}`}>
+            <p
+              aria-hidden
+              className="programme-day display pointer-events-none text-center text-[clamp(5rem,20vw,19rem)] leading-[0.8] whitespace-nowrap text-light/[0.08]"
+            >
+              {p.day}
+            </p>
+            <div
+              className={`relative mt-[-0.32em] grid items-center gap-10 px-[4vw] text-[clamp(5rem,20vw,19rem)] md:grid-cols-12 md:gap-x-[3vw] ${
+                i % 2 ? "md:[&>*:first-child]:order-2" : ""
+              }`}
+            >
+              <div className={`programme-media w-[78%] text-base md:col-span-5 md:w-full ${i % 2 ? "md:col-start-8" : "md:col-start-2"} ${i % 2 ? "ml-auto" : ""}`}>
+                {p.id === "sunsets" ? (
+                  <PosterVideo className="mx-auto w-full max-w-[420px] rounded-(--radius-frame)" />
+                ) : (
+                  <Frame photo={p.photo} sizes="(min-width: 768px) 38vw, 78vw" className="aspect-[4/5] rounded-(--radius-frame)" />
+                )}
+              </div>
+              <div className={`text-base md:col-span-5 ${i % 2 ? "md:col-start-2" : "md:col-start-8"}`}>
+                <h3 id={`programme-${p.id}`} className="programme-reveal display text-[clamp(2.5rem,4.4vw,4rem)] leading-[1]">
+                  {p.title}
+                </h3>
+                <p className="programme-reveal mt-6 max-w-[40ch] text-lg leading-relaxed text-light/85">{p.text}</p>
+                <p className="programme-reveal mt-8 border-y border-light/20 py-5 display text-[clamp(1.5rem,2.2vw,2rem)] leading-tight text-gold">
+                  {p.offer}
+                </p>
+                <p className="programme-reveal mt-5 text-[15px] text-light/75">{p.where}</p>
+                <div className="programme-reveal mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+                  {p.rsvp && (
+                    <a
+                      href={`tel:${p.rsvp.tel}`}
+                      className="fill-btn inline-flex min-h-12 items-center bg-gold px-6 text-[15px] font-semibold text-canopy [--fill:var(--color-light)]"
+                    >
+                      RSVP {p.rsvp.phone}
+                    </a>
+                  )}
+                  <RollLink href="/whats-on" label="More on what’s on" className="border-b border-light/40 pb-1 text-[15px] font-semibold" />
                 </div>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-12 max-w-[46ch] text-[17px] leading-relaxed text-light/80">
-            On Patio Fun Days there is face painting for the kids. For what&rsquo;s coming up, follow{" "}
-            <RollLink href={instagram.url} label={instagram.handle} external className="align-bottom font-semibold text-gold" />.
-          </p>
-        </div>
-      </div>
-
-      {/* Pointer follower (fine pointers only). */}
-      <div
-        aria-hidden
-        className="follower pointer-events-none absolute top-0 left-0 hidden w-[min(22vw,320px)] -translate-x-1/2 -translate-y-1/2 group-data-[hover-reveal]/whats:block"
-      >
-        <div className="relative aspect-[4/5]">
-          {happenings.map((item) => (
-            <Frame key={item.title} photo={{ ...item.photo, alt: "" }} sizes="320px" className="absolute inset-0 rounded-(--radius-frame)" />
-          ))}
-        </div>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

@@ -12,18 +12,18 @@ const ROOMS: { id: string; photo: Photo; name: string; text: string }[] = [
     id: "lugogo",
     photo: photos.lugogoDaylight,
     name: "Lugogo Mall",
-    text: "Newly opened, near Kyadondo Rugby Grounds. By day: butter-yellow walls, painted leaves and glass walls onto the palms.",
+    text: "Our newest branch, near Kyadondo Rugby Grounds. Butter-yellow walls, painted leaves and glass walls onto the palms.",
   },
   {
     id: "arena",
-    photo: { ...photos.arenaCanopy, position: "62% 45%" },
+    photo: photos.arenaBar,
     name: "Arena Mall",
-    text: "In Nsambya. By night: rattan lanterns under a ceiling of hanging leaves, with the city beyond the glass.",
+    text: "Our Nsambya branch. A copper-arched bar under hanging greenery, rattan lanterns, and the city beyond the glass.",
   },
 ];
 
 /**
- * The two rooms, one scene. Pinned: a framed view of Lugogo opens until it
+ * The two branches, one scene. Pinned: a framed view of Lugogo opens until it
  * fills the screen, then Arena Mall rises over it from below, each with its
  * own caption. Static (no JS, reduced motion): two full-height rooms in turn.
  */
@@ -69,8 +69,8 @@ export function Rooms() {
       <div className="rooms-stage relative group-data-[scene]/rooms:h-svh group-data-[scene]/rooms:overflow-hidden">
         <div className="rooms-title relative z-10 px-[6vw] pt-[clamp(6rem,18vh,11rem)] pb-[clamp(3rem,8vh,5rem)] text-center group-data-[scene]/rooms:absolute group-data-[scene]/rooms:inset-x-0 group-data-[scene]/rooms:top-[calc(var(--header-h)+5svh)] group-data-[scene]/rooms:p-0">
           <h2 id="rooms-title" className="display text-[clamp(2.75rem,5.4vw,5rem)] leading-[0.98]">
-            <span className="block">Two rooms,</span>
-            <span className="block">two moods.</span>
+            <span className="block">Two branches,</span>
+            <span className="block">one table.</span>
           </h2>
         </div>
 
@@ -88,7 +88,7 @@ export function Rooms() {
               </h3>
               <p className="max-w-[40ch] text-[17px] leading-relaxed text-light/90 md:text-lg">{room.text}</p>
               <div>
-                <RollLink href="#visit" label="Plan a visit" className="border-b border-light/40 pb-1 text-[15px] font-semibold" />
+                <RollLink href="#visit" label="Find this branch" className="border-b border-light/40 pb-1 text-[15px] font-semibold" />
               </div>
             </div>
           </article>
